@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{{name}}</title>
+<meta name="Description" content="Golf Course" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta name="abstract" content="18-hole daily fee golf course offerring player discounts and email club" />
+<meta name="Keywords" content="Golf, Golf Course, Golf savings, Save on Golf, golf discounts, golf coupons," />
+<link href="%path%/css/bootstrap.min.css" rel="stylesheet">
+<link href="%path%/css/bootstrap-responsive.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="%path%/css/style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="%path%/css/menu.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="%path%/css/colors.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="%path%/css/prettyPhoto.css" media="screen" />
+<link rel="stylesheet" href="%path%/css/font-awesome.min.css" />
+<link rel="icon" type="image/ico"  href="%path%/favicon.ico" />
+<script language="JavaScript" type="text/javascript">
+<!--
+var pth = "%path%"; // -->
+</script>
+</head>
+<body>
+    <section class="dropdown-info">
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+            <div class="contact-info-widget pull-right">
+              <a href="#" id="info-activator"><i class="fa fa-phone"></i></a>
+              <ul class="unstyled inline">
+                <li><i class="fa fa-phone icon-large"></i> <span class="info">{{phone}}</span></li>
+                <li><i class="fa fa-envelope icon-large"></i> <span class="info">{{email}}</span></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+<?php include("/usr/local/www/data/%path%/includes/nav.php"); ?>
+
+<?php
+preg_match( '/([^\/_]+_).*$/', $_SERVER['SCRIPT_NAME'], $prefix );
+switch ( substr( $_SERVER['SCRIPT_FILENAME'], strrpos( $_SERVER['SCRIPT_FILENAME'], '/')+1 ) ) {
+	default:
+    include("");
+        break;
+    case 'home.htm':
+    case 'index.htm':
+	include("/usr/local/www/data/%path%/includes/slideshow.php");
+}
+?>
+
+    <section class="get-in-touch">
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+            <div class="get-in-container">
+              <div class="row-fluid">
+                <div class="span8">
+                  <p class="content"><h3>Take advantage of tee times at a special price!</h3>Use the buttons on the right to check out our tee time specials and book your next round today!</p>
+                </div>
+                <div class="span4">
+                  <div class="call-to-action">
+                    <a href="%path%/tts/tts.htm" class="btn btn-primary btn-large">Tee Time Specials</a><br /><a href="%path%/request_tt/request_tt.htm" class="btn btn-primary btn-large">Book a Tee Time</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<?php
+preg_match( '/([^\/_]+_).*$/', $_SERVER['SCRIPT_NAME'], $prefix );
+switch ( substr( $_SERVER['SCRIPT_FILENAME'], strrpos( $_SERVER['SCRIPT_FILENAME'], '/')+1 ) ) {
+	default:
+    include("");
+        break;
+    case 'home.htm':
+    case 'index.htm':
+	include("/usr/local/www/data/%path%/includes/promotiles.php");
+}
+?>
+
+<div class="clear"></div>
+<section class="main-tagline">
+	<div class="container">
+	&content&
+	</div>
+</section>
+
+<footer>
+    <div class="container">
+      <div class="row">
+        <div class="span4">
+          <div class="footer-widget">
+            <h5 class="title">About the Course</h5>
+            <p class="content"><?php include("/usr/local/www/data/%path%/footer/fck_one.htm"); ?></p>
+          </div>
+        </div>
+
+        <div class="span5">
+          <div class="footer-widget">
+			<h5 class="title">Weather</h5>
+            <p class="content">
+				<div class="row weather">
+					<?php include("/usr/local/www/data/%path%/includes/weather/index.php"); ?>
+				</div>
+			</p>
+          </div>
+        </div>
+
+        <div class="span3">
+          <div class="footer-widget">
+            <h5 class="title">Get in touch</h5>
+            <p class="content">
+				{{address1}}<br />
+				{{address2}}<br />
+				{{phone}}
+			</p>
+            <ul class="unstyled inline social-icons">
+              {{#social}}
+          		{{#if link}}
+          		<li><a target="_blank" href="{{{link}}}"><i class="fa fa-{{icon}}"></i></a></li>
+          		{{/if}}
+          		{{/social}}
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+  <section class="subfooter">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <p class="rights">Copyright &copy; <?php echo date("Y") ?> <a href="http://www.coursetrends.com">CourseTrends</a>. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   
+<?php include('/usr/local/www/data/googleanalytics.php'); ?>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/libraries/jquery.min.js"><\/script>')</script>
+    <script src="%path%/js/bootstrap.min.js"></script>
+	<script src="%path%/js/libraries/plugins.js"></script>
+    <script src="%path%/js/main.js"></script>
+	<script src="%path%/js/modernizr.min.js"></script>
+	<script src="%path%/js/jquery.prettyPhoto.js"></script>
+	<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $("a[rel^='prettyPhoto']").prettyPhoto();
+  });
+</script>
+</body>
+</html>

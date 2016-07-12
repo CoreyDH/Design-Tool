@@ -1,0 +1,57 @@
+<div class="title">
+<div class="container">
+<div class="row">
+<div class="col-md-12 col-sm-12 page-title">
+<div class="row">
+	<div class="col-md-7 col-sm-7 col-xs-12">
+		<h1 class="h1-page-title">Contact Us</h1>
+	</div>
+	<?php include("/usr/local/www/data/%path%/includes/title-right.php"); ?>		
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="container">
+<div class="row">
+<div class="col-md-8 col-sm-8">
+	<!--fck--> 
+	fck_one.htm
+
+	<!--form--> 
+	contact_form.htm
+</div>
+<div class="col-md-3 col-md-offset1 col-sm-3 col-sm-offset-1">
+	<!-- column separator -->
+	<div class="separator"></div>
+	<!-- column separator -->
+	<div class="sidebar-block">
+	<h2>Contact Us</h2>
+
+	<div class="sidebar-icon-item">
+	<i class="icon-home"></i> {{name}}<br />
+	<div style="padding-left:18px;">{{address1}}</div>
+	<div style="padding-left:18px;">{{address2}}</div></div>
+	<div class="sidebar-icon-item"><i class="icon-phone"></i> {{phone}}</div>
+	<div class="sidebar-icon-item"><i class="icon-envelope-alt"></i> {{email}}</div>
+	</div>
+	
+	{{#if social}}
+	<div class="sidebar-block">
+	<h2>Socials</h2>
+	<div class="social-icons">
+	<ul>
+	{{#social}}
+		{{#if link}}
+		<li><a class="social-media-icon {{icon}}-icon" href="{{{link}}}" target="_blank" title="{{icon}}">{{icon}}</a></li>
+		{{/if}}
+	{{/social}}
+	</ul>
+	</div>
+	</div>
+	{{/if}}
+</div>
+</div>
+</div>
+</div>

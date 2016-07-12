@@ -1,0 +1,2 @@
+<h4><small><span class="glyphicon glyphicon-exclamation-sign" style="color:red" ng-show="!course.type"></span>Currently Selected Type</small></h4>
+<select class="form-control" id="course-type" ng-init="course.type = course.type || 'golf'" ng-model="course.type" ng-options="ct|uppercase for ct in ctoption track by ct" ng-required></select>

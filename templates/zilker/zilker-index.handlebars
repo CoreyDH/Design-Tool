@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{{name}}</title>
+<meta name="Description" content="Golf Course" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta name="abstract" content="18-hole daily fee golf course offerring player discounts and email club" />
+<meta name="Keywords" content="Golf, Golf Course, Golf savings, Save on Golf, golf discounts, golf coupons," />
+<link rel="stylesheet" type="text/css" href="%path%/css/bootstrap.min.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="%path%/css/style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="%path%/css/menu.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="%path%/css/colors.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="%path%/css/font-awesome.min.css" media="screen" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300,400italic,700italic' rel='stylesheet' type='text/css'>
+<link rel="icon" type="image/ico"  href="%path%/favicon.ico" />
+<script language="JavaScript" type="text/javascript">
+<!-- 
+var pth = "%path%"; // -->
+</script>
+</head>
+  <body class="homepage black-and-white">
+	<div class="tts-holder">
+		<div class="container">
+			<div class="col-lg-8 col-md-6 col-sm-6 col-xs-4 social-links">
+			
+				<div class="links">
+				{{#social}}
+					{{#if link}}
+					<a class="btn btn-circle btn-medium-light btn-sm" href="{{{link}}}" target="_blank">
+						<i class="fa fa-{{icon}} text-dark"></i>
+					</a>
+					{{/if}}
+				{{/social}}
+                </div>
+			
+			</div>	
+			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-8 pull-right booking-buttons">
+				<a class="btn btn-contrast btn-sm pull-right" href="%path%/tts/tts.htm">
+					Tee Time Specials
+				</a>
+				<a class="btn btn-contrast btn-sm pull-right" href="%path%/request_tt/request_tt.htm">
+					Book a Tee Time
+				</a>
+			</div>
+		</div>
+	</div>	
+    <div id="wrapper">
+      <header id="header">
+        <div class="container">
+          <nav class="navbar navbar-collapsed-sm navbar-default" id="nav" role="navigation">
+            <div class="navbar-header">
+              <button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="%path%">
+                <img alt="Golf Course" src="%path%/images/design/logo.png" />
+              </a>
+            </div>
+			<?php include("/usr/local/www/data/%path%/includes/nav.php"); ?>
+          </nav>
+        </div>
+      </header>
+        <div id="main" role="main">
+       <?php
+		preg_match( "/([^\/_]+_).*$/", $_SERVER["SCRIPT_NAME"], $prefix );
+		switch ( substr( $_SERVER["SCRIPT_FILENAME"], strrpos( $_SERVER["SCRIPT_FILENAME"], "/")+1 ) ) {
+			default:
+			include("");
+				break;
+			case "home.htm":
+			case "index.htm":
+			include("/usr/local/www/data/%path%/includes/slideshow.php");
+		}
+		?>
+        <div id="main-content">
+          <div class="container">
+       <?php
+		preg_match( "/([^\/_]+_).*$/", $_SERVER["SCRIPT_NAME"], $prefix );
+		switch ( substr( $_SERVER["SCRIPT_FILENAME"], strrpos( $_SERVER["SCRIPT_FILENAME"], "/")+1 ) ) {
+			default:
+			include("");
+				break;
+			case "home.htm":
+			case "index.htm":
+			include("/usr/local/www/data/%path%/includes/promotiles.php");
+		}
+		?>		  
+            &content&
+          </div>
+        </div>
+        <div class="fade" id="scroll-to-top">
+          <i class="fa fa-chevron-up"></i>
+        </div>
+      </div>
+      <footer id="footer">
+        <div id="footer-main">
+          <div class="container">
+            <div class="row">
+              <div class='col-md-4 col-sm-12 info-box'>
+                <div class='logo-container'>
+                  <img alt="Golf Course" class="img-responsive" src="%path%/images/design/logo.png" />
+                </div>
+                <p class='no-mg-b'>Prepare yourself for an unparalleled golfing experience. Our course is a pleasure for golfers of any skill level to play. Test your accuracy with our fairways, water hazards and sand traps; we have everything you need to challenge you and improve your game.</p>
+              </div>
+            <div class='col-md-3 col-sm-12 info-box'>
+                <h2 class='title'>Contact</h2>
+                <div class='icon-boxes'>
+                  <div class='icon-box'>
+                    <div class='icon icon-wrap'>
+                      <i class='fa fa-map-marker'></i>
+                    </div>
+                    <div class='content'>
+                      {{address1}}
+                      <br>
+                      {{address2}}
+                    </div>
+                  </div>
+                  <div class='icon-box'>
+                    <div class='icon icon-wrap'>
+                      <i class='fa fa-phone'></i>
+                    </div>
+                    <div class='content'>
+                      <a href='tel:+{{{phone}}}'>{{{phone}}}</a>
+                    </div>
+                  </div>
+                  <div class='icon-box'>
+                    <div class='icon icon-wrap'>
+                      <i class='fa fa-envelope'></i>
+                    </div>
+                    <div class='content'><a href="mailto:{{email}}">{{email}}</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-12 info-box">
+                <h2 class="title">Weather</h2>
+                <div class="weather row">
+					<?php include("/usr/local/www/data/%path%/includes/weather/index.php"); ?>
+				</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="footer-copyright">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 clearfix">
+                <p class="copyright">
+                  Copyright &copy; <?php echo date("Y") ?>. All Rights Reserved. Powered by <a href="http://www.coursetrends.com">CourseTrends</a>
+                </p>
+                <div class="links">
+					{{#social}}
+					{{#if link}}
+					<a class="btn btn-circle btn-medium-light btn-sm" href="{{{link}}}" target="_blank">
+						<i class="fa fa-{{icon}} text-dark"></i>
+					</a>
+					{{/if}}
+					{{/social}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="%path%/js/jquery.min.js" type="text/javascript"></script>
+    <script src="%path%/js/jquery.mobile.custom.min.js" type="text/javascript"></script>
+    <script src="%path%/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="%path%/js/modernizr.custom.min.js" type="text/javascript"></script>
+    <script src="%path%/js/twitter-bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <script src="%path%/js/retina.min.js" type="text/javascript"></script>
+    <script src="%path%/js/jquery.knob.js" type="text/javascript"></script>
+    <script src="%path%/js/jquery.isotope.min.js" type="text/javascript"></script>
+    <script src="%path%/js/jquery.isotope.sloppy-masonry.min.js" type="text/javascript"></script>
+    <script src="%path%/js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="%path%/js/jquery.flexslider.min.js" type="text/javascript"></script>
+    <script src="%path%/js/countdown.js" type="text/javascript"></script>
+    <script src="%path%/js/nivo-lightbox.min.js" type="text/javascript"></script>
+    <script src="%path%/js/jquery.cycle.all.min.js" type="text/javascript"></script>
+    <script src="%path%/js/default.js" type="text/javascript"></script>
+  </body>
+</html>

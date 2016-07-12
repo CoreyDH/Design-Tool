@@ -1,0 +1,46 @@
+<?php 
+
+$path=$_SERVER[SCRIPT_FILENAME]; $parts=split("/",$path); if ($_SERVER[HTTP_HOST] == "coursetrends.com") { $location=$parts[7]; } elseif ($_SERVER[HTTP_HOST] == "www.coursetrends.com") { $location=$parts[7]; } else { $location=$parts[7];}
+
+$location="/golf/$parts[6]/$location"; ?>
+
+<section class="split">
+<div class="col-md-6 col-sm-6 graybgcolor footer-about wow fadeInLeft text-right" data-wow-duration="0.8s" data-wow-delay="0.0s" style="height:350px;">
+	<h2>ABOUT US</h2>
+	<p class="lead">
+		 Roma is an elegant restaurant with a rich menu. Our ingredients are fresh and our wine list is always changing. We look forward to seeing you soon!
+	</p>
+	<hr>
+	<p>
+		{{address1}}<br/>
+		{{address2}}<br/>
+		<em>{{email}}</em>
+	</p>
+</div>
+
+<div class="col-md-6 col-sm-6 accentbgcolor footer-book text-center wow fadeInRight somedarkbg" style="height:350px;">
+	<p style="font-size:40px; font-weight:300;margin-top:10%;">
+		<b>CALL US</b><br/><span style="border-top:1px solid #eee;border-bottom:1px solid #eee;">BOOK A TABLE</span><br/><span style="font-size:80%;">{{phone}}</span>
+	</p>
+</div>
+</section> 
+		
+<section id="footer" class="footer">
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<ul class="social-icons">
+				{{#social}}
+				{{#if link}}
+				<li class="wow bounceIn animated" data-wow-delay="0.1s"><a target="_blank" href="{{{link}}}"><i class="fa fa-{{icon}}"></i></a></li>
+				{{/if}}
+				{{/social}}
+			</ul>
+			<a href="index.html"><img src="<?php echo $location; ?>/images/design/logo.png" class="footerlogo wow zoomIn" alt="restaurant logo"></a>
+			<p class="copyright">
+				 Copyright &copy; <?php echo date("Y") ?>. All Rights Reserved. Powered by <a href="http://www.spillover.com">Spillover</a>
+			</p>
+		</div>
+	</div>
+</div>
+</section>

@@ -1,0 +1,70 @@
+<?php
+
+$path=$_SERVER[SCRIPT_FILENAME]; $parts=split("/",$path); if ($_SERVER[HTTP_HOST] == "coursetrends.com") { $location=$parts[7]; } elseif ($_SERVER[HTTP_HOST] == "www.coursetrends.com") { $location=$parts[7]; } else { $location=$parts[7];}
+
+$location="/golf/designs/$location"; ?>
+<div class="hero-carousel carousel-contrast carousel-contrast-arrows carousel-contrast-pagination flexslider" id="carousel-example-2">
+          <ul class="slides">
+            <li class="item slide1">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-12 animate">
+                    <h1 class="big fadeInUp animated">
+                      <span>
+                        {{name}}
+                      </span>
+                    </h1>
+                    <p class="normal fadeInUp animated">
+                      <span>Magnificent Golf, Superb Amenities, Outstanding Service</span>
+                    </p>
+                    <p class="fadeInRight animated">
+                      <a class="btn btn-squared btn-contrast btn-lg" href="<?php echo $location; ?>/request_tt/request_tt.htm">
+                        Book a Tee Time
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="item slide2">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-12 animate">
+                    <h2 class="big fadeInLeftBig animated">
+                      <span>
+                        Membership
+                      </span>
+                    </h2>
+                    <p class="normal fadeInRightBig animated">
+                      <span>Golf Memberships, Range Programs,  FLEX Instruction </span>
+                    </p>
+                    <p class="fadeInRightBig animated">
+                      <a class="btn btn-squared btn-contrast btn-lg" href="<?php echo $location; ?>/request_membership/request_membership.htm">
+                       Get More Info
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="item slide3">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-12 animate">
+                    <h2 class="big fadeInRightBig animated">
+                      <span> Golf Events </span>
+                    </h2>
+                    <p class="normal fadeInLeftBig animated">
+                      <span> Corporate Tournaments, Fundraising Events, Golf Groups of Any Size</span>
+                    </p>
+                    <p class="fadeInUpBig animated">
+                      <a class="btn btn-squared btn-contrast btn-lg" href="<?php echo $location; ?>/tournaments/tournaments.htm">
+                        Learn More
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>

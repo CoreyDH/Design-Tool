@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org">
+<head>
+<title>The All-In-One Design Tool!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="dist/css/vendor.css" rel="stylesheet">
+<link href="dist/css/style.css" rel="stylesheet">
+</head>
+<body ng-app="designtool">
+<div class="container-fluid header" bgchange>
+	<div class="row">
+	<h1>
+		<b>Design Tool <version>v0.62</version></b>
+	</h1>
+	<div id="version">
+		<span>
+		<pre>
+v0.62
+- Completed all CSS templates, 'Roma' added.
+- Added slideshow pages to page section for 'Fairway', 'Zilker', and 'Diamond'.
+---
+v0.6
+- Pages section
+-- Custom added pages can now have their Page Title or File Name edited by clicking on the respective text.
+-- Default Pages section now list what is included in the export.
+- CSS section
+-- Color extraction tool added to this section, simply upload the logo, and see what happens.
+-- Uploaded logos will now dynamically show in the preview pane.
+-- Zilker/Fairway templates have been updated.
+---
+v0.5
+- Added 'Blanco' and 'Comal' CSS templates.
+- Updated CSS export code.
+---
+v0.45
+- Added 'Topaz' and 'Lapis' CSS templates.
+- Fixed Clear button from Images section.
+---
+v0.4
+- Refactored Pages section to pull from JSON file.
+- Other files in Pages will now create any relevant files in the 'includes' folder.
+- Reorganized ZIP export from Pages.
+- Added template 'Blanco'.
+- CSS Section - Added 'Diamond' template.
+- SweetAlerts added.
+---
+v0.3
+- Second level dropdowns now work with the Navigation Section
+- Refactored Navigation section code.
+- Zilker template working in CSS section.
+- Fairway template working in CSS section.
+---
+v0.2
+- Copy buttons in Navigation section now work.
+- Refactored code in all sections
+- Added background cycling.
+---
+v0.1
+- Image section complete.
+- Added and beginning CSS style section.
+---
+v.09
+- Image section almost completed.
+- Added some more templates for pages.
+---
+v.08
+- Added other pages option to page section
+- Started on images section
+----
+v.07
+- Completed Pages section
+- Added header image
+----
+v.05
+- Navigation section complete except filter templates
+-- Added link formatting
+-- Pages to Add section completed
+- Started on Pages section
+-----
+v.04
+- Updated color scheme
+- Fit Handlebars with Angular
+-----
+v.03
+- Beginning conversion to AngularJS
+- Added Course section
+---
+v.02
+- Completed Navigation/partial page section in jQuery
+---
+v.01
+- Project Begins - (2/11/2016)
+- Started on Navigation section
+		</pre>
+		</span>
+		 <a href="mailto:chickman@coursetrends.com" class="btn btn-info">Developed by Corey H.</a>
+	</div>
+	<menu></menu>
+</div>
+</div>
+<div class="container wrapper">
+	<main ui-view>
+		<div class="col-md-12 text-center">
+		<h1>Welcome to the Design Tool</h1><br>
+		<a class="btn btn-lg btn-primary" href="#/course">Click Here to Begin >></a>
+		</div>
+	</main>
+<div class="clear"></div>
+</div>
+</body>
+
+<!-- Vendor -->
+<script type="text/javascript" src="dist/js/vendor.js"></script>
+<!-- App -->
+<script type="text/javascript" src="dist/js/scripts.js"></script>
+</html>

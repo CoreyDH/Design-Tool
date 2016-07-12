@@ -1,0 +1,49 @@
+<info course="course" class="col-md-12"></info>
+<div class="col-md-12 sub-menu">
+	<div class="col-md-4"><a href="#/images" class="btn btn-info"><< Back to Images</a></div>
+	<div class="col-md-4 text-center"><a class="btn btn-danger col-md-12" ng-show="course.template" ng-click="exportCSS()">Export CSS</a></div>
+	<div class="col-md-4 text-right"></div>
+</div>
+
+<div class="col-md-6 pull-left">
+	<h4><small>Upload Logo</small></h4>
+	<input class="btn btn-primary pull-left upload" type="file" value="Upload" accept="image/*" ng-model="upload">
+</div>
+
+<!-- Template Options -->
+<div class="col-md-4 pull-right">
+	<template-options></template-options>
+</div>
+
+<!-- Palette Upload -->
+<div class="col-md-12 palette-thief-wrapper">
+	<img ng-src="[[myLogo]]" id="uploadLogo">
+	<ul class="palette-thief">
+		<li ng-repeat="t in thief">
+			<div class="palette-thief-box" style="background-color: [[t]]">
+				[[t]]
+			</div>
+		</li>
+	</ul>
+</div>
+
+<!-- Output -->
+<div class="col-md-12">
+	<div class="col-md-4 pull-left">
+	<div>
+		<div ng-repeat="color in colors[course.template]">
+			<h4><small>[[color.name]]</small></h4>
+			<div colorpicker="[[color.type]]" colorpicker-size="150" ng-model="color[color.type]" class="palette-box pull-left" ng-style="{background : color[color.type]}"></div>
+			<input type="text" colorpicker="[[color.type]]" colorpicker-size="150" ng-model="color[color.type]" placeholder="#HEXCODE/RGB"/>
+		</div>
+	</div>
+
+	</div>
+	<div class="col-md-8 pull-right">
+		<h3><small>Template Preview</small></h3>
+
+		<div class="template-wrapper">
+			<ng-include src="template"></ng-include>
+		</div>
+	</div>
+</div>

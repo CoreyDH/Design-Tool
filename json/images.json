@@ -1,0 +1,515 @@
+{
+	"zilker" : [
+		{
+			"name" : "slide1",
+			"type" : "slideshow",
+			"extension" : "jpg",
+			"folder" : "images/slideshow",
+			"width" : 1920,
+			"height" : 535
+		},
+		{
+			"name" : "slide2",
+			"type" : "slideshow",
+			"extension" : "jpg",
+			"folder" : "images/slideshow",
+			"width" : 1920,
+			"height" : 535
+		},
+		{
+			"name" : "slide3",
+			"type" : "slideshow",
+			"extension" : "jpg",
+			"folder" : "images/slideshow",
+			"width" : 1920,
+			"height" : 535
+		},
+		{
+			"name" : "course_photo",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 750,
+			"height" : 370
+		},
+		{
+			"name" : "home_photo",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 400,
+			"height" : 274
+		},
+		{
+			"name" : "tournaments",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 350,
+			"height" : 233
+		},
+		{
+			"name" : "facilities",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 350,
+			"height" : 233
+		}
+	],
+	"diamond" : [
+		{
+			"name" : "slide1",
+			"type" : "slideshow",
+			"extension" : "jpg",
+			"folder" : "images/slideshow",
+			"width" : 1920,
+			"height" : 520
+		},
+		{
+			"name" : "slide2",
+			"type" : "slideshow",
+			"extension" : "jpg",
+			"folder" : "images/slideshow",
+			"width" : 1920,
+			"height" : 520
+		},
+		{
+			"name" : "slide3",
+			"type" : "slideshow",
+			"extension" : "jpg",
+			"folder" : "images/slideshow",
+			"width" : 1920,
+			"height" : 520
+		},
+		{
+			"name" : "parallax-bg",
+			"type" : "background",
+			"extension" : "jpg",
+			"folder" : "images/design",
+			"width" : 1900,
+			"height" : 800
+		},
+		{
+			"name" : "promo1",
+			"type" : "promotile",
+			"extension" : "jpg",
+			"folder" : "images/design",
+			"width" : 750,
+			"height" : 464
+		},
+		{
+			"name" : "promo2",
+			"type" : "promotile",
+			"extension" : "jpg",
+			"folder" : "images/design",
+			"width" : 750,
+			"height" : 464
+		},
+		{
+			"name" : "promo3",
+			"type" : "promotile",
+			"extension" : "jpg",
+			"folder" : "images/design",
+			"width" : 750,
+			"height" : 464
+		},
+		{
+			"name" : "promo4",
+			"type" : "promotile",
+			"extension" : "jpg",
+			"folder" : "images/design",
+			"width" : 750,
+			"height" : 464
+		},
+		{
+			"name" : "home_photo",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 470,
+			"height" : 270
+		},
+		{
+			"name" : "course_photo",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 470,
+			"height" : 270
+		},
+		{
+			"name" : "facilities",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 350,
+			"height" : 233
+		},
+		{
+			"name" : "tournaments",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 350,
+			"height" : 233
+		}
+	],
+	"lapis" : [
+		{
+			"name" : "slide1",
+			"type" : "slideshow",
+			"extension" : "jpg",
+			"folder" : "images/slideshow",
+			"width" : 1920,
+			"height" : 480
+		},
+		{
+			"name" : "slide2",
+			"type" : "slideshow",
+			"extension" : "jpg",
+			"folder" : "images/slideshow",
+			"width" : 1920,
+			"height" : 480
+		},
+		{
+			"name" : "slide3",
+			"type" : "slideshow",
+			"extension" : "jpg",
+			"folder" : "images/slideshow",
+			"width" : 1920,
+			"height" : 480
+		},
+		{
+			"name" : "page_header",
+			"type" : "header",
+			"extension" : "jpg",
+			"folder" : "images/headers",
+			"width" : 1140,
+			"height" : 285
+		},
+		{
+			"name" : "course_photo",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 750,
+			"height" : 370
+		},
+		{
+			"name" : "home_photo",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 400,
+			"height" : 274
+		},
+		{
+			"name" : "facilities",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 350,
+			"height" : 233
+		},
+		{
+			"name" : "tournaments",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 365,
+			"height" : 233
+		}
+	],
+	"topaz" : [
+		{
+			"name" : "slide1",
+			"type" : "slideshow",
+			"extension" : "jpg",
+			"folder" : "images/slideshow",
+			"width" : 1920,
+			"height" : 535
+		},
+		{
+			"name" : "slide2",
+			"type" : "slideshow",
+			"extension" : "jpg",
+			"folder" : "images/slideshow",
+			"width" : 1920,
+			"height" : 535
+		},
+		{
+			"name" : "slide3",
+			"type" : "slideshow",
+			"extension" : "jpg",
+			"folder" : "images/slideshow",
+			"width" : 1920,
+			"height" : 535
+		},
+		{
+			"name" : "home-full",
+			"type" : "header",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 900,
+			"height" : 440
+		},
+		{
+			"name" : "course_photo",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 750,
+			"height" : 370
+		},
+		{
+			"name" : "home_photo",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 400,
+			"height" : 274
+		},
+		{
+			"name" : "tournaments",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 350,
+			"height" : 233
+		},
+		{
+			"name" : "facilities",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 365,
+			"height" : 233
+		}
+	],
+	"comal" : [
+		{
+			"name" : "01",
+			"type" : "slideshow",
+			"extension" : "jpg",
+			"folder" : "images/slideshow",
+			"width" : 900,
+			"height" : 600
+		},
+		{
+			"name" : "02",
+			"type" : "slideshow",
+			"extension" : "jpg",
+			"folder" : "images/slideshow",
+			"width" : 900,
+			"height" : 600
+		},
+		{
+			"name" : "03",
+			"type" : "slideshow",
+			"extension" : "jpg",
+			"folder" : "images/slideshow",
+			"width" : 900,
+			"height" : 600
+		},
+		{
+			"name" : "04",
+			"type" : "slideshow",
+			"extension" : "jpg",
+			"folder" : "images/slideshow",
+			"width" : 900,
+			"height" : 600
+		},
+		{
+			"name" : "course_photo",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 350,
+			"height" : 233
+		},
+		{
+			"name" : "home_photo",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 350,
+			"height" : 263
+		},
+		{
+			"name" : "tournaments",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 350,
+			"height" : 233
+		},
+		{
+			"name" : "facilities",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 350,
+			"height" : 233
+		}
+	],
+	"fairway" : [
+		{
+			"name" : "slide1",
+			"type" : "slideshow",
+			"extension" : "jpg",
+			"folder" : "images/slideshow",
+			"width" : 1920,
+			"height" : 500
+		},
+		{
+			"name" : "slide2",
+			"type" : "slideshow",
+			"extension" : "jpg",
+			"folder" : "images/slideshow",
+			"width" : 1920,
+			"height" : 500
+		},
+		{
+			"name" : "slide3",
+			"type" : "slideshow",
+			"extension" : "jpg",
+			"folder" : "images/slideshow",
+			"width" : 1920,
+			"height" : 500
+		},
+		{
+			"name" : "home_photo",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 350,
+			"height" : 263
+		},
+		{
+			"name" : "facilities_photo",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 350,
+			"height" : 233
+		},
+		{
+			"name" : "course_photo",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 470,
+			"height" : 270
+		},
+		{
+			"name" : "tournaments_photo",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 350,
+			"height" : 233
+		},
+		{
+			"name" : "weddings_photo",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 350,
+			"height" : 248
+		}
+	],
+	"blanco" : [
+		{
+			"name" : "slide1",
+			"type" : "slideshow",
+			"extension" : "jpg",
+			"folder" : "images/slideshow",
+			"width" : 1138,
+			"height" : 493
+		},
+		{
+			"name" : "slide2",
+			"type" : "slideshow",
+			"extension" : "jpg",
+			"folder" : "images/slideshow",
+			"width" : 1138,
+			"height" : 493
+		},
+		{
+			"name" : "slide3",
+			"type" : "slideshow",
+			"extension" : "jpg",
+			"folder" : "images/slideshow",
+			"width" : 1138,
+			"height" : 493
+		},
+		{
+			"name" : "home_photo",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 563,
+			"height" : 223
+		},
+		{
+			"name" : "course_photo",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 350,
+			"height" : 233
+		},
+		{
+			"name" : "facilities",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 350,
+			"height" : 233
+		},
+		{
+			"name" : "tournaments",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 662,
+			"height" : 347
+		}
+	],
+
+	"roma" : [
+		{
+			"name" : "slide1",
+			"type" : "slideshow",
+			"extension" : "jpg",
+			"folder" : "images/slideshow",
+			"width" : 1575,
+			"height" : 743
+		},
+		{
+			"name" : "header-backgrounds",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 1000,
+			"height" : 600
+		},
+		{
+			"name" : "reservations",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images/slideshow",
+			"width" : 1140,
+			"height" : 475
+		},
+		{
+			"name" : "home_photo",
+			"type" : "default",
+			"extension" : "jpg",
+			"folder" : "images",
+			"width" : 800,
+			"height" : 500
+		}
+	]
+}

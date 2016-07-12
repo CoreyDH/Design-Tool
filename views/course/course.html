@@ -1,0 +1,74 @@
+<div class="col-md-12 sub-menu">
+	<div class="col-md-4 text-right pull-right"><a href="#/navigation" class="btn btn-warning">Create Navigation >></a></div>
+</div>
+<div class="col-md-6 col-md-offset-3 text-center">
+<div class="form-horizontal course">
+<h3>Business Information</h3>
+<small>(<a href="" ng-click="example()">load example</a>)</small>
+<div class="course-box">
+  <textarea id="course-text" placeholder="Paste contact,address,phone,proto information here." class="form-control" rows="6" ng-model="cboxdata">
+  </textarea>
+</div>
+  <hr />
+    <div class="form-group">
+      <label for="course-name" class="col-sm-4 control-label">Name:</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" id="course-name" ng-model="course.name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="course-address1" class="col-sm-4 control-label">Address:</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" id="course-address1" ng-model="course.address1">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="course-address2" class="col-sm-4 control-label">City,State,Zip:</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" id="course-address2" ng-model="course.address2">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="course-phone" class="col-sm-4 control-label">Phone:</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" id="course-phone" ng-model="course.phone">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="course-proto" class="col-sm-4 control-label">Proto:</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" id="course-proto" ng-model="course.proto">
+      </div>
+    </div>
+	<div class="form-group">
+      <label for="course-email" class="col-sm-4 control-label">Email:</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" id="course-email" ng-model="course.email">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="course-type" class="col-sm-4 control-label"></label>
+      <div class="col-sm-8">
+		<coursetype-options></coursetype-options>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="course-template" class="col-sm-4 control-label"></label>
+      <div class="col-sm-8">
+        <template-options></template-options>
+    </div>
+    </div>
+    <hr />
+	<div class="form-group" ng-repeat="social in media">
+      <label for="course-[[social.icon]]" class="col-sm-4 control-label">[[social.type]]:</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" id="course-[[social.icon]]" ng-model="media[$index].link" ng-change="updateSocial()">
+      </div>
+    </div>
+    <div class="form-group">
+     <div class="col-sm-offset-4 col-sm-8">
+      <a href="#/navigation" class="btn btn-lg btn-warning">Next Step >></a>
+     </div>
+	</div>
+  </div>
+</div>

@@ -1,0 +1,105 @@
+<info course="course" class="col-md-12"></info>
+<div class="col-md-12 sub-menu">
+	<div class="col-md-4"><a href="#/navigation" class="btn btn-warning"><< Back to Navigation</a></div>
+	<div class="col-md-4 text-center"><a ng-if="navPages || formattedPages" href="" class="btn btn-danger col-md-12" ng-click="exportAllPages()">Export All Pages</a></div>
+	<div class="col-md-4 text-right"><a href="#/images" class="btn btn-info">Create Images >></a></div>
+</div>
+<div class="col-md-12">
+	<div class="col-md-3 text-center">
+		<h4>Add Pages<br><small>separated by line-breaks</small></h4>
+		<textarea id="page-input" class="form-control" ng-model="pages.input" ng-change="setPages()"></textarea>
+		<template-options></template-options>
+	</div>
+
+	<div class="col-md-9 text-center">
+		<div class="col-md-12">
+			<!-- New Pages -->
+			<div class="page-section" ng-if="pages.input">
+				<h4>Pages to be Added<br />
+				<small>Click on the Page Title or File Name to <strong>edit</strong>.</small></h4>
+				<table class="table text-left tpages">
+					<thead class="thead-inverse">
+						<tr>
+						  <th class="text-center">Exclude</th>
+						  <th>Page Title</th>
+						  <th>File Name</th>
+						  <th class="text-center">Has Form</th>
+						  <th class="text-center">Members Only</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="page in formattedPages">
+							<td class="text-center"><input type="checkbox" value="true" ng-model="page.exclude"></td>
+							<td>
+								<span class="cursor" ng-click="titleEdit = true; oTitle = page.title" ng-hide="titleEdit">[[page.title]]</span>
+								<span ng-show="titleEdit"><input ng-model="page.title" />
+									<span class="glyphicon glyphicon-ok savepage" ng-click="titleEdit = false"></span>
+									<span class="glyphicon glyphicon-remove cancelpage" ng-click="titleEdit = false; page.title = oTitle"></span></span>
+							</td>
+							<td>
+								<span class="cursor" ng-click="pageEdit = true; oPage = page.page" ng-hide="pageEdit">[[page.page]]</span>
+								<span ng-show="pageEdit"><input ng-model="page.page" />
+									<span class="glyphicon glyphicon-ok savepage" ng-click="pageEdit = false"></span>
+									<span class="glyphicon glyphicon-remove cancelpage" ng-click="pageEdit = false; page.page = oPage"></span></span>
+							</td>
+							<td class="text-center"><input type="checkbox" value="true" ng-model="page.hasform"></td>
+							<td class="text-center"><input type="checkbox" value="true" ng-model="page.membersonly" ng-change="mo()"></td>
+						</tr>
+					</tbody>
+				</table>
+			<a class="btn btn-default" ng-click="exportNewPages()">Export New Pages</a>
+			</div>
+
+			<!-- Pages from Navigation -->
+			<div class="page-section" ng-if="navPages">
+			<h4>Imported from Navigation</h4>
+			<table class="table text-left tpages">
+				<thead class="thead-inverse">
+					<tr>
+					  <th class="text-center">Exclude</th>
+					  <th>Page Title</th>
+					  <th>File Name</th>
+					  <th class="text-center">Has Form</th>
+					  <th class="text-center">Members Only</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="page in navPages">
+						<td class="text-center"><input type="checkbox" value="true" ng-model="page.exclude"></td>
+						<td>[[page.title]]</td>
+						<td>[[page.page]]</td>
+						<td class="text-center"><input type="checkbox" value="true" ng-model="page.hasform"></td>
+						<td class="text-center"><input type="checkbox" value="true" ng-model="page.membersonly" ng-change="mo()"></td>
+					</tr>
+				</tbody>
+			</table>
+			<a href="" class="btn btn-default" ng-click="exportNavPages()">Export Navigation Pages</a>
+			</div>
+
+			<!-- Default Pages from Template -->
+			<div class="page-section" ng-if="course.template && course.type && course.name">
+			<h4>Default Template Pages<br />
+			<small><input type="checkbox" value="true" ng-model="course.otherPages" /> Include?</small></h4>
+			<table class="table text-left tpages">
+				<thead class="thead-inverse">
+					<tr>
+					  <th>Folder</th>
+					  <th>Files</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="page in pagesTemplate[course.type].default | orderBy: 'folder'">
+						<td>../[[page.folder]]</td>
+						<td>[[page.filename]]</td>
+					</tr>
+					<tr ng-repeat="page in pagesTemplate[course.type][course.template]">
+						<td>../[[page.folder]]</td>
+						<td>[[page.filename]]</td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+
+		</div>
+	</div>
+</div>

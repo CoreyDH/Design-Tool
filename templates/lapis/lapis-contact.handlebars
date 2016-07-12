@@ -1,0 +1,48 @@
+<section class="hgroup">
+	<div class="container">
+		<h1>Contact us</h1>
+		<ul class="breadcrumb pull-right">
+			<li><a href="%path%/index.htm">Home</a> </li>
+			<li class="active">Contact</li>
+		</ul>
+	</div>
+</section>
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="team_member col-sm-7 col-md-7">
+				<div class="office_address col-sm-5 col-md-5">
+					<img style="margin:0 auto;text-align:center" src="%path%/images/design/logo.png" class="img-responsive" alt="logo">
+					<br>
+					<div class="team_social">
+					{{#social}}
+					{{#if link}}
+						<a href="{{{link}}}" target="_blank"><i class="fa fa-{{icon}}"></i></a> 
+					{{/if}}
+					{{/social}}
+					</div>
+					<address>
+						<abbr title="Phone">E:</abbr> <a href="mailto:{{{email}}}">{{email}}</a>
+					</address>
+				</div>
+				<div class="office_address col-sm-7 col-md-7">
+					<address>
+						<strong></strong><br>
+						{{address1}}<br>
+						{{address2}}<br>
+						<abbr title="Phone">P:</abbr> {{phone}}
+					</address>
+					<address>
+						<strong>Hours</strong><br>
+						Monday - Friday - 08:00 - 8:00<br>
+					</address>
+				</div>
+			</div>
+			<div class="contact_form col-sm-5 col-md-5">
+				<h4>Please use the form below to contact us!</h4>
+				<!--form--> 
+				contact_form.htm
+			</div>
+		</div>
+	</div>
+</section>

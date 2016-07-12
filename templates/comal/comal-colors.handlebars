@@ -1,0 +1,46 @@
+body {
+  color: {{text.hex}};
+  background-color: {{background.hex}};
+}
+a {
+  color: {{secondary.hex}};
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: {{secondaryHover.hex}};
+  text-decoration: underline;
+}
+
+header aside .btn {
+  background: rgba({{primary.rgb}}, 0.5);
+  color: #fff;
+}
+header aside .btn:focus,
+header aside .btn:hover {
+  background-color: {{primaryHover.hex}};
+  color: #222222;
+}
+.navbar .btn-navbar {
+    color: #333333 !important;
+    background-color: {{primaryHover.hex}};
+}
+.navbar .btn-navbar:hover,
+.navbar .btn-navbar:focus {
+    background-color: {{primary.hex}};
+}
+
+.navbar .nav-collapse .dropdown-menu a:hover,
+.navbar .nav-collapse .dropdown-menu a:focus {
+    background-color: #ffffff;
+    color: #000000;
+}
+.navbar .nav li.dropdown.open > .dropdown-toggle,
+.navbar .nav li.dropdown.active > .dropdown-toggle,
+.navbar .nav li.dropdown.open.active > .dropdown-toggle {
+    background-color: {{primaryHover.hex}};
+    color: #000000;
+}
+header {
+    background-color: {{sidebar.hex}};
+}

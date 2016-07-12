@@ -1,0 +1,20 @@
+<?php 
+
+$path=$_SERVER[SCRIPT_FILENAME]; $parts=split("/",$path); if ($_SERVER[HTTP_HOST] == "coursetrends.com") { $location=$parts[7]; } elseif ($_SERVER[HTTP_HOST] == "www.coursetrends.com") { $location=$parts[7]; } else { $location=$parts[7];}
+
+$location="/golf/$parts[6]/$location"; ?>
+<div class="col-md-12">
+	<div class="row">
+		<div id="social_media_wrapper" class="col-lg-2 col-md-3 col-sm-4 col-xs-12 pull-right"> 
+			{{#social}}
+			{{#if link}}
+				<a href="{{{link}}}" target="_blank"><i class="fa fa-{{icon}}"></i></a> 
+			{{/if}}
+			{{/social}}
+		</div>		
+		<div id="sign" class="col-md-5 col-sm-6 col-xs-12 col-lg-offset-5 col-md-offset-4 col-sm-offset-0">
+			<a href="<?php echo $location; ?>/request_tt/request_tt.htm"><i class="fa fa-calendar"></i><span>Book a Tee Time</span></a> | 
+			<a href="<?php echo $location; ?>/tts/tts.htm"><i class="fa fa-dollar"></i><span>Tee Time Specials</span></a>
+		</div>		   
+	</div>
+</div>

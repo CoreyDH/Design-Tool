@@ -1,0 +1,36 @@
+<?php 
+
+$path=$_SERVER[SCRIPT_FILENAME]; $parts=split("/",$path); if ($_SERVER[HTTP_HOST] == "coursetrends.com") { $location=$parts[7]; } elseif ($_SERVER[HTTP_HOST] == "www.coursetrends.com") { $location=$parts[7]; } else { $location=$parts[7];}
+
+$location="/golf/$parts[6]/$location"; ?>
+
+	<section id="footer_teasers_wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="footer_teaser col-sm-5 col-md-5">
+					<h3>About us</h3>
+					<p>Prepare yourself for an unparalleled golfing experience. Our course is a pleasure for golfers of any skill level to play. Test your accuracy with our fairways, water hazards and sand traps; we have everything you need to challenge you and improve your game.</p>
+					<p><i class="fa fa-map-marker"></i> {{address1}} {{address2}} </p>
+					<p><i class="fa fa-phone"></i> {{phone}}</p>
+					<p><i class="fa fa-envelope"></i> {{email}}</p>
+				</div>
+				<div class="footer_teaser col-sm-2 col-md-2">
+					<h3>Quick Menu</h3>
+					<ul class="media-list">
+						<li> 
+							<i class="fa fa-angle-right"></i> <a href="<?php echo $location; ?>/home/home.htm">Home</a>
+						</li>
+						<li> 
+							<i class="fa fa-angle-right"></i> <a href="<?php echo $location; ?>/course/course.htm">Course</a>
+						</li>
+						<li> 
+							<i class="fa fa-angle-right"></i> <a href="<?php echo $location; ?>/tournaments/tournaments.htm">Events</a>
+						</li>
+						<li> 
+							<i class="fa fa-angle-right"></i> <a href="<?php echo $location; ?>/request_membership/request_membership.htm">Membership</a>
+						</li>
+						<li> 
+							<i class="fa fa-angle-right"></i> <a href="<?php echo $location; ?>/contact/contact.htm">Contact Us</a>
+						</li>
+					</ul>
+				</div>

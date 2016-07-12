@@ -1,0 +1,177 @@
+<style>
+	.template-top, .template-copyright {
+		width: 100%;
+		position: relative;
+		z-index: 9999;
+		background-color: [[colors[course.template].primary.hex]];
+		color: white;
+	}
+
+	.copyright a {
+		font-weight: bold;
+		color:#FFF;
+	}
+
+	.template-top {
+		height: 85px;
+		padding: 0;
+	}
+
+	.template-copyright{
+		padding: 8px;
+	}
+
+	.template-footer {
+		background-color:[[colors[course.template].footerMain.hex]];
+	}
+
+	.address {
+		padding:15px;
+	}
+
+	.address, .copyright {
+		color: [[colors[course.template].footerText.hex]];
+	}
+
+	.button {
+		display: inline-block;
+		-webkit-box-shadow: rgba(0, 0, 0, 0.21) 0 1px 1px, inset rgba(255, 255, 255, 0.64) 0 1px 0;
+		-moz-box-shadow: rgba(0, 0, 0, 0.21) 0 1px 1px, inset rgba(255, 255, 255, 0.64) 0 1px 0;
+		box-shadow: rgba(0, 0, 0, 0.21) 0 1px 1px, inset rgba(255, 255, 255, 0.64) 0 1px 0;
+		background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.07));
+		background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.07));
+		background-image: -o-linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.07));
+		background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.07));
+		text-transform: uppercase;
+		text-shadow: 0 1px 0 #989898;
+		font-weight: 500;
+		border: 1px solid [[colors[course.template].secondaryHover.hex]];
+		color: #e7e7e7 !important;
+		background-color: [[colors[course.template].secondary.hex]];
+		padding: 0 25px !important;
+		height: 33px;
+		line-height: 33px;
+		-webkit-transition: all 0.2s ease-out;
+		-moz-transition: all 0.2s ease-out;
+		-o-transition: all 0.2s ease-out;
+		transition: all 0.2s ease-out;
+	}
+
+	.button:hover {
+		background-color: [[colors[course.template].secondaryHover.hex]];
+		color: #e7e7e7 !important;
+		text-shadow: 0 1px 0 #989898;
+		text-decoration: none;
+	}
+
+	.template-body a, .template-footer a {
+		color: [[colors[course.template].secondary.hex]];
+	}
+
+	.template-body a:hover {
+		color: [[colors[course.template].secondaryHover.hex]];
+	}
+
+	.template-body p {
+		color: [[colors[course.template].p.hex]];
+	}
+
+	.template-body h1, .template-body h2, .template-body h3 {
+		color: [[colors[course.template].secondary.hex]];
+	}
+
+	.template-body .glyphicon, .template-footer .glyphicon {
+		color: [[colors[course.template].secondary.hex]];
+	}
+
+	#tlogo {
+		max-width: 206px;
+		max-height: 55px;
+		margin: 15px 10px 10px 10px;
+	}
+
+	.nav {
+		padding: 0 0 0 0;
+		margin: 0;
+	}
+
+	.nav ul {
+		list-style-type: none;
+		height: 85px;
+	}
+
+	.nav li {
+    position: relative;
+		float: left;
+		margin-right: 9px;
+		border-top: solid 5px [[colors[course.template].primary.hex]];
+	}
+
+	.nav li a {
+    text-transform: uppercase;
+    font-size: 13px;
+    text-decoration: none;
+    height: 80px;
+    line-height: 80px;
+    display: inline-block;
+    position: relative;
+    padding-right: 7px;
+		color: [[colors[course.template].nav.hex]];
+	}
+
+	.nav li a:hover {
+		    color: [[colors[course.template].navHover.hex]];
+	}
+
+	.nav li:hover {
+		border-top: solid 5px [[colors[course.template].secondary.hex]];
+	}
+
+
+</style>
+
+	<div class="col-md-12 template-top">
+		<img id="tlogo" ng-src="[[templatelogo || 'https://www.coursetrends.com/golf/designs/fairway/images/design/logo.png']]" />
+		<div class="nav col-md-6 pull-right">
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Course</a></li>
+				<li><a href="#">Events</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-md-12 template-body">
+		<h1>Header 1</h1>
+		<h2>Header 2</h2>
+		<h3>Header 3</h3>
+		<span style="font-size:50px;" class="glyphicon glyphicon-bookmark"></span>
+		<span style="font-size:50px;" class="glyphicon glyphicon-camera"></span>
+		<span style="font-size:50px;" class="glyphicon glyphicon-hdd"></span><br />
+
+		<a class="button">Book a Tee Time</a><br /><br />
+		<a class="button">Tee Time Specials</a>
+
+		<p>
+			Lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in <a href="#">voluptate</a> velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui <a href="#">officia</a> deserunt mollit anim id est laborum.
+		</p>
+	</div>
+	<div class="col-md-12 template-footer">
+		<div class="row">
+			<div class="address">
+				<p>
+				Blackhawk Golf Club<br />
+				2714 Kelly Lane<br />
+				Pflugerville, TX 78660<br />
+				512-251-9000<br />
+				www.blackhawk.com<br />
+				coursemail@email.com</p>
+			</div>
+			<div class="col-md-12 template-copyright">
+				<p class="copyright">
+				  Copyright &#169; 2016. All Rights Reserved. Powered by <a href="#">Manalith.net</a>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>

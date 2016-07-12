@@ -1,0 +1,235 @@
+.navigation {
+    float: right;
+    padding: 0 0 0 0;
+    margin: 0;
+    list-style-type: none;
+    height: 85px;
+}
+
+.navigation > li {
+    float: left;
+    margin-right: 9px;
+}
+
+/* First Level Styling */
+.navigation > li > a {
+    text-transform: uppercase;
+    font-family: "Open Sans";
+    font-size: 13px;
+    text-decoration: none;
+    height: 85px;
+    line-height: 90px;
+    display: inline-block;
+    position: relative;
+    padding-right: 7px;
+}
+
+.navigation > li > a:before {
+    position: absolute;
+    right: -1px;
+    top: 1px;
+    font-size: 7px;
+    content: "";
+    width: 8px;
+    height: 8px;
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: inherit;
+    -webkit-font-smoothing: antialiased;
+    *margin-right: .3em;
+}
+
+.navigation .drop-down > li > a:before {
+    position: absolute;
+    right: -1px;
+    top: 1px;
+    font-size: 7px;
+    content: "";
+    width: 8px;
+    height: 8px;
+    content: "\f078";
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: inherit;
+    -webkit-font-smoothing: antialiased;
+    *margin-right: .3em;
+}
+
+.navigation > li:hover > a,
+.navigation > li > a:hover,
+.navigation > li > .activelink {
+    color: {{navHover.hex}};
+}
+
+.navigation > li > a:after, .navigation > li > .activelink:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 0px;
+    top: 0;
+    -webkit-transition: height 0.5s;
+    -moz-transition: height 0.5s;
+    -o-transition: height 0.5s;
+    transition: height 0.5s;
+}
+
+.navigation > li:hover > a:after, .top_wrapper .navigation > li > .activelink:after {
+    height: 4px;
+}
+
+.navigation > li > a > i {
+    font-size: 8px;
+    margin: 6px 0px 0px 4px;
+    color: white;
+    opacity: 0.5;
+}
+
+.navigation > li:hover > a > i {
+    color: white;
+    opacity: 1;
+}
+
+/* Change the opacity for the arrow */
+.navigation > li > a:hover > i {
+    opacity: 1;
+}
+
+.navigation > li > a > span {
+    float: left;
+}
+
+.navigation > li:last-child > a {
+    margin-right: 0;
+}
+
+/* set all LI to relative */
+.navigation li {
+    position: relative;
+}
+
+/* Sub menu Style */
+.navigation ul {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    top: 85px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.31) 0 0 10px #333333;
+    -moz-box-shadow: rgba(0, 0, 0, 0.31) 0 0 10px #333333;
+    box-shadow: rgba(0, 0, 0, 0.31) 0 0 10px #333333;
+    display: none;
+    z-index: 1;
+}
+
+.navigation .icon-arrow-menu {
+    position: absolute;
+    top: 19px;
+    left: 6px;
+    font-size: 15px;
+    display: none;
+    z-index: 10;
+}
+
+.navigation .icon-arrow-submenu {
+    position: absolute;
+    top: 14px;
+    right: 10px;
+    font-size: 11px;
+}
+
+.navigation ul li a {
+    padding: 10px 0 10px 12px;
+    width: 170px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    text-decoration: none;
+    font-size: 12px;
+    border-bottom: 1px solid #cbcbcb;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-top: 1px solid white;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    position: relative;
+}
+
+.navigation ul li a.activelink {
+    font-weight: bold;
+    background-color: #eee;
+}
+
+.navigation ul li:first-child > a {
+    border-top: none;
+}
+
+/* 3rd level */
+.navigation ul ul {
+    left: 172px;
+    top: 0;
+    border-top: 0;
+}
+
+.mobile-menu-button {
+    display: none;
+}
+
+.mobile-nav {
+    display: none;
+}
+
+
+
+/************************************
+Sticky Menu
+************************************/
+.sticky-navigation {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    height: 30px;
+    display: none;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.sticky-navigation .navigation {
+    margin: auto;
+    width: 940px;
+    float: none;
+    list-style-type: none;
+    top: 25px;
+}
+
+.sticky-navigation .navigation > li {
+    float: left;
+	margin-right: 9px;
+}
+
+.sticky-navigation .navigation > li > ul {
+    top: 30px;
+}
+
+.sticky-navigation .navigation > li > a {
+    line-height: 30px;
+    height: auto;
+    font-size: 13px;
+	margin-right:22px;
+}
+
+.sticky-navigation .navigation > li:hover > a:after {
+    height: 0px;
+}
+
+.sticky-navigation ul {
+    list-style-type: none;
+}
+
+.header-no-shadow.header:after {
+    background-image: none;
+}

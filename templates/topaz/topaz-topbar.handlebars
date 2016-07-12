@@ -1,0 +1,28 @@
+<?php 
+
+$path=$_SERVER[SCRIPT_FILENAME]; $parts=split("/",$path); if ($_SERVER[HTTP_HOST] == "coursetrends.com") { $location=$parts[7]; } elseif ($_SERVER[HTTP_HOST] == "www.coursetrends.com") { $location=$parts[7]; } else { $location=$parts[7];}
+
+$location="/golf/$parts[6]/$location"; ?>
+<div class="top-bar">            
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4 hidden-xs">
+				<ul class="list-inline socials-simple">
+					{{#social}}
+					{{#if link}}
+					<li><a href="{{{link}}}" target="_blank"><i class="fa fa-{{{icon}}}"></i></a></li>
+					{{/if}}
+					{{/social}}
+				</ul>
+			</div>
+			<div class="col-sm-8 text-right">
+				<a class="btn btn-contrast btn-sm" href="<?php echo $location; ?>/tts/tts.htm">
+				Tee Time Specials
+				</a>
+				<a class="btn btn-contrast btn-sm" style="border-right:0 none" href="<?php echo $location; ?>/request_tt/request_tt.htm">
+				Book a Tee Time
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

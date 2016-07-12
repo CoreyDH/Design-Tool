@@ -1,0 +1,222 @@
+/* Colors that need to be changed during the design process. Two colors only and then tints and shades of those two colors as needed. Select the color that needs to be changed and then find-replace that color with the new color as there are several css calls that use the same color. */
+
+.top-header, .mobile-nav, .footer .copyright {
+    background-color: {{{primary.hex}}};
+}
+
+.footer{
+    background-color: {{{footerMain.hex}}};
+}
+
+.navigation .icon-arrow-menu,
+.h1-page-title,
+.body-wrapper a:hover,
+.tab a:hover, accordion
+.title:hover,
+.top-body a:hover,
+.bottom-body a:hover,
+.accordion .title:hover h4,
+.content-box.content-style2 h4 i,
+.side-navigation .menu-item.current-menu-item a,
+.side-navigation .menu-item:hover a:after,
+.side-navigation .menu-item:hover a,
+.icons-list.colored-list li:before,
+.blog-post-date .day,
+.blog-post-date .month,
+strong.colored, span.colored,
+.content-box.content-style2 .read-more  {
+    color: {{{secondary.hex}}};
+}
+
+.callout-box,
+.team-member .team-member-content,
+.feature .feature-content,
+.contact-map{
+    border-color: {{{secondary.hex}}};
+}
+
+.button,
+.body-wrapper input[type="submit"],
+.body-wrapper input[type="button"],
+button.button-main{
+    background-color: {{{secondary.hex}}}; /*change */
+    border-color: {{{secondaryHover.hex}}}; /*change */
+    color: #e7e7e7 !important;
+    text-shadow: 0 1px 0 #989898;
+}
+.button:hover,
+.body-wrapper input[type="submit"]:hover,
+.body-wrapper input[type="button"]:hover,
+button.button-main:hover,
+.button:active,
+.body-wrapper input[type="submit"]:active,
+.body-wrapper input[type="button"]:active,
+button.button-main:active {
+    background-color: {{{secondaryHover.hex}}}; /*change */
+    color: #e7e7e7 !important;
+    text-shadow: 0 1px 0 #989898;
+}
+
+.contact-map{
+	border-top:5px solid {{{secondary.hex}}};
+	border-bottom:5px solid {{{secondary.hex}}};
+ }
+
+ .navigation ul{
+    background-color: #ffffff;
+    border-top: 5px solid {{{secondary.hex}}};
+}
+
+.mobile-nav ul {
+	border-left: 10px solid {{{secondary.hex}}};
+}
+
+.navigation > li > a:after,
+.navigation > li > .activelink:after {
+    background-color: {{{secondary.hex}}};
+}
+
+.mobile-menu-button,
+.navigation > li > a:after,
+.navigation>li>.activelink:after,
+.team-member-progress-bar,
+.blog-post-icon,
+.comments-list .children .comment:before,
+.portfolio-filter li a
+.portfolio-selected,
+.portfolio-filter li a:hover,
+.dropcaps.dropcaps-color-style,
+.carousel-container .carousel-icon:hover,
+.portfolio-filter li a.portfolio-selected,
+.portfolio-filter li a:hover {
+    background-color: {{{secondary.hex}}};
+}
+
+.mobile-menu-button:hover{
+    background-color: {{{secondary.hex}}};
+    opacity: 0.7;
+}
+.sticky-navigation {
+	background-color: rgba({{{primary.rgb}}}, 0.9);
+}
+
+
+/* OPTIONAL COLOR CHANGES. THESE DO NOT NEED TO BE CHANGED UNLESS REQUESTED BY THE CUSTOMER. */
+
+/* Main Body Background Color */
+#wrapper{
+    /*  background-color: #f9f9f9; */
+}
+
+/* Header Colors */
+.header_wrapper, .top_wrapper{
+    background: -webkit-radial-gradient(farthest-side circle at center, #ecf0f1 0%, #ecf0f1 100%);
+    background: -moz-radial-gradient(farthest-side circle at center, #ecf0f1 0%, #ecf0f1 100%);
+    background: -o-radial-gradient(farthest-side circle at center, #ecf0f1 0%, #ecf0f1 100%);
+    background: radial-gradient(farthest-side circle at center, #ecf0f1 0%, #ecf0f1 100%);
+    background-color: #ecf0f1;
+}
+
+.searchbox{
+    background-color: #283848;
+}
+.navigation > li > a, .navigation > li > a > i,.sticky-navigation .navigation > a {
+    color: {{nav.hex}};
+}
+
+.navigation > li:hover > a,
+.navigation > li > a:hover,
+.navigation > li > .activelink,.navigation > li:hover > a > i{
+    color: {{navHover.hex}};
+}
+.navigation .icon-arrow-menu, .navigation .icon-arrow-submenu {
+    color: white;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.navigation ul li a{
+    color: #787878;
+    background-color: #ffffff;
+}
+
+.portfolio-filter li a.portfolio-selected,
+.portfolio-filter li a:hover {
+    color: #fefefe;
+    text-decoration: none;
+}
+.tool-tip{
+    color: {{{secondary.hex}}} !important;
+}
+.navigation ul li:hover > a, .navigation ul li a.activelink {
+    background-color: #f5f5f5;
+    color: #010101;
+}
+.navigation .icon-arrow-submenu, .navigation ul li:hover > a i{
+    color: #787878;
+}
+.h2-page-desc{
+    color: #405974;
+}
+.breadcrumbs li:last-child {
+    color: #4b4b4b;
+}
+
+/* Page Content Colors */
+.body-wrapper a, .tab a, accordion .title, .top-body a, .bottom-body a {
+    color: #4b4b4b;
+}
+
+.tab a.active:after {
+    background-color:{{{secondary.hex}}};
+    border-color: {{{secondary.hex}}};
+}
+.comments-list .children .comment:after{
+    border-color: transparent transparent transparent {{{secondary.hex}}};;
+}
+.highlighted-text,.pagination .prev, .pagination .next, .pagination a:hover, .pagination a.current{
+    background-color: {{{secondary.hex}}};
+    color: #fff;
+}
+div.pagination a{
+    border-color: {{{secondary.hex}}};
+    color: {{{secondary.hex}}};
+}
+
+/* Footer Area Colors */
+.footer:after{
+    background-color: #c7c8c7}
+.footer:before{
+    background-color: #c5c5c5}
+.footer .copyright{
+    color: {{{footerText.hex}}};
+}
+.footer .copyright a{
+    color: {{{primary.hex}}};
+}
+.footer .copyright a:hover{
+    color: {{{secondary.hex}}};
+}
+.footer .footer-col .footer-content .input{
+    background-color: #283849;
+}
+.footer .footer-col .footer-content input[type=submit], .footer button{
+    background-color: #415c76;
+}
+.footer .footer-col .footer-content input[type=submit]:hover, .footer button:hover, .footer button:active,
+.footer .footer-col .footer-content input[type=submit]:active{
+    background-color: #547597;
+}
+.footer .footer-col .footer-content,.footer .footer-col .footer-content .footer-content-text{
+    color: #d4d4d4;
+}
+.footer .footer-col .footer-title{
+    border-color: rgb(255,255,255);
+    border-color: rgba(255,255,255,0.6);
+    color: #dddddd;
+}
+.footer .footer-col .footer-content a{
+    color: #f3f3f3;
+}
+.footer .footer-col .footer-content a:hover{
+    color: #fafafa;
+}

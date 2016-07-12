@@ -1,0 +1,46 @@
+<?php 
+
+$path=$_SERVER[SCRIPT_FILENAME]; $parts=split("/",$path); if ($_SERVER[HTTP_HOST] == "coursetrends.com") { $location=$parts[7]; } elseif ($_SERVER[HTTP_HOST] == "www.coursetrends.com") { $location=$parts[7]; } else { $location=$parts[7];}
+
+$location="/golf/$parts[6]/$location"; ?>
+
+<div class="header-top">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-2 col-sm-6">
+				<div class="header-top-first clearfix">
+					<ul class="social-links clearfix hidden-xs">
+						{{#social}}
+						{{#if link}}
+						<li class="{{icon}}"><a target="_blank" href="{{{link}}}"><i class="fa fa-{{icon}}"></i></a></li>
+						{{/if}}
+						{{/social}}
+					</ul>
+					<div class="social-links hidden-lg hidden-md hidden-sm">
+						<div class="btn-group dropdown">
+							<button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="fa fa-share-alt"></i></button>
+								<ul class="dropdown-menu dropdown-animation">
+									{{#social}}
+									{{#if link}}
+									<li class="{{icon}}"><a target="_blank" href="{{{link}}}"><i class="fa fa-{{icon}}"></i></a></li>
+									{{/if}}
+									{{/social}}
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			<div class="col-xs-10 col-sm-6">
+				<div id="header-top-second" class="clearfix">
+					<div class="btn-right pull-right">
+						<ul>
+							<li class="book"><a href="<?php echo $location?>/request_tt/request_tt.htm"><i class="fa fa-calendar"></i> book a tee time</a></li>
+							<li class="tts"><a href="<?php echo $location?>/tts/tts.htm"><i class="fa fa-dollar"></i> tee time specials</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

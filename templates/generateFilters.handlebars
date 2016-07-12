@@ -1,0 +1,17 @@
+{{#navigation}}
+{{#unless subtitle}}
+<li><input type="text" value="{{title}}" class="list-group-item nav-title-title">
+  <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+  <input type="text" value="{{fpage}}" class="list-group-item nav-title-page"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></li>
+{{/unless}}
+{{#if subtitle}}
+<li><input type="text" value="{{title}}" class="list-group-item nav-title-title">
+  <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+  <input type="text" value="{{page}}" class="list-group-item nav-title-page"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></li>
+	{{#subtitle}}
+<li><span class="glyphicon glyphicon-chevron-right text-muted" aria-hidden="true"></span> <input type="text" value="{{title}}" class="list-group-item nav-subtitle-title">
+  <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+  <input type="text" value="{{fpage}}" class="list-group-item nav-subtitle-page"> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></li>
+	{{/subtitle}}
+{{/if}}
+{{/navigation}}

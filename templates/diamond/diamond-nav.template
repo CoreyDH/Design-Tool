@@ -1,0 +1,11 @@
+
+<ul id="set-filters" class="list-group">
+          <li ng-repeat="filter in nav.filters.navigation">
+            {{filter.title}} {{filter.page}}
+            <ul ng-if="filter.subtitle">
+              <li ng-repeat="sfilter in filter.subtitle">
+                {{sfilter.title}} {{sfilter.page}}
+              </li>
+            </ul>
+          </li>
+        </ul>

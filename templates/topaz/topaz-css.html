@@ -1,0 +1,168 @@
+<style>
+	.header-top {
+    min-height: 45px;
+    line-height: 40px;
+    background-color: [[colors[course.template].topbar.hex]];
+	}
+
+	.header-top .social-links li {
+		padding: 3px 10px 2px;
+		margin: 0;
+		float:left;
+		list-style: none;
+	}
+
+	.header-top .social-links li span {
+		border: none;
+		font-size: 15px;
+		color: [[colors[course.template].topbarIcons.hex]];
+	}
+
+  .header-top .social-links li > span:hover {
+		color: [[colors[course.template].topbarIconsHover.hex]];
+	}
+
+	.header-title {
+    padding-left:20px;
+		line-height:70px;
+    border: none;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    border-radius: 0px;
+    margin-bottom: 0;
+    width: 100%;
+    min-height: 70px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.11765) 0px 1px 3px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.11765) 0px 1px 3px;
+    -ms-box-shadow: rgba(0, 0, 0, 0.11765) 0px 1px 3px;
+    box-shadow: rgba(0, 0, 0, 0.11765) 0px 1px 3px;
+    background-color: [[colors[course.template].header.rgba]];
+    clear: both;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+	}
+
+	.address {
+    color: [[colors[course.template].addressText.hex]];
+	}
+
+	.copyright {
+		color: [[colors[course.template].copyrightText.hex]];
+	}
+
+	.template-body a, .template-footer a {
+		color: [[colors[course.template].links.hex]];
+	}
+
+	.template-body a:hover {
+		color: [[colors[course.template].primary.hex]];
+	}
+
+	.template-body p {
+		color: [[colors[course.template].text.hex]];
+	}
+
+	.template-body h1, .template-body h2, .template-body h3 {
+		color: [[colors[course.template].headers.hex]];
+	}
+
+	.template-footer {
+		padding: 15px 15px 0px 15px;
+    background-color: [[colors[course.template].footer.hex]];
+	}
+
+	.template-copyright {
+    background-color: [[colors[course.template].copyright.hex]];
+    text-align:center;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    margin-top: 15px;
+    padding: 10px;
+	}
+
+	.nav {
+		float:right;
+	}
+
+	.nav li {
+		list-style:none;
+		float:left;
+    margin-right:30px;
+	}
+
+	.nav li a {
+    color: [[colors[course.template].nav.hex]];
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+		list-style:none;
+	}
+
+	.nav li a:hover {
+    text-decoration: none;
+    color: [[colors[course.template].primary.hex]];
+	}
+
+	#tlogo {
+		max-width: 205px;
+		max-height: 50px;
+	}
+
+</style>
+
+	<div class="col-md-12 template-top">
+		<div class="row">
+			<div class="header-top">
+				<ul class="social-links">
+					<li><span style="font-size:15px;line-height:30px;" class="glyphicon glyphicon-map-marker"></span></li>
+					<li><span style="font-size:15px;line-height:30px;" class="glyphicon glyphicon-envelope"></span></li>
+					<li><span style="font-size:15px;line-height:30px;" class="glyphicon glyphicon-search"></span></li>
+					<li><span style="font-size:15px;line-height:30px;" class="glyphicon glyphicon-star"></span></li>
+					<li><span style="font-size:15px;line-height:30px;" class="glyphicon glyphicon-th-large"></span></li>
+				</ul>
+			</div>
+			<div class="header-title">
+				<img id="tlogo" ng-src="[[templatelogo || 'https://www.coursetrends.com/golf/designs/topaz/images/design/logo.png']]" />
+				<div class="nav">
+					<ul>
+						<li><a href="#" style="color:[[colors[course.template].primary.hex]]">Home</a></li>
+						<li><a href="#">Course</a></li>
+						<li><a href="#">Events</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+	  </div>
+  </div>
+	<div class="col-md-12 template-body">
+		<h1>Header 1</h1>
+		<h2>Header 2</h2>
+		<h3>Header 3</h3>
+
+		<p>
+			Lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in <a href="#">voluptate</a> velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui <a href="#">officia</a> deserunt mollit anim id est laborum.
+		</p>
+	</div>
+	<div class="col-md-12 template-footer">
+
+			<div class="address">
+				<p>
+				Blackhawk Golf Club<br />
+				2714 Kelly Lane<br />
+				Pflugerville, TX 78660<br />
+				512-251-9000<br />
+				www.blackhawk.com<br />
+				coursemail@email.com</p>
+			</div>
+			<div class="col-md-12 template-copyright">
+				<p class="copyright">
+				  Copyright &#169; 2016. All Rights Reserved. Powered by <a href="#">Manalith.net</a>
+				</p>
+			</div>
+
+	</div>
+	<div class="clear"></div>

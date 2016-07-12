@@ -1,0 +1,41 @@
+<info course="course" class="col-md-12"></info>
+<div class="col-md-12 sub-menu">
+	<div class="col-md-4"><a href="#/pages" class="btn btn-success"><< Back to Pages</a></div>
+	<div class="col-md-4 text-center"><a class="btn btn-danger col-md-12" ng-click="exportAll()">Export All Images</a></div>
+	<div class="col-md-4 text-right"><a href="#/css" class="btn btn-purple">Create CSS >></a></div>
+</div>
+<div class="col-md-4 pull-right text-center">
+		<template-options></template-options>
+	</div>
+<div class="col-md-12 images">
+ <div ng-repeat="img in imageTemplate[course.template]">
+	<div class="crop-wrapper" ng-class="img.width+70 > 525  ? 'col-md-12' : 'col-md-6'">
+		<h3>[[img.name]] <small>[[img.width]]x[[img.height]]</small></h3>
+		<div ng-style="setZoom([[img.width]])" id="[[img.name]]"></div>
+		<input class="btn btn-primary pull-left upload" id="[[$index]]" type="file" value="Upload" accept="image/*" ng-model="upload">
+		<a class="btn btn-success pull-right img-download" ng-click="download()"><span class="glyphicon glyphicon-download-alt"></span></a>
+		<a class="btn btn-default pull-right img-result" data-toggle="modal" data-target="#imagePreview" ng-click="preview()"><span class="glyphicon glyphicon-eye-open"></span></a>
+		<a class="btn btn-danger pull-right img-clear" ng-click="clearimg()"><span class="glyphicon glyphicon-trash"></span></a>
+	</div>
+ </div>
+ <div id="img-result"></div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="imagePreview" tabindex="-1" role="dialog" aria-labelledby="imgpreview">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="imgpreview">Image Preview</h4>
+      </div>
+      <div class="modal-body">
+        <img ng-src="[[imgpreview]]" style="max-width:100%;height:auto;" />
+				<canvas style="display:none;" id="hiddencanvas"></canvas>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

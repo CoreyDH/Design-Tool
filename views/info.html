@@ -1,0 +1,9 @@
+<div ng-if="course.name">
+  <ul id="info">
+    <li ng-if="course.name"><span><b>{{course.name}}</b></li>
+    <li ng-if="course.proto"><span>Proto</span>: {{course.proto}}</li>
+    <li ng-if="course.type"><span>Type</span>: {{course.type}}</li>
+    <li ng-if="course.template"><span>Template</span>: {{course.template}}</li>
+	<li ng-if="course.address1" class="pull-right">{{course.address1}} • {{course.address2}} • {{course.phone}}</li>
+  </ul>
+</div>

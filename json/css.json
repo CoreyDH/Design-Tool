@@ -1,0 +1,410 @@
+{
+	"zilker" : {
+		"primary" : {
+			"name" : "Header / Footer",
+			"hex" : "#353B47",
+			"type" : "hex"
+		},
+		"secondary" : {
+			"name" : "Icons / Buttons / Links",
+			"hex" : "#8dc153",
+			"type" : "hex"
+		},
+		"secondaryHover" : {
+			"name" : "Icons / Buttons / Links : Hover",
+			"hex" : "#7bb140",
+			"type" : "hex"
+		},
+		"tertiary" : {
+			"name" : "Footer Main / Headers",
+			"hex" : "#434955",
+			"type" : "hex"
+		},
+		"p" : {
+			"name" : "p",
+			"hex" : "#676f7a",
+			"type" : "hex"
+		},
+		"footerText" : {
+			"name" : "Footer Text",
+			"hex" : "#aab2bd",
+			"type" : "hex"
+		}
+	  },
+	 "diamond" : {
+		"primary" : {
+			"name" : "Header / Footer",
+			"hex" : "#353B47",
+			"type" : "hex"
+		},
+		"secondary" : {
+			"name" : "Icons / Buttons / Links",
+			"hex" : "#8dc153",
+			"type" : "hex"
+		},
+		"secondaryHover" : {
+			"name" : "Icons / Buttons / Links : Hover",
+			"hex" : "#7bb140",
+			"type" : "hex"
+		},
+		"tertiary" : {
+			"name" : "Footer Main / Headers",
+			"hex" : "#434955",
+			"type" : "hex"
+		},
+		"p" : {
+			"name" : "p",
+			"hex" : "#676f7a",
+			"type" : "hex"
+		},
+		"footerText" : {
+			"name" : "Footer Text",
+			"hex" : "#aab2bd",
+			"type" : "hex"
+		}
+	},
+	"fairway" : {
+		"primary" : {
+			"name" : "Header / Footer",
+			"hex" : "#2C3E50",
+			"type" : "hex"
+		},
+		"nav" : {
+			"name" : "Navigation",
+			"hex" : "#c3c3c3",
+			"type" : "hex"
+		},
+		"navHover" : {
+			"name" : "Navigation : Hover",
+			"hex" : "#f2f2f2",
+			"type" : "hex"
+		},
+		"secondary" : {
+			"name" : "Icons / Buttons / Links / Headers",
+			"hex" : "#16A085",
+			"type" : "hex"
+		},
+		"secondaryHover" : {
+			"name" : "Icons / Buttons / Links : Hover",
+			"hex" : "#1abc9c",
+			"type" : "hex"
+		},
+		"p" : {
+			"name" : "p",
+			"hex" : "#666666",
+			"type" : "hex"
+		},
+		"footerMain" : {
+			"name" : "Footer Main",
+			"hex" : "#34495e",
+			"type" : "hex"
+		},
+		"footerText" : {
+			"name" : "Footer Text",
+			"hex" : "#d4d4d4",
+			"type" : "hex"
+		}
+	},
+	"diamond" : {
+		"topbar" : {
+			"name" : "Top Bar",
+			"hex" : "#f1f1f1",
+			"type" : "hex"
+		},
+		"topbarIcons" : {
+			"name" : "Top Bar Icons",
+			"hex" : "#999999",
+			"type" : "hex"
+		},
+		"topbarBorders" : {
+			"name" : "Top Bar Borders",
+			"hex" : "#e3e3e3",
+			"type" : "hex"
+		},
+		"header" : {
+			"name" : "Header Background",
+			"hex" : "#ffffff",
+			"type" : "hex"
+		},
+		"nav" : {
+			"name" : "Navigation",
+			"hex" : "#666666",
+			"type" : "hex"
+		},
+		"timer" : {
+			"name" : "Banner Timer",
+			"rgba" : "rgba(232,76,61,0.7)",
+			"type" : "rgba"
+		},
+		"primary" : {
+			"name" : "Buttons / Links",
+			"hex" : "#e84c3d",
+			"type" : "hex"
+		},
+		"primaryHover" : {
+			"name" : "Buttons Border / Links : Hover",
+			"hex" : "#cd3c2e",
+			"type" : "hex"
+		},
+		"headers" : {
+			"name" : "Headers",
+			"hex" : "#343434",
+			"type" : "hex"
+		},
+		"text" : {
+			"name" : "Text",
+			"hex" : "#666666",
+			"type" : "hex"
+		},
+		"footerText" : {
+			"name" : "Footer Text",
+			"hex" : "#999999",
+			"type" : "hex"
+		},
+		"footer" : {
+			"name" : "Footer Background",
+			"hex" : "#262626",
+			"type" : "hex"
+		},
+		"copyright" : {
+			"name" : "Copyright Background",
+			"hex" : "#000000",
+			"type" : "hex"
+		}
+	},
+  "topaz" : {
+		"topbar" : {
+			"name" : "Top Bar",
+			"hex" : "#333",
+			"type" : "hex"
+		},
+		"topbarIcons" : {
+			"name" : "Top Bar Icons",
+			"hex" : "#bbb",
+			"type" : "hex"
+		},
+    "topbarIconsHover" : {
+			"name" : "Top Bar Icons : Hover",
+			"hex" : "#fff",
+			"type" : "hex"
+		},
+		"header" : {
+			"name" : "Header Background",
+			"rgba" : "rgba(255, 255, 255, 0.9)",
+			"type" : "rgba"
+		},
+		"nav" : {
+			"name" : "Navigation",
+			"hex" : "#444",
+			"type" : "hex"
+		},
+		"links" : {
+			"name" : "Links",
+			"hex" : "#777",
+			"type" : "hex"
+		},
+		"primary" : {
+			"name" : "Buttons / Links : Hover",
+			"hex" : "#4f82e9",
+			"type" : "hex"
+		},
+		"headers" : {
+			"name" : "Headers",
+			"hex" : "#060606",
+			"type" : "hex"
+		},
+		"text" : {
+			"name" : "Text",
+			"hex" : "#555",
+			"type" : "hex"
+		},
+		"footer" : {
+			"name" : "Footer Background",
+			"hex" : "#111",
+			"type" : "hex"
+		},
+    "addressText" : {
+			"name" : "Address Text",
+			"hex" : "#ddd",
+			"type" : "hex"
+		},
+		"copyright" : {
+			"name" : "Copyright Background",
+			"hex" : "#0c0c0c",
+			"type" : "hex"
+		},
+    "copyrightText" : {
+			"name" : "Copyright Text",
+			"hex" : "#424242",
+			"type" : "hex"
+		}
+	},
+  "lapis" : {
+		"primary" : {
+			"name" : "Social / Buttons / Icons / Links",
+			"hex" : "#0B108F",
+			"type" : "hex"
+		},
+		"primaryHover" : {
+			"name" : "Buttons / Icons / Links : Hover",
+			"hex" : "#313594",
+			"type" : "hex"
+		},
+    "buttonBorder" : {
+			"name" : "Button Border",
+			"hex" : "#6d48c0",
+			"type" : "hex"
+		},
+		"text" : {
+			"name" : "Text",
+			"hex" : "#333",
+			"type" : "hex"
+		},
+		"footer" : {
+			"name" : "Footer Background",
+			"hex" : "#222222",
+			"type" : "hex"
+		},
+		"footerLink" : {
+			"name" : "Footer Links",
+			"hex" : "#8b8b97",
+			"type" : "hex"
+		},
+    "addressText" : {
+			"name" : "Address Text",
+			"hex" : "#ccc",
+			"type" : "hex"
+		},
+    "copyrightText" : {
+			"name" : "Copyright Text",
+			"hex" : "#999",
+			"type" : "hex"
+		}
+	},
+	"blanco" : {
+		"text" : {
+			"name" : "Text",
+			"hex" : "#606b74",
+			"type" : "hex"
+		},
+    "primary" : {
+			"name" : "Top Bar / Links / Buttons",
+			"hex" : "#3c86c3",
+			"type" : "hex"
+		},
+		"primaryHover" : {
+			"name" : "Buttons / Links : Hover",
+			"hex" : "#408FD0",
+			"type" : "hex"
+		},
+		"header" : {
+			"name" : "Header Background",
+			"hex" : "#fff",
+			"type" : "hex"
+		},
+		"nav" : {
+			"name" : "Navigation",
+			"hex" : "#606b74",
+			"type" : "hex"
+		},
+    "navBackground" : {
+			"name" : "Navigation Background : Hover",
+			"hex" : "#f9f9f9",
+			"type" : "hex"
+		},
+		"tooltip" : {
+			"name" : "Tooltip Background",
+			"hex" : "#fff",
+			"type" : "hex"
+		},
+		"borders" : {
+			"name" : "Borders",
+			"hex" : "#dde0e3",
+			"type" : "hex"
+		},
+		"headers" : {
+			"name" : "Header Tags / Other Text",
+			"hex" : "#868f97",
+			"type" : "hex"
+		},
+		"footer" : {
+			"name" : "Footer Background",
+			"hex" : "#fff",
+			"type" : "hex"
+		},
+		"addressText" : {
+			"name" : "Address Text",
+			"hex" : "#868f97",
+			"type" : "hex"
+		},
+		"copyright" : {
+			"name" : "Copyright Background",
+			"hex" : "#dde0e3",
+			"type" : "hex"
+		},
+		"copyrightText" : {
+			"name" : "Copyright Text",
+			"hex" : "#979b9d",
+			"type" : "hex"
+		}
+	},
+	"comal" : {
+		"sidebar" : {
+			"name" : "Sidebar Background",
+			"hex" : "#222222",
+			"type" : "hex"
+		},
+    "background" : {
+			"name" : "Body Background",
+			"hex" : "#fffbf1",
+			"type" : "hex"
+		},
+		"text" : {
+			"name" : "Text",
+			"hex" : "#333333",
+			"type" : "hex"
+		},
+		"primary" : {
+			"name" : "Sidebar Links / Icons / Form buttons",
+			"hex" : "#21786c",
+			"type" : "hex"
+		},
+		"nav" : {
+			"name" : "Navigation",
+			"hex" : "#eeeeee",
+			"type" : "hex"
+		},
+    "primaryHover" : {
+			"name" : "Navigation / Links : Hover",
+			"hex" : "#cbb370",
+			"type" : "hex"
+		},
+		"secondary" : {
+			"name" : "Body Links / Other Buttons",
+			"hex" : "#910000",
+			"type" : "hex"
+		},
+		"secondaryHover" : {
+			"name" : "Body Links / Other Buttons : Hover",
+			"hex" : "#450000",
+			"type" : "hex"
+		},
+		"copyrightText" : {
+			"name" : "Copyright Text",
+			"hex" : "#555555",
+			"type" : "hex"
+		}
+	},
+	"roma" : {
+		"primary" : {
+			"name" : "Links / Tooltip Background / Promotiles",
+			"hex" : "#20b2aa",
+			"type" : "hex"
+		},
+		"primaryHover" : {
+			"name" : "Links : Hover",
+			"hex" : "#23527c",
+			"type" : "hex"
+		}
+	}
+}

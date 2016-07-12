@@ -1,0 +1,146 @@
+<info course="course" class="col-md-12"></info>
+<div class="col-md-12 sub-menu">
+    <div class="col-md-4">
+        <a href="#/course" class="btn btn-dark">
+            << Back to Site Info</a>
+    </div>
+    <div class="col-md-4 text-center"><a href="#" class="btn btn-danger col-md-12" ng-show="nav.output" data-toggle="modal" data-target="#navCode">Navigation Code</a>
+    </div>
+    <div class="col-md-4 text-right"><a href="#/pages" class="btn btn-success">Create Pages >></a>
+    </div>
+</div>
+<!-- Input -->
+<div class="col-md-3 text-center">
+    <h4>Input Navigation Code Here</h4>
+    <small>(<a href="" ng-click="example()">load example</a>)</small>
+    <textarea name="navigation" id="nav-input" class="form-control" ng-model="nav.input" ng-change="setNav()"></textarea>
+    <br />
+    <div id="template-error" class="alert alert-danger error" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <p></p>
+    </div>
+    <button type="button" name="loadfilters" class="btn btn-primary" ng-click="loadfilters()">Load into Filters</button>
+    <button type="button" name="generate-nav" class="btn btn-default" ng-class="nav.filters.navigation ? 'btn-danger' : 'disabled'" ng-click="commitNav()">Generate</button>
+
+</div>
+
+<!-- Output -->
+<div class="col-md-9">
+
+    <!-- Filters Module -->
+    <div class="col-md-8" id="filters" ng-show="nav.filters.navigation">
+        <h4>Filters</h4>
+        <div class="col-md-12">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#tab1">Loaded Filter</a>
+                </li>
+                <li><a data-toggle="tab" href="#tab2">Filter Templates</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="tab1" class="tab-pane fade in active">
+                    <ul class="set-filters" class="list-group">
+                        <li ng-repeat="filter in nav.filters.navigation">
+                            <input type="text" ng-model="filter.title" class="list-group-item nav-title-title">
+                            <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+                            <input type="text" ng-model="filter.page" class="list-group-item nav-title-page"> <span ng-click="deleteNavRow()" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            <ul class="set-filters" ng-if="filter.subtitle">
+                                <li ng-repeat="sfilter in filter.subtitle">
+                                    <span ng-click="deleteNavRow()" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                    <input type="text" ng-model="sfilter.title" class="list-group-item nav-title-title">
+                                    <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+                                    <input type="text" ng-model="sfilter.page" class="list-group-item nav-title-page">
+                                    <ul class="set-filters" ng-if="sfilter.subtitle">
+                                        <li ng-repeat="ssfilter in sfilter.subtitle">
+                                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                            <span ng-click="deleteNavRow()" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                            <input type="text" ng-model="ssfilter.title" class="list-group-item nav-title-title">
+                                            <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+                                            <input type="text" ng-model="ssfilter.page" class="list-group-item nav-title-page">
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div id="tab2" class="tab-pane fade">
+                    <input type="radio" name="filter-template" value="golf" checked> Golf
+                    <input type="radio" name="filter-template" value="restaurant"> Restaurant
+                    <hr />
+                    <input type="checkbox" name="filter-template" value="palmer_advantage"> Palmer Advantage
+                    <input type="checkbox" name="filter-template" value="new_era"> New Era
+                    <hr />
+                    <button type="button" name="filter-apply" class="btn btn-primary">Apply Filter Templates</button>
+                    <button type="button" name="filter-edit" class="btn btn-default" data-toggle="modal" data-target="#editFilters">Edit Filter Templates</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pages to Add -->
+    <div class="col-md-4" id="pages" ng-show="nav.filters.pages">
+        <h4>Pages to Add</h4>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="zero-clipboard">
+                    <span class="btn-clipboard" id="copy-pages">Copy</span>
+                </div>
+                <textarea class="form-control" id="page-output" ng-model="sortPages"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 pull-right">
+        <coursetype-options></coursetype-options>
+        <br>
+        <template-options></template-options>
+    </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="navCode" tabindex="-1" role="dialog" aria-labelledby="ncode">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="ncode">Navigation Code</h4>
+            </div>
+            <div class="modal-body">
+                <div class="zero-clipboard">
+                    <span class="btn-clipboard" id="copy-navigation">Copy</span>
+                </div>
+                <figure class="highlight">
+                    <pre>
+      <code class="language-html" data-lang="html">
+      <textarea id="nav-output" ng-model="nav.output"></textarea>
+      </code>
+    </pre>
+                </figure>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editFilters" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Edit Filters</h4>
+            </div>
+            <div class="modal-body">
+                Not yet implemented.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

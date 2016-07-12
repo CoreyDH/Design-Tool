@@ -1,0 +1,154 @@
+<style>
+	.template-header {
+		background-color: [[colors[course.template].primary.hex]];
+	}
+	.template-top, .template-copyright {
+		height: 46px;
+		width: 100%;
+		position: relative;
+		z-index: 9999;
+		padding: 8px;
+		background-color: [[colors[course.template].primary.hex]];
+	}
+	.template-footer {
+		background-color:[[colors[course.template].tertiary.hex]];
+	}
+	.address {
+		padding:15px;
+		color: [[colors[course.template].footerText.hex]];
+	}
+	.btn-contrast {
+		background-color: [[colors[course.template].secondary.hex]];
+		border-color: [[colors[course.template].secondary.hex]];
+		background-image: none;
+		color: white;
+	}
+	.btn-contrast:hover, .btn-contrast:focus {
+		background-color: [[colors[course.template].secondaryHover.hex]];
+		border-color: [[colors[course.template].secondaryHover.hex]];
+		color: white;
+	}
+
+	.template-body a, .template-footer a {
+		color: [[colors[course.template].secondary.hex]];
+	}
+	.template-body a:hover {
+		color: [[colors[course.template].secondaryHover.hex]];
+	}
+	.template-body p, .template-copyright p {
+		color: [[colors[course.template].p.hex]];
+	}
+	.template-body h1, .template-body h2, .template-body h3 {
+		color: [[colors[course.template].tertiary.hex]];
+	}
+	.template-body .glyphicon, .template-footer .glyphicon {
+		color: [[colors[course.template].secondary.hex]];
+	}
+
+	.template-nav {
+		background-color: rgba(0, 0, 0, 0.3);
+		min-height: 90px;
+    margin: 0;
+    border-bottom: 1px solid;
+    border-color: rgba(255, 255, 255, 0.25);
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+	}
+
+	.nav, .nav ul {
+		float:right;
+		list-style:none;
+		padding: 0;
+    margin: 0;
+	}
+
+	.nav li {
+		float:left;
+	}
+
+	.nav li a {
+		margin-top: 1px;
+    padding: 0 15px;
+    background-color: transparent;
+    border: none;
+		border-color: rgba(255, 255, 255, 0.1);
+	}
+
+	.nav li a:hover {
+		text-decoration:none;
+	}
+
+	.nav li a > span {
+		color: white;
+		height: 90px;
+		border-bottom: 3px solid transparent;
+		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	.nav li a > span:hover {
+		border-bottom-color: [[colors[course.template].secondary.hex]];
+	}
+
+	#tlogo {
+		margin: 20px 0px;
+		max-width: 200px;
+		max-height: 50px;
+	}
+</style>
+	<div class="template-header col-md-12">
+		<div class="row">
+			<div class="col-md-12 template-top">
+				<a class="btn btn-contrast btn-sm pull-right">
+					Book a Tee Time
+				</a>
+				<a class="btn btn-contrast btn-sm pull-right">
+					Tee Time Specials
+				</a>
+			</div>
+			<div class="col-md-12 template-nav">
+				<img id="tlogo" ng-src="[[templatelogo || 'https://www.coursetrends.com/golf/designs/zilker/images/design/logo.png']]" />
+				<div class="nav">
+					<ul>
+						<li><a href="#"><span>Home</span></a></li>
+						<li><a href="#"><span>Course</span></a></li>
+						<li><a href="#"><span>Events</span></a></li>
+						<li><a href="#"><span>Contact</span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="col-md-12 template-body">
+		<h1>Header 1</h1>
+		<h2>Header 2</h2>
+		<h3>Header 3</h3>
+		<span style="font-size:50px;" class="glyphicon glyphicon-bookmark"></span>
+		<span style="font-size:50px;" class="glyphicon glyphicon-camera"></span>
+		<span style="font-size:50px;" class="glyphicon glyphicon-hdd"></span><br />
+		<p>
+			Lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in <a href="#">voluptate</a> velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui <a href="#">officia</a> deserunt mollit anim id est laborum.
+		</p>
+	</div>
+	<div class="col-md-12 template-footer">
+		<div class="row">
+			<div class="address">
+				<p>
+				Blackhawk Golf Club<br />
+				<span class="glyphicon glyphicon-road"></span> 2714 Kelly Lane<br />
+				<span class="glyphicon glyphicon-plane"></span> Pflugerville, TX 78660<br />
+				<span class="glyphicon glyphicon-phone"></span> 512-251-9000<br />
+				<span class="glyphicon glyphicon-link"></span> www.blackhawk.com<br />
+				<span class="glyphicon glyphicon-envelope"></span> coursemail@email.com</p>
+			</div>
+			<div class="col-md-12 template-copyright">
+				<p class="copyright">
+				  Copyright &#169; 2016. All Rights Reserved. Powered by <a href="#">Manalith.net</a>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>

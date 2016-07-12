@@ -1,0 +1,131 @@
+{
+	"golf" : {
+		"default" : [
+			{
+				"filename" : ["index_tpl.htm"],
+				"folder" : "",
+				"handlebar" : ["index"]
+			},
+			{
+				"filename" : ["facilities_tpl.htm", "fck_one.htm"],
+				"folder" : "facilities",
+				"handlebar" : ["facilities", "facilities1"]
+			},
+			{
+				"filename" : ["tournaments_tpl.htm", "fck_one.htm"],
+				"folder" : "tournaments",
+				"handlebar" : ["tournaments", "tournaments1"]
+			},
+			{
+				"filename" : ["home_tpl.htm", "fck_one.htm"],
+				"folder" : "home",
+				"handlebar" : ["home", "home1"]
+			},
+			{
+				"filename" : ["course_tpl.htm", "fck_one.htm"],
+				"folder" : "course",
+				"handlebar" : ["course", "course1"]
+			},
+			{
+				"filename" : ["contact_tpl.htm", "fck_one.htm"],
+				"folder" : "contact",
+				"handlebar" : ["contact", "contact1"]
+			}
+		],
+
+		"diamond" : [
+			{
+				"filename" : ["fck_two.htm", "fck_three.htm"],
+				"folder" : "facilities",
+				"handlebar" : ["facilities2", "facilities3"]
+			},
+			{
+				"filename" : ["topbar.php", "slideshow.php"],
+				"folder" : "includes",
+				"handlebar" : ["topbar", "slideshow"]
+			}
+		],
+		"fairway" : [
+			{
+				"filename" : ["footer_tpl.htm", "fck_one.htm", "fck_two.htm"],
+				"folder" : "footer",
+				"handlebar" : ["footer", "footer1", "footer2"]
+			},
+			{
+				"filename" : ["slideshow.php"],
+				"folder" : "includes",
+				"handlebar" : ["slideshow"]
+			}
+		],
+		"lapis" : [
+			{
+				"filename" : ["fck_two.htm"],
+				"folder" : "course",
+				"handlebar" : ["course2"]
+			},
+			{
+				"filename" : ["footer.php", "top-bar.php"],
+				"folder" : "includes",
+				"handlebar" : ["footer", "topbar"]
+			}
+		],
+		"topaz" : [
+			{
+				"filename" : ["fck_two.htm"],
+				"folder" : "home",
+				"handlebar" : ["home2"]
+			},
+			{
+				"filename" : ["top-bar.php"],
+				"folder" : "includes",
+				"handlebar" : ["topbar"]
+			}
+		],
+		"zilker" : [
+			{
+				"filename" : ["fck_two.htm"],
+				"folder" : "course",
+				"handlebar" : ["course2"]
+			},
+			{
+				"filename" : ["fck_two.htm", "fck_three.htm"],
+				"folder" : "contact",
+				"handlebar" : ["contact2", "contact3"]
+			},
+			{
+				"filename" : ["slideshow.php"],
+				"folder" : "includes",
+				"handlebar" : ["slideshow"]
+			}
+		]
+	},
+
+	"restaurant" : {
+		"default" : [
+			{
+				"filename" : ["contact_tpl.htm","fck_one.htm"],
+				"folder" : "contact",
+				"handlebar" : ["contact","contact1"]
+			}
+		],
+		"roma" : [
+			{
+				"filename" : ["reservations_tpl.htm","fck_one.htm"],
+				"folder" : "reservations",
+				"handlebar" : ["reservations","reservations1"]
+			},
+			{
+				"filename" : ["footer.php"],
+				"folder" : "includes",
+				"handlebar" : ["footer"]
+			}
+		],
+		"zilker" : [
+			{
+				"filename" : ["fck_two.htm", "fck_three.htm"],
+				"folder" : "contact",
+				"handlebar" : ["contact2", "contact3"]
+			}
+		]
+	}
+}

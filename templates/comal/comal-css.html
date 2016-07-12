@@ -1,0 +1,203 @@
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,300,300italic,700italic" rel="stylesheet" type="text/css">
+
+<style>
+  .template-left {
+    background-color: [[colors[course.template].sidebar.hex]];
+    height: 100%;
+    font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  .template-body {
+    color: [[colors[course.template].text.hex]];
+    background-color: [[colors[course.template].background.hex]];
+    font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding-top: 2em;
+  }
+
+  .template-left a {
+    color: [[colors[course.template].primary.hex]];
+  }
+
+  .template-left a:hover {
+    color: [[colors[course.template].primaryHover.hex]];
+    text-decoration: underline;
+  }
+
+  .nav {
+    text-align:center;
+  }
+
+  .nav ul {
+    width: 100%;
+    text-align: center;
+    font-weight: 100;
+    text-transform: uppercase;
+    position: relative;
+    display: block;
+    padding:0;
+  }
+
+  .nav li {
+    list-style: none;
+  }
+
+  .nav li a {
+    display: block;
+    padding: .25em 0;
+    color: [[colors[course.template].nav.hex]];
+    text-shadow: none;
+    text-decoration: none;
+    float: none;
+  }
+
+  .nav li a:first {
+    color: [[colors[course.template].primaryHover.hex]];
+  }
+
+  .nav li a:hover {
+    color: [[colors[course.template].primaryHover.hex]];
+    text-decoration: none;
+  }
+
+  .nav img {
+    width: 100%;
+    padding: 0;
+    margin: 2em 0;
+    text-align: center;
+  }
+
+  .social {
+    margin-top: 25px;
+  }
+
+  .social-links {
+    margin-left: 0;
+    list-style: none;
+  }
+
+  .social-links li {
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .social-links li a {
+    background: [[colors[course.template].primary.hex]];
+    color: #fff;
+    display: block;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .social-links li a:hover {
+    background-color: [[colors[course.template].primaryHover.hex]];
+    color: #222222;
+    text-decoration: none;
+  }
+
+  .copyright {
+    font-size: 90%;
+    color: [[colors[course.template].copyrightText.hex]];
+  }
+
+  .template-body h1, .template-body h2, .template-body h3 {
+    line-height: 1.2em;
+    margin: 0;
+    font-weight: 100;
+    margin-bottom: .5em;
+    text-transform: uppercase;
+    font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: inherit;
+    text-rendering: optimizelegibility;
+  }
+
+  .template-body a {
+    color: [[colors[course.template].secondary.hex]];
+    text-decoration: none;
+  }
+
+  .template-body a:hover {
+    color: [[colors[course.template].secondaryHover.hex]];
+    text-decoration: underline;
+  }
+
+  .template-body input[type="submit"] {
+    background: [[colors[course.template].primary.hex]];
+    color: #fff;
+    margin-top: 5px;
+    width: 202px;
+    padding: 6px 8px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+  }
+
+  .btn-default {
+    background-color: [[colors[course.template].secondary.hex]];
+    color: #fff !important;
+    margin: 10px 1px;
+    border: none;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    text-shadow: none;
+    padding: .5em 2em;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -o-transition: 0.25s;
+    transition: 0.25s;
+    text-transform: uppercase;
+  }
+
+  .btn-default:hover {
+    background-color: [[colors[course.template].secondaryHover.hex]];
+    color: #ffffff;
+    text-decoration: none !important;
+  }
+</style>
+
+<div class="col-md-3 template-left">
+  <div class="nav">
+  <img ng-src="[[templatelogo || 'https://www.coursetrends.com/golf/designs/comal/images/design/logo.png']]" />
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Course</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a href="#">Facilities</a></li>
+      <li><a href="#">Online Store</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+  <div class="social">
+    <ul class="social-links">
+      <li><a class="glyphicon glyphicon-map-marker"></a></li>
+      <li><a class="glyphicon glyphicon-envelope"></a></li>
+    </ul>
+    <p class="copyright">Copyright © 2016 <a href="#">Manalith</a>.<br>All Rights Reserved.</p>
+  </div>
+</div>
+
+<div class="col-md-9 template-body">
+  <h1>Header 1</h1>
+  <h2>Header 2</h2>
+  <h3>Header 3</h3>
+
+  <a class="btn btn-default btn-large">Book a Tee Time</a>
+  <a class="btn btn-default btn-large">Tee Time Specials</a><br />
+
+  <input type="submit" value="Submit">
+
+  <p>
+    Lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in <a href="#">voluptate</a> velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui <a href="#">officia</a> deserunt mollit anim id est laborum.
+  </p>
+</div>
+<div class="clear"></div>

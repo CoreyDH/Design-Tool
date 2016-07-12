@@ -1,0 +1,4 @@
+<h4><small><span class="glyphicon glyphicon-exclamation-sign" style="color:red" ng-show="!course.template"></span>Currently Selected Template</small></h4>
+<select class="form-control" id="course-template" ng-model="course.template" ng-options="t|uppercase for t in toption | orderBy track by t" ng-required="required">
+  <option value="">Choose One</option>
+</select>

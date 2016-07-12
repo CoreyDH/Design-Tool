@@ -1,0 +1,134 @@
+<?php
+
+$path=$_SERVER[SCRIPT_FILENAME]; $parts=split("/",$path); if ($_SERVER[HTTP_HOST] == "coursetrends.com") { $location=$parts[7]; } elseif ($_SERVER[HTTP_HOST] == "www.coursetrends.com") { $location=$parts[7]; } else { $location=$parts[7];}
+
+$location="/golf/proto/$location"; ?>
+<div class="rev-slider-full">
+	<div class="rev-slider-banner-full  rev-slider-full">
+		<ul>
+			<li data-transition="fade" data-slotamount="14">
+				<img src="<?php echo $location?>/images/slideshow/slide1.jpg" alt="">
+					<div class="tp-caption big_white large_text lfl" data-x="350" data-y="150" data-start="1500" data-easing="easeOutBack">
+                        {{name}}
+                    </div>
+
+					<div class="tp-caption rev-mid-text lfr"
+                     data-easing="easeOutExpo"
+                     data-start="2000"
+                     data-speed="1350"
+                     data-y="210"
+                     data-x="375">
+                    <i class="icon-ok slide-icon"></i>18 Holes of Magnificent Golf
+                    </div>
+
+					<div class="tp-caption rev-mid-text lfr"
+                     data-easing="easeOutExpo"
+                     data-start="2400"
+                     data-speed="1350"
+                     data-y="250"
+                     data-x="375">
+                    <i class="icon-ok slide-icon"></i>Superb Amenities
+                    </div>
+					<div class="tp-caption rev-mid-text lfr"
+                     data-easing="easeOutExpo"
+                     data-start="2800"
+                     data-speed="1350"
+                     data-y="290"
+                     data-x="375">
+                    <i class="icon-ok slide-icon"></i>Outstanding Service
+					</div>
+					<div class="tp-caption lfl"
+                     data-easing="easeOutExpo"
+                     data-start="3700"
+                     data-speed="1350"
+                     data-y="330"
+                     data-x="375">
+                    <a class="button large button-white" style="width:" href="<?php echo $location; ?>/request_tt/request_tt.htm">Book a Tee Time Online</a>
+					</div>
+            </li>
+			<li data-transition="fade" data-slotamount="0" data-masterspeed="1000">
+				<img src="<?php echo $location?>/images/slideshow/slide2.jpg" alt="">
+					<div class="tp-caption very_big_white large_text lfr" data-x="50" data-y="100" data-start="0" data-easing="easeInOutExpo" data-endeasing="easeOutBack">
+                        Membership
+                    </div>
+					<div class="tp-caption medium_text lfl" data-x="60" data-y="135" data-start="400"
+                    data-easing="easeInOutExpo" data-endeasing="easeOutBack">
+                        at
+                    </div>
+					<div class="tp-caption large_text  lfr" data-x="85" data-y="145" data-start="800"
+                    data-easing="easeInOutExpo" data-endeasing="easeOutBack">
+                        {{name}}
+                    </div>
+					<div class="tp-caption small_text lfl" data-x="85" data-y="200" data-start="1500"
+                    data-easing="easeInOutExpo" data-endeasing="easeOutBack">
+                        <i class="icon-ok-sign"></i> Golf Memberships
+                    </div>
+					<div class="tp-caption small_text lfl" data-x="85" data-y="230" data-start="1900"
+                    data-easing="easeInOutExpo" data-endeasing="easeOutBack">
+                        <i class="icon-ok-sign"></i> Range Programs
+                    </div>
+					<div class="tp-caption small_text lfl" data-x="85" data-y="260" data-start="2300"
+                    data-easing="easeInOutExpo" data-endeasing="easeOutBack">
+                        <i class="icon-ok-sign"></i> FLEX Instruction
+                    </div>
+					<div class="tp-caption lfr"
+                     data-easing="easeOutExpo"
+                     data-start="3000"
+                     data-speed="1350"
+                     data-y="290"
+                     data-x="105">
+                    <a class="button large button-white" style="width:" href="<?php echo $location; ?>/request_membership/request_membership.htm">Learn More</a>
+					</div>
+			</li>
+
+            <li data-transition="papercut" data-slotamount="14">
+                <img src="<?php echo $location?>/images/slideshow/slide3.jpg" alt="">
+					<div class="tp-caption very_big_white large_text lfl" data-x="350" data-y="150" data-start="0" data-easing="easeInOutExpo" data-endeasing="easeOutBack">
+                        Golf Events
+                    </div>
+					<div class="tp-caption medium_text lfr" data-x="370" data-y="185" data-start="500"
+                    data-easing="easeInOutExpo" data-endeasing="easeOutBack">
+                        at
+                    </div>
+					<div class="tp-caption large_text  lfl" data-x="395" data-y="195" data-start="1000"
+                    data-easing="easeInOutExpo" data-endeasing="easeOutBack">
+                        {{name}}
+                    </div>
+					<div class="tp-caption small_text lfr"
+                     data-easing="easeOutExpo"
+                     data-start="1700"
+                     data-speed="1350"
+                     data-y="250"
+                     data-x="375">
+                    <i class="icon-ok slide-icon"></i>Corporate Tournaments
+                    </div>
+
+					<div class="tp-caption small_text lfr"
+                     data-easing="easeOutExpo"
+                     data-start="2100"
+                     data-speed="1350"
+                     data-y="280"
+                     data-x="375">
+                    <i class="icon-ok slide-icon"></i>Fundraising Events
+                    </div>
+					<div class="tp-caption small_text lfr"
+                     data-easing="easeOutExpo"
+                     data-start="2400"
+                     data-speed="1350"
+                     data-y="310"
+                     data-x="375">
+                    <i class="icon-ok slide-icon"></i>Golf Groups of Any Size
+					</div>
+					<div class="tp-caption lfl"
+                     data-easing="easeOutExpo"
+                     data-start="2700"
+                     data-speed="1350"
+                     data-y="340"
+                     data-x="395">
+                    <a class="button large button-white" style="width:" href="<?php echo $location; ?>/tournaments/tournaments.htm">Learn More</a>
+					</div>
+			</li>
+        </ul>
+        <div class="tp-bannertimer tp-bottom"></div>
+    </div>
+</div>

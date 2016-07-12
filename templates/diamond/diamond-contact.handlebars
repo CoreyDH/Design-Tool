@@ -1,0 +1,43 @@
+<div class="banner">
+	<div id="map-canvas"></div>
+</div>
+<section class="main-container">
+<div class="container">
+<div class="row">
+<div class="main col-md-12">			
+	<h1 class="page-title">Contact Us</h1>
+	<div class="separator-2"></div>
+	<div class="main col-md-8">
+	<!--fck--> 
+	fck_one.htm
+
+	<!--form--> 
+	contact_form.htm
+	</div>
+<aside class="col-md-4">
+	<div class="sidebar">
+	<div class="side vertical-divider-left">
+		<h3 class="title">Contact Us</h3>
+	<ul class="list">
+		<li><strong></strong></li>
+		<li><i class="fa fa-home pr-10"></i>{{name}}<br>
+		<span class="pl-20">{{address1}}<br>
+		<span class="pl-20">{{address2}}</span></li>
+		<li><i class="fa fa-phone pr-10"></i><abbr title="Phone">P:</abbr> {{phone}}</li>
+		<li><i class="fa fa-envelope pr-10"></i> {{email}}</a></li>
+	</ul>
+	{{#if social}}
+	<ul class="social-links colored circle large">
+		{{#social}}
+		{{#if link}}
+		<li class="{{icon}}"><a target="_blank" href="{{{link}}}"><i class="fa fa-{{icon}}"></i></a></li>
+		{{/if}}
+		{{/social}}
+	</ul>
+	{{/if}}
+	</div>
+	</aside>
+</div>
+</div>
+</div>
+</section>

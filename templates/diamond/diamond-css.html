@@ -1,0 +1,197 @@
+<style>
+	.header-top {
+		background-color: [[colors[course.template].topbar.hex]];
+		border-bottom: 1px solid [[colors[course.template].topbarBorders.hex]];
+		-webkit-box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.03) inset;
+		box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.03) inset;
+		height:35px;
+	}
+
+	.header-top .social-links li {
+		padding: 3px 10px 2px;
+		border-right: 1px solid [[colors[course.template].topbarBorders.hex]];
+		margin: 0;
+		float:left;
+		list-style: none;
+	}
+
+	.header-top .social-links li:hover {
+		background-color: #fafafa;
+	}
+
+	.header-top .social-links li:last-child {
+		border-right: none;
+	}
+
+	.header-top .social-links li span {
+		border: none;
+		height: 30px;
+		color: [[colors[course.template].topbarIcons.hex]];
+		background-color: transparent;
+		border-color: transparent;
+	}
+
+	.header-title {
+		padding: 20px 10px;
+    border-bottom: 1px solid [[colors[course.template].topbarBorders.hex]];
+		background-color: [[colors[course.template].header.hex]];
+		line-height:70px;
+	}
+
+	#tlogo {
+		max-height: 70px;
+		max-width: 250px;
+		margin-left: 15px;
+	}
+
+	.address {
+		padding:15px;
+	}
+
+	.address, .copyright {
+		color: [[colors[course.template].footerText.hex]];
+	}
+
+	.template-body a, .template-footer a {
+		color: [[colors[course.template].primary.hex]];
+	}
+
+	.template-body a:hover {
+		color: [[colors[course.template].primaryHover.hex]];
+	}
+
+	.template-body p {
+		color: [[colors[course.template].text.hex]];
+	}
+
+	.template-body h1, .template-body h2, .template-body h3 {
+		color: [[colors[course.template].headers.hex]];
+	}
+
+	.bannertimer {
+		height:10px;
+		background-color: [[colors[course.template].timer.rgba]];
+	}
+
+	.template-body .btn {
+    padding: 10px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    min-width: 160px;
+    text-align: center;
+    border-radius: 0;
+    text-transform: uppercase;
+    margin: 10px 0;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+	}
+
+	.template-body .btn-default {
+		background-color: [[colors[course.template].primary.hex]];
+		color: #fff !important;
+		border-color: [[colors[course.template].primaryHover.hex]];
+	}
+
+	.template-body .btn-default:hover {
+		background-color: [[colors[course.template].primaryHover.hex]];
+		color: #fff !important;
+		border-color: [[colors[course.template].primaryHover.hex]];
+	}
+
+	.template-footer {
+		padding: 5px 0 0;
+    background-color: [[colors[course.template].footer.hex]];
+    border-top: 1px solid [[colors[course.template].footer.hex]];
+    border-bottom: 1px solid [[colors[course.template].footer.hex]];
+		color: #999999;
+	}
+
+	.template-copyright {
+		padding: 10px 10px;
+    background-color: [[colors[course.template].copyright.hex]];
+	}
+
+	.nav {
+		float:right;
+	}
+
+	.nav li {
+		list-style:none;
+		float:left;
+	}
+
+	.nav li a {
+    color: [[colors[course.template].nav.hex]];
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 10px;
+    border: 1px solid transparent;
+		list-style:none;
+	}
+
+	.nav li a:hover {
+    text-decoration: none;
+	}
+
+</style>
+
+	<div class="col-md-12 template-top">
+		<div class="row">
+			<div class="header-top">
+				<ul class="social-links">
+					<li><span style="font-size:15px;line-height:30px;" class="glyphicon glyphicon-map-marker"></span></li>
+					<li><span style="font-size:15px;line-height:30px;" class="glyphicon glyphicon-envelope"></span></li>
+					<li><span style="font-size:15px;line-height:30px;" class="glyphicon glyphicon-search"></span></li>
+					<li><span style="font-size:15px;line-height:30px;" class="glyphicon glyphicon-star"></span></li>
+					<li><span style="font-size:15px;line-height:30px;" class="glyphicon glyphicon-th-large"></span></li>
+				</ul>
+			</div>
+			<div class="header-title">
+				<img id="tlogo" ng-src="[[templatelogo || 'https://www.coursetrends.com/golf/designs/diamond/images/design/logo.png']]" />
+				<div class="nav">
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Course</a></li>
+						<li><a href="#">Events</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="bannertimer"></div>
+	  </div>
+  </div>
+	<div class="col-md-12 template-body">
+		<h1>Header 1</h1>
+		<h2>Header 2</h2>
+		<h3>Header 3</h3>
+
+		<a class="btn btn-default">Book a Tee Time</a>
+		<a class="btn btn-default">Tee Time Specials</a>
+
+		<p>
+			Lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in <a href="#">voluptate</a> velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui <a href="#">officia</a> deserunt mollit anim id est laborum.
+		</p>
+	</div>
+	<div class="col-md-12 template-footer">
+
+			<div class="address">
+				<p>
+				Blackhawk Golf Club<br />
+				2714 Kelly Lane<br />
+				Pflugerville, TX 78660<br />
+				512-251-9000<br />
+				www.blackhawk.com<br />
+				coursemail@email.com</p>
+			</div>
+			<div class="col-md-12 template-copyright">
+				<p class="copyright">
+				  Copyright &#169; 2016. All Rights Reserved. Powered by <a href="#">Manalith.net</a>
+				</p>
+			</div>
+
+	</div>
+	<div class="clear"></div>
