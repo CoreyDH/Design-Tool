@@ -81,7 +81,7 @@ module.exports = function(grunt){
     uglify: {
       vendor: {
         files: {
-          'dist/js/vendor.js': ['bower_components/jquery/dist/jquery.js', 'bower_components/angular/angular.js', 'bower_components/angular-ui-router/release/angular-ui-router.js', 'bower_components/bootstrap/src/js/bootstrap.js', 'bower_components/sweetalert/dist/sweetalert.min.js', 'bower_components/Blob.js/Blob.js', 'bower_components/canvas-toBlob.js/canvas-toBlob.js', 'bower_components/FileSaver.js/FileSaver.js', 'bower_components/jszip/dist/jszip.js', 'bower_components/jquery-zclip/jquery.zclip.js', 'bower_components/handlebars/handlebars.js', 'bower_components/Croppie/croppie.js', 'bower_components/angular-bootstrap-colorpicker/js/bootstrap-colorpicker-module.js', 'bower_components/color-thief/dist/color-thief.min.js', 'js/php.js'],
+          'dist/js/vendor.js': ['bower_components/jquery/dist/jquery.js', 'bower_components/angular/angular.js', 'bower_components/angular-ui-router/release/angular-ui-router.js', 'bower_components/bootstrap/dist/js/bootstrap.js', 'bower_components/sweetalert/dist/sweetalert.min.js', 'bower_components/Blob.js/Blob.js', 'bower_components/canvas-toBlob.js/canvas-toBlob.js', 'bower_components/FileSaver.js/FileSaver.js', 'bower_components/jszip/dist/jszip.js', 'bower_components/jquery-zclip/jquery.zclip.js', 'bower_components/handlebars/handlebars.js', 'bower_components/Croppie/croppie.js', 'bower_components/angular-bootstrap-colorpicker/js/bootstrap-colorpicker-module.js', 'bower_components/color-thief/dist/color-thief.min.js', 'js/php.js'],
         }
       },
       scripts: {
