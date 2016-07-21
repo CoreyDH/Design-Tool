@@ -42,6 +42,4 @@ designtool.config(['$stateProvider','$urlRouterProvider','$interpolateProvider',
       templateUrl: 'views/headers/headers.html',
       controller: 'headersCtrl',
     });
-
-
 }]);

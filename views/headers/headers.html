@@ -5,17 +5,26 @@
 </div>
 <div class="col-md-12 images">
   <div class="email-bg croppie-container">
-		<div class="email-logo">
-			<img src="https://www.coursetrends.com/golf/designs/comal/images/design/logo.png" />
+		<div class="logo" id="email-logo">
+			<img ng-src="[[headerLogo || 'https://www.coursetrends.com/golf/designs/comal/images/design/logo.png']]" />
 		</div>
 		<div class="email-address">
 			2714 Kelly Lane • Pflugerville, TX 78660 • 512-251-9000
 		</div>
   </div>
-
-	<input class="btn btn-primary pull-left upload" type="file" value="Upload" accept="image/*" ng-model="upload" />
-<br><br>
-	<canvas id="bg"></canvas>
-	<canvas id="logo"></canvas>
-	<canvas id="address">2714 Kelly Lane • Pflugerville, TX 78660 • 512-251-9000</canvas>
+	<div class="col-md-12 uploads">
+		<input class="btn btn-primary pull-left upload-email-bg" type="file" value="Upload" accept="image/*" />
+		<input class="btn btn-primary pull-left upload-email-logo" type="file" value="Upload" accept="image/*" />
+		<a class="btn btn-default pull-right img-result" ng-click="preview()"><span class="glyphicon glyphicon-eye-open"></span></a>
+	</div>
+	<br /><br />
+	<div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
+	[[max]]
+	<br /><br />
+	<div class="canvases">
+		<canvas id="email-canvas"></canvas><br />
+		<canvas id="email-bg-canvas"></canvas><br />
+		<canvas id="email-logo-canvas"></canvas><br />
+		<canvas id="email-address-canvas"></canvas>
+	</div>
 </div>

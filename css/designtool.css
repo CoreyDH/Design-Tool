@@ -279,14 +279,27 @@ version:hover {
 /* -- */
 
 /* Headers */
+.logo {
+  border:1px solid rgba(255,255,255,0);
+}
+.logo:hover {
+  border:1px solid rgba(0,0,0,0.5);
+}
 .email-bg {
   position:relative;
 }
-.email-logo {
+.email-bg .cr-viewport {
+  border: 2px solid #505050;
+}
+#email-logo {
   position:absolute;
   top:55px;
   left:500px;
   z-index:999;
+}
+#email-logo img {
+  -webkit-filter: drop-shadow(0px 1px 1px rgba(0,0,0,1));
+  filter: drop-shadow(0px 1px 1px rgba(0,0,0,1));
 }
 .email-address {
   position:absolute;
