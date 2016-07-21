@@ -276,3 +276,24 @@ version:hover {
 	border:5px dashed #CCC;
 	min-height:300px;
 }
+/* -- */
+
+/* Headers */
+.email-bg {
+  position:relative;
+}
+.email-logo {
+  position:absolute;
+  top:55px;
+  left:500px;
+  z-index:999;
+}
+.email-address {
+  position:absolute;
+  top:170px;
+  left:380px;
+  z-index:999;
+  color:#fff;
+  font-weight:bold;
+  font-size:15px;
+}

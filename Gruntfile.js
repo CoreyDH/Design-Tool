@@ -86,7 +86,7 @@ module.exports = function(grunt){
       },
       scripts: {
         files: {
-          'dist/js/scripts.js': ['src/js/designtool.js', 'src/js/mainServices.js', 'src/js/mainDirectives.js', 'src/js/courseCtrl.js', 'src/js/courseSvc.js', 'src/js/navCtrl.js', 'src/js/navSvc.js', 'src/js/pagesCtrl.js', 'src/js/pagesSvc.js', 'src/js/imgCtrl.js', 'src/js/imgSvc.js', 'src/js/cssCtrl.js', 'src/js/cssSvc.js']
+          'dist/js/scripts.js': ['src/js/*.js']
         }
       }
     },

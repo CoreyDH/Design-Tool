@@ -101,7 +101,6 @@ angular.module('designtool')
 
     base_image.onload = function(){
       var canvas = document.getElementById("hiddencanvas");
-      //var params = $scope.imageTemplate[$scope.course.template][index];
 
       canvas.width = params.width;
       canvas.height = params.height;

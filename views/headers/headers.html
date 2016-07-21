@@ -1,0 +1,21 @@
+<info course="course" class="col-md-12"></info>
+<div class="col-md-12 sub-menu">
+	<div class="col-md-4"><a href="#/css" class="btn btn-purple"><< Back to CSS</a></div>
+	<div class="col-md-4 text-center"><a class="btn btn-danger col-md-12" ng-click="exportAll()">Export All Images</a></div>
+</div>
+<div class="col-md-12 images">
+  <div class="email-bg croppie-container">
+		<div class="email-logo">
+			<img src="https://www.coursetrends.com/golf/designs/comal/images/design/logo.png" />
+		</div>
+		<div class="email-address">
+			2714 Kelly Lane • Pflugerville, TX 78660 • 512-251-9000
+		</div>
+  </div>
+
+	<input class="btn btn-primary pull-left upload" type="file" value="Upload" accept="image/*" ng-model="upload" />
+<br><br>
+	<canvas id="bg"></canvas>
+	<canvas id="logo"></canvas>
+	<canvas id="address">2714 Kelly Lane • Pflugerville, TX 78660 • 512-251-9000</canvas>
+</div>

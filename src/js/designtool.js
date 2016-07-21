@@ -36,6 +36,11 @@ designtool.config(['$stateProvider','$urlRouterProvider','$interpolateProvider',
       url: '/css',
       templateUrl: 'views/css/css.html',
       controller: 'cssCtrl',
+    })
+    .state('headers', {
+      url: '/headers',
+      templateUrl: 'views/headers/headers.html',
+      controller: 'headersCtrl',
     });
 
 
