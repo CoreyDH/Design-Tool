@@ -3,7 +3,7 @@ angular.module('CacheService', ['ng'])
     return $cacheFactory('CacheService');
 });
 
-var designtool = angular.module('designtool',['ui.router','CacheService','colorpicker.module','ui-rangeSlider']);
+var designtool = angular.module('designtool',['ui.router','CacheService','colorpicker.module','rzModule']);
 
 designtool.config(['$stateProvider','$urlRouterProvider','$interpolateProvider', function($stateProvider,$urlRouterProvider,$interpolateProvider) {
 

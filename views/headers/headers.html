@@ -1,30 +1,55 @@
 <info course="course" class="col-md-12"></info>
 <div class="col-md-12 sub-menu">
 	<div class="col-md-4"><a href="#/css" class="btn btn-purple"><< Back to CSS</a></div>
-	<div class="col-md-4 text-center"><a class="btn btn-danger col-md-12" ng-click="exportAll()">Export All Images</a></div>
+	<div class="col-md-4 text-center"><a class="btn btn-danger col-md-12" ng-click="exportAll()">Export All Headers</a></div>
 </div>
-<div class="col-md-12 images">
-  <div class="email-bg croppie-container">
-		<div class="logo" id="email-logo">
-			<img ng-src="[[headerLogo || 'https://www.coursetrends.com/golf/designs/comal/images/design/logo.png']]" />
+<div class="col-md-12 headers">
+
+	<div class="col-md-12 uploads">
+		<div class="col-md-4 text-center">
+			<h3><small>Upload Logo</small></h3>
+			<input class="btn btn-primary upload-logo" type="file" value="Upload" accept="image/*" />
 		</div>
-		<div class="email-address">
+		<div class="col-md-4 text-center">
+			<h3><small>Upload Background</small></h3>
+			<input class="btn btn-primary upload-bg" type="file" value="Upload" accept="image/*" />
+		</div>
+		<div class="col-md-4 text-center">
+			<h3><small>Gradient Colors</small></h3>
+			<div colorpicker="hex" colorpicker-size="150" colorpicker-with-input="true" ng-model="params.coupon.color1" class="palette-box pull-left" ng-style="{ background : params.coupon.color1 }"></div>
+			<div colorpicker="hex" colorpicker-size="150" colorpicker-with-input="true" ng-model="params.coupon.color2" class="palette-box pull-left" ng-style="{ background : params.coupon.color2 }"></div>
+		</div>
+	</div>
+
+  <div class="email-bg croppie-container col-md-12">
+		<div class="logo" id="email-logo">
+			<img ng-src="[[headerLogo || 'https://www.coursetrends.com/golf/designs/comal/images/design/logo.png']]" ng-style="logoShadow" />
+		</div>
+		<div id="email-address">
 			2714 Kelly Lane • Pflugerville, TX 78660 • 512-251-9000
 		</div>
   </div>
-	<div class="col-md-12 uploads">
-		<input class="btn btn-primary pull-left upload-email-bg" type="file" value="Upload" accept="image/*" />
-		<input class="btn btn-primary pull-left upload-email-logo" type="file" value="Upload" accept="image/*" />
+
+	<div class="controls">
 		<a class="btn btn-default pull-right img-result" ng-click="preview()"><span class="glyphicon glyphicon-eye-open"></span></a>
+		<a class="btn btn-default pull-right" ng-click="dropShadow()">Toggle Drop Shadow</a>
 	</div>
+
 	<br /><br />
-	<div range-slider min="0" max="100" model-max="max" pin-handle="min"></div>
-	[[max]]
+
+	<div class="shadow-sliders">
+		Offset X: <rzslider rz-slider-model="params.email.logo.shadow.offsetX" rz-slider-options="params.email.logo.shadow.options"></rzslider>
+		Offset Y: <rzslider rz-slider-model="params.email.logo.shadow.offsetY" rz-slider-options="params.email.logo.shadow.options"></rzslider>
+		Blur: <rzslider rz-slider-model="params.email.logo.shadow.blur" rz-slider-options="params.email.logo.shadow.options"></rzslider>
+	</div>
+
+	<div colorpicker="rgba" colorpicker-size="150" ng-model="params.email.logo.shadow.color" class="palette-box pull-left" ng-style="{background : params.email.logo.shadow.color}"></div>
+	<input type="text" colorpicker="rgba" colorpicker-size="150" ng-model="params.email.logo.shadow.color" placeholder="RGBA"/>
 	<br /><br />
 	<div class="canvases">
-		<canvas id="email-canvas"></canvas><br />
-		<canvas id="email-bg-canvas"></canvas><br />
-		<canvas id="email-logo-canvas"></canvas><br />
-		<canvas id="email-address-canvas"></canvas>
+		<canvas id="canvas"></canvas><br />
+		<canvas id="bg-canvas"></canvas><br />
+		<canvas id="logo-canvas"></canvas><br />
+		<canvas id="address-canvas"></canvas>
 	</div>
 </div>

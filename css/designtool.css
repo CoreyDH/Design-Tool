@@ -281,9 +281,15 @@ version:hover {
 /* Headers */
 .logo {
   border:1px solid rgba(255,255,255,0);
+  position:absolute;
+  z-index: 9999;
 }
 .logo:hover {
-  border:1px solid rgba(0,0,0,0.5);
+  border:1px solid rgba(255,255,255,0.5);
+}
+.logo img {
+  max-width:100%;
+  max-height:100%;
 }
 .email-bg {
   position:relative;
@@ -292,16 +298,10 @@ version:hover {
   border: 2px solid #505050;
 }
 #email-logo {
-  position:absolute;
   top:55px;
   left:500px;
-  z-index:999;
 }
-#email-logo img {
-  -webkit-filter: drop-shadow(0px 1px 1px rgba(0,0,0,1));
-  filter: drop-shadow(0px 1px 1px rgba(0,0,0,1));
-}
-.email-address {
+#email-address {
   position:absolute;
   top:170px;
   left:380px;
