@@ -16,40 +16,59 @@
 		</div>
 		<div class="col-md-4 text-center">
 			<h3><small>Gradient Colors</small></h3>
-			<div colorpicker="hex" colorpicker-size="150" colorpicker-with-input="true" ng-model="params.coupon.color1" class="palette-box pull-left" ng-style="{ background : params.coupon.color1 }"></div>
-			<div colorpicker="hex" colorpicker-size="150" colorpicker-with-input="true" ng-model="params.coupon.color2" class="palette-box pull-left" ng-style="{ background : params.coupon.color2 }"></div>
+			<div colorpicker="hex" colorpicker-size="150" colorpicker-with-input="true" ng-model="params.coupon.color1" class="palette-box" ng-style="{ background : params.coupon.color1 }"></div>
+			<div colorpicker="hex" colorpicker-size="150" colorpicker-with-input="true" ng-model="params.coupon.color2" class="palette-box" ng-style="{ background : params.coupon.color2 }"></div>
 		</div>
 	</div>
 
   <div class="email-bg croppie-container col-md-12">
 		<div class="logo" id="email-logo">
-			<img ng-src="[[headerLogo || 'https://www.coursetrends.com/golf/designs/comal/images/design/logo.png']]" ng-style="logoShadow" />
+			<img ng-src="[[headerLogo || 'https://www.coursetrends.com/golf/designs/comal/images/design/logo.png']]" ng-style="applyShadow(params.email.logo.shadow, params.email.logo.shadow.options.disabled)" />
 		</div>
-		<div id="email-address">
+		<div class="address" id="email-address">
 			2714 Kelly Lane • Pflugerville, TX 78660 • 512-251-9000
 		</div>
   </div>
 
 	<div class="controls">
 		<a class="btn btn-default pull-right img-result" ng-click="preview()"><span class="glyphicon glyphicon-eye-open"></span></a>
-		<a class="btn btn-default pull-right" ng-click="dropShadow()">Toggle Drop Shadow</a>
+
 	</div>
 
-	<br /><br />
-
-	<div class="shadow-sliders">
-		Offset X: <rzslider rz-slider-model="params.email.logo.shadow.offsetX" rz-slider-options="params.email.logo.shadow.options"></rzslider>
-		Offset Y: <rzslider rz-slider-model="params.email.logo.shadow.offsetY" rz-slider-options="params.email.logo.shadow.options"></rzslider>
-		Blur: <rzslider rz-slider-model="params.email.logo.shadow.blur" rz-slider-options="params.email.logo.shadow.options"></rzslider>
+	<div class="col-md-5">
+		<a class="btn btn-default" ng-click="dropShadow()">Toggle Logo Shadow</a>
+		<div class="shadow-sliders">
+			<table class="table">
+				<tr>
+					<td>Color</td>
+					<td><div><div colorpicker="rgba" colorpicker-size="150" ng-model="params.email.logo.shadow.color" class="palette-box pull-left" ng-style="{background : params.email.logo.shadow.color}"></div>
+					<input type="text" colorpicker="rgba" colorpicker-size="150" ng-model="params.email.logo.shadow.color" placeholder="RGBA"/></div></td>
+				</tr>
+				<tr>
+					<td>Offset X</td>
+					<td><rzslider rz-slider-model="params.email.logo.shadow.offsetX" rz-slider-options="params.email.logo.shadow.options"></rzslider></td>
+				</tr>
+				<tr>
+					<td>Offset Y</td>
+					<td><rzslider rz-slider-model="params.email.logo.shadow.offsetY" rz-slider-options="params.email.logo.shadow.options"></rzslider></td>
+				</tr>
+				<tr>
+					<td>Blur</td>
+					<td><rzslider rz-slider-model="params.email.logo.shadow.blur" rz-slider-options="{ floor: 0, ceil: 10, showSelectionBar: true }"></rzslider></td>
+				</tr>
+				<tr>
+					<td>Density</td>
+					<td><rzslider rz-slider-model="params.email.logo.shadow.density" rz-slider-options="{ floor: 0, ceil: 10, showSelectionBar: true }"></rzslider></td>
+				</tr>
+			</table>
+		</div>
 	</div>
 
-	<div colorpicker="rgba" colorpicker-size="150" ng-model="params.email.logo.shadow.color" class="palette-box pull-left" ng-style="{background : params.email.logo.shadow.color}"></div>
-	<input type="text" colorpicker="rgba" colorpicker-size="150" ng-model="params.email.logo.shadow.color" placeholder="RGBA"/>
 	<br /><br />
 	<div class="canvases">
 		<canvas id="canvas"></canvas><br />
-		<canvas id="bg-canvas"></canvas><br />
 		<canvas id="logo-canvas"></canvas><br />
-		<canvas id="address-canvas"></canvas>
+		<canvas id="address-canvas"></canvas><br />
+		<canvas id="bg-canvas"></canvas>
 	</div>
 </div>

@@ -25,8 +25,9 @@ angular.module('designtool')
                 offsetX: 0,
                 offsetY: 1,
                 blur: 1,
+                density: 1,
                 color: "rgba(0,0,0,1)",
-                options: { floor: 0, ceil: 10, showSelectionBar: true }
+                options: { floor: -10, ceil: 10, showSelectionBar: true }
               }
             },
             width: 600,
@@ -36,16 +37,25 @@ angular.module('designtool')
 
         $scope.dropShadow = function() {
 
-          if($scope.logoShadow) {
-            $scope.logoShadow = '';
-            $scope.params.email.logo.shadow.options.disabled = true;
-          } else {
-            $scope.logoShadow = applyShadow($scope.params.email.logo.shadow);
-            $scope.params.email.logo.shadow.options.disabled = false;
-          }
+            $scope.params.email.logo.shadow.options.disabled = ( $scope.params.email.logo.shadow.options.disabled ? false : true );
         };
 
+        $scope.$watch('params.email.logo.shadow', function() {
 
+          $scope.applyShadow($scope.params.email.logo.shadow);
+        });
+
+        $scope.applyShadow = function(shadow) {
+
+          if(shadow.options.disabled) {
+            return;
+          } else {
+            return {
+              '-webkit-filter': 'drop-shadow('+shadow.offsetX+'px '+shadow.offsetY+'px '+shadow.blur+'px '+shadow.color+')',
+              'filter': 'drop-shadow('+shadow.offsetX+'px '+shadow.offsetY+'px '+shadow.blur+'px '+shadow.color+')'
+            };
+          }
+        };
 
         $scope.preview = function() {
             cropTool.results(crop).then(function(img) {
@@ -73,10 +83,26 @@ angular.module('designtool')
 
         $('.uploads').delegate('.upload-logo', 'change', function() {
 
+          $('.logo').css({
+            'width' : '',
+            'height' : ''
+          });
+
           readLogo(this, function(img) {
             $scope.$apply(function() {
               $scope.headerLogo = img;
             });
+
+            var dim = getCorrectDim($('.logo img'), $('.cr-viewport'));
+            // console.log(dim);
+
+            $('.logo').css({
+              'width' : dim.width,
+              'height' : dim.height,
+              'top' : '32px',
+              'left' : '257px'
+            });
+
           });
 
         });
@@ -86,27 +112,37 @@ angular.module('designtool')
           cursor: "move"
         }).resizable({
           containment: ".cr-viewport",
-          aspectRatio: true,
-          // resize: function(event, ui) {
-          //
-          //   var container = this;
-          //   var $img = $(this).find('img');
-          //
-          //   if(container.clientWidth > container.clientHeight) {
-          //     $img.css({
-          //       'width' : 'auto',
-          //       'height' : '100%'
-          //     });
-          //   } else {
-          //     $img.css({
-          //       'width' : '100%',
-          //       'height' : 'auto'
-          //     });
-          //   }
-          // }
+          aspectRatio: true
         });
 
         // Service
+        function getCorrectDim($img, $container) {
+
+          var newHeight, newWidth;
+
+          if($img.height() > $container.height()) {
+
+            newHeight = $container.height();
+            newWidth = $img.width()*newHeight / $img.height();
+
+          } else if($img.width() > $container.width()) {
+
+            newWidth = $container.width();
+            newHeight = $img.height()*newWidth / $img.width();
+
+          } else {
+
+            newWidth = $img.width();
+            newHeight = $img.height();
+
+          }
+
+          return {
+            width: newWidth,
+            height: newHeight
+          };
+        }
+
         function plotCanvas() {
           var logo = document.getElementById('logo-canvas');
           var address = document.getElementById('address-canvas');
@@ -118,8 +154,8 @@ angular.module('designtool')
           var context = canvas.getContext('2d');
 
           context.drawImage(bg, 0, 0);
-          context.drawImage(logo, 0, 0);
           context.drawImage(address, 0, 0);
+          context.drawImage(logo, 0, 0);
         }
 
         function readLogo(img, setLogo) {
@@ -153,13 +189,12 @@ angular.module('designtool')
             canvas.height = params.height;
             var context = canvas.getContext('2d');
 
-            //console.log(posX, posY);
-
             // Draw image within
             context.shadowOffsetX = params.logo.shadow.offsetX;
             context.shadowOffsetY = params.logo.shadow.offsetY;
             context.shadowColor = params.logo.shadow.color;
-            context.shadowBlur = params.logo.shadow.blur;
+            context.shadowBlur = params.logo.shadow.blur*2; //Multiplied by 2 to get closest look to webkit shadow
+
             context.drawImage(logo_image, position.posX, position.posY, params.logo.width, params.logo.height);
           };
         }
@@ -188,12 +223,12 @@ angular.module('designtool')
           context.shadowOffsetY = 1;
           context.shadowColor = '#000';
           context.shadowBlur = 2;
-
-          // context.strokeStyle = '#000';
-          // context.lineWidth = 1;
-          // context.strokeText("2714 Kelly Lane • Pflugerville, TX 78660 • 512-251-9000", position.posX, position.posY);
-
           context.font = 'bold 15px sans-serif';
+
+          context.strokeStyle = '#000';
+          context.lineWidth = 1;
+
+          context.strokeText("2714 Kelly Lane • Pflugerville, TX 78660 • 512-251-9000", position.posX+1, position.posY); // Offset X pos by 1
           context.fillText("2714 Kelly Lane • Pflugerville, TX 78660 • 512-251-9000", position.posX, position.posY);
 
         }
@@ -213,13 +248,5 @@ angular.module('designtool')
             context.drawImage(base_image, 0,0);
           };
         }
-
-        function applyShadow(shadow) {
-          return {
-            '-webkit-filter': 'drop-shadow('+shadow.offsetX+'px '+shadow.offsetY+'px '+shadow.blur+'px '+shadow.color+')',
-            'filter': 'drop-shadow('+shadow.offsetX+'px '+shadow.offsetY+'px '+shadow.blur+'px '+shadow.color+')'
-          };
-        }
-
 
     }]);
