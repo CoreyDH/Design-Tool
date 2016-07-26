@@ -45,19 +45,14 @@ angular.module('designtool')
           }
         };
 
-        function applyShadow(shadow) {
-          return {
-            '-webkit-filter': 'drop-shadow('+shadow.offsetX+'px '+shadow.offsetY+'px '+shadow.blur+'px '+shadow.color+')',
-            'filter': 'drop-shadow('+shadow.offsetX+'px '+shadow.offsetY+'px '+shadow.blur+'px '+shadow.color+')'
-          };
-        }
+
 
         $scope.preview = function() {
             cropTool.results(crop).then(function(img) {
               var deferred = $q.defer();
               var logo = $('.logo img').attr('src');
-              $scope.params.email.logo.width = $('.logo img').width();
-              $scope.params.email.logo.height = $('.logo img').height();
+              $scope.params.email.logo.width = document.querySelector('.logo img').width;
+              $scope.params.email.logo.height = document.querySelector('.logo img').height;
 
               plotLogo(logo, $scope.params.email);
               plotAddress();
@@ -83,7 +78,7 @@ angular.module('designtool')
               $scope.headerLogo = img;
             });
           });
-          
+
         });
 
         $('.logo').draggable({
@@ -114,6 +109,7 @@ angular.module('designtool')
         // Service
         function plotCanvas() {
           var logo = document.getElementById('logo-canvas');
+          var address = document.getElementById('address-canvas');
           var bg = document.getElementById('bg-canvas');
           var canvas = document.getElementById('canvas');
 
@@ -123,6 +119,7 @@ angular.module('designtool')
 
           context.drawImage(bg, 0, 0);
           context.drawImage(logo, 0, 0);
+          context.drawImage(address, 0, 0);
         }
 
         function readLogo(img, setLogo) {
@@ -164,7 +161,7 @@ angular.module('designtool')
             context.shadowColor = params.logo.shadow.color;
             context.shadowBlur = params.logo.shadow.blur;
             context.drawImage(logo_image, position.posX, position.posY, params.logo.width, params.logo.height);
-          }
+          };
         }
 
         function getOffset($obj) {
@@ -174,26 +171,31 @@ angular.module('designtool')
           return {
             posX : $obj.offset().left - $container.offset().left,
             posY : $obj.offset().top - $container.offset().top
-          }
+          };
 
         }
 
         function plotAddress(addr) {
           var canvas = document.getElementById("address-canvas");
-          var $address = $('#email-address');
-          var $container = $('.cr-viewport');
+          var position = getOffset($('#email-address'));
 
           canvas.width = 600;
           canvas.height = 175;
           var context = canvas.getContext('2d');
 
-          var posX = $address.offset().left - $container.offset().left;
-          var posY = $address.offset().top - $container.offset().top;
+          context.fillStyle = '#fff';
+          context.shadowOffsetX = 0;
+          context.shadowOffsetY = 1;
+          context.shadowColor = '#000';
+          context.shadowBlur = 2;
 
-          console.log(posX, posY);
+          // context.strokeStyle = '#000';
+          // context.lineWidth = 1;
+          // context.strokeText("2714 Kelly Lane • Pflugerville, TX 78660 • 512-251-9000", position.posX, position.posY);
 
-          context.font = '30px Arial';
-          context.fillText("2714 Kelly Lane • Pflugerville, TX 78660 • 512-251-9000", posX, posY);
+          context.font = 'bold 15px sans-serif';
+          context.fillText("2714 Kelly Lane • Pflugerville, TX 78660 • 512-251-9000", position.posX, position.posY);
+
         }
 
         function plotBG(img, params) {
@@ -209,6 +211,13 @@ angular.module('designtool')
 
             // Draw image within
             context.drawImage(base_image, 0,0);
+          };
+        }
+
+        function applyShadow(shadow) {
+          return {
+            '-webkit-filter': 'drop-shadow('+shadow.offsetX+'px '+shadow.offsetY+'px '+shadow.blur+'px '+shadow.color+')',
+            'filter': 'drop-shadow('+shadow.offsetX+'px '+shadow.offsetY+'px '+shadow.blur+'px '+shadow.color+')'
           };
         }
 
