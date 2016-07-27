@@ -25,9 +25,9 @@ angular.module('designtool')
                 offsetX: 0,
                 offsetY: 1,
                 blur: 1,
-                density: 1,
+                spread: 1,
                 color: "rgba(0,0,0,1)",
-                options: { floor: -10, ceil: 10, showSelectionBar: true }
+                options: { floor: -10, ceil: 10, showSelectionBar: true, disabled: true }
               }
             },
             width: 600,
@@ -40,10 +40,10 @@ angular.module('designtool')
             $scope.params.email.logo.shadow.options.disabled = ( $scope.params.email.logo.shadow.options.disabled ? false : true );
         };
 
-        $scope.$watch('params.email.logo.shadow', function() {
-
-          $scope.applyShadow($scope.params.email.logo.shadow);
-        });
+        // $scope.$watch('params.email.logo.shadow', function() {
+        //
+        //   $scope.applyShadow($scope.params.email.logo.shadow);
+        // });
 
         $scope.applyShadow = function(shadow) {
 
@@ -51,8 +51,8 @@ angular.module('designtool')
             return;
           } else {
             return {
-              '-webkit-filter': 'drop-shadow('+shadow.offsetX+'px '+shadow.offsetY+'px '+shadow.blur+'px '+shadow.color+')',
-              'filter': 'drop-shadow('+shadow.offsetX+'px '+shadow.offsetY+'px '+shadow.blur+'px '+shadow.color+')'
+              '-webkit-filter': 'url(#logo-filter)',
+              'filter': 'url(#logo-filter)'
             };
           }
         };
@@ -98,9 +98,7 @@ angular.module('designtool')
 
             $('.logo').css({
               'width' : dim.width,
-              'height' : dim.height,
-              'top' : '32px',
-              'left' : '257px'
+              'height' : dim.height
             });
 
           });
@@ -113,6 +111,10 @@ angular.module('designtool')
         }).resizable({
           containment: ".cr-viewport",
           aspectRatio: true
+        });
+
+        $('.shadow-sliders-settings').on('click', function (event) {
+            $(this).parent().toggleClass('open');
         });
 
         // Service
@@ -189,12 +191,12 @@ angular.module('designtool')
             canvas.height = params.height;
             var context = canvas.getContext('2d');
 
-            // Draw image within
             context.shadowOffsetX = params.logo.shadow.offsetX;
             context.shadowOffsetY = params.logo.shadow.offsetY;
             context.shadowColor = params.logo.shadow.color;
             context.shadowBlur = params.logo.shadow.blur*2; //Multiplied by 2 to get closest look to webkit shadow
 
+            // Draw image X times to increase density
             context.drawImage(logo_image, position.posX, position.posY, params.logo.width, params.logo.height);
           };
         }

@@ -310,6 +310,9 @@ version:hover {
   top:55px;
   left:500px;
 }
+.tests {
+  filter: url(#filtersLogo);
+}
 #email-address {
   top:170px;
   left:380px;

@@ -21,46 +21,62 @@
 		</div>
 	</div>
 
+	<!-- <div class="col-md-12">
+		<div class="coupon-bg cr-viewport">
+			<div class="logo" id="coupon-logo">
+				<img ng-src="[[headerLogo || 'https://www.coursetrends.com/golf/designs/comal/images/design/logo.png']]" ng-style="applyShadow(params.email.logo.shadow)" />
+			</div>
+		</div>
+  </div> -->
+
+
   <div class="email-bg croppie-container col-md-12">
 		<div class="logo" id="email-logo">
-			<img ng-src="[[headerLogo || 'https://www.coursetrends.com/golf/designs/comal/images/design/logo.png']]" ng-style="applyShadow(params.email.logo.shadow, params.email.logo.shadow.options.disabled)" />
+			<img ng-src="[[headerLogo || 'https://www.coursetrends.com/golf/designs/comal/images/design/logo.png']]" ng-style="applyShadow(params.email.logo.shadow)" />
 		</div>
 		<div class="address" id="email-address">
-			2714 Kelly Lane • Pflugerville, TX 78660 • 512-251-9000
+			[[course.address1 ? (course.address1 +'•'+ course.address2 +'•'+ course.phone) : '2714 Kelly Lane • Pflugerville, TX 78660 • 512-251-9000']]
 		</div>
   </div>
 
 	<div class="controls">
 		<a class="btn btn-default pull-right img-result" ng-click="preview()"><span class="glyphicon glyphicon-eye-open"></span></a>
-
 	</div>
 
 	<div class="col-md-5">
-		<a class="btn btn-default" ng-click="dropShadow()">Toggle Logo Shadow</a>
-		<div class="shadow-sliders">
-			<table class="table">
-				<tr>
-					<td>Color</td>
-					<td><div><div colorpicker="rgba" colorpicker-size="150" ng-model="params.email.logo.shadow.color" class="palette-box pull-left" ng-style="{background : params.email.logo.shadow.color}"></div>
-					<input type="text" colorpicker="rgba" colorpicker-size="150" ng-model="params.email.logo.shadow.color" placeholder="RGBA"/></div></td>
-				</tr>
-				<tr>
-					<td>Offset X</td>
-					<td><rzslider rz-slider-model="params.email.logo.shadow.offsetX" rz-slider-options="params.email.logo.shadow.options"></rzslider></td>
-				</tr>
-				<tr>
-					<td>Offset Y</td>
-					<td><rzslider rz-slider-model="params.email.logo.shadow.offsetY" rz-slider-options="params.email.logo.shadow.options"></rzslider></td>
-				</tr>
-				<tr>
-					<td>Blur</td>
-					<td><rzslider rz-slider-model="params.email.logo.shadow.blur" rz-slider-options="{ floor: 0, ceil: 10, showSelectionBar: true }"></rzslider></td>
-				</tr>
-				<tr>
-					<td>Density</td>
-					<td><rzslider rz-slider-model="params.email.logo.shadow.density" rz-slider-options="{ floor: 0, ceil: 10, showSelectionBar: true }"></rzslider></td>
-				</tr>
-			</table>
+		<div class = "btn-group">
+		   <button type = "button" class = "btn btn-default" style="margin-right:0"  ng-click="dropShadow(); tstatus = tstatus == 'ON' ? 'OFF' : 'ON'">Toggle Logo Shadow: [[tstatus]]</button>
+
+		   <button type = "button" class = "btn btn-default dropdown-toggle shadow-sliders-settings">
+		      <span class="glyphicon glyphicon-cog"></span>
+		      <span class = "sr-only">Toggle Dropdown</span>
+		   </button>
+
+			 <div class="shadow-sliders dropdown-menu">
+	 			<table class="table">
+	 				<tr>
+	 					<td>Color</td>
+	 					<td><div><div colorpicker="rgba" colorpicker-size="150" ng-model="params.email.logo.shadow.color" class="palette-box pull-left" ng-style="{background : params.email.logo.shadow.color}"></div>
+	 					<input type="text" colorpicker="rgba" colorpicker-size="150" ng-model="params.email.logo.shadow.color" placeholder="RGBA"/></div></td>
+	 				</tr>
+	 				<tr>
+	 					<td>Offset X</td>
+	 					<td><rzslider rz-slider-model="params.email.logo.shadow.offsetX" rz-slider-options="params.email.logo.shadow.options"></rzslider></td>
+	 				</tr>
+	 				<tr>
+	 					<td>Offset Y</td>
+	 					<td><rzslider rz-slider-model="params.email.logo.shadow.offsetY" rz-slider-options="params.email.logo.shadow.options"></rzslider></td>
+	 				</tr>
+	 				<tr>
+	 					<td>Blur</td>
+	 					<td><rzslider rz-slider-model="params.email.logo.shadow.blur" rz-slider-options="{ floor: 0, ceil: 10, showSelectionBar: true, disabled: params.email.logo.shadow.options.disabled  }"></rzslider></td>
+	 				</tr>
+	 				<tr>
+	 					<td>Spread</td>
+	 					<td><rzslider rz-slider-model="params.email.logo.shadow.spread" rz-slider-options="{ floor: 0, ceil: 10, showSelectionBar: true, disabled: params.email.logo.shadow.options.disabled }"></rzslider></td>
+	 				</tr>
+	 			</table>
+	 		</div>
 		</div>
 	</div>
 
@@ -71,4 +87,20 @@
 		<canvas id="address-canvas"></canvas><br />
 		<canvas id="bg-canvas"></canvas>
 	</div>
+</div>
+<div class="col-md-12">
+	<svg>
+		<defs>
+			<filter id="logo-filter" x="0" y="0" width="200%" height="200%">
+				<feOffset in="SourceAlpha" dx="[[params.email.logo.shadow.offsetX]]" dy="[[params.email.logo.shadow.offsetY]]" />
+
+				<feGaussianBlur ng-stddeviation="[[params.email.logo.shadow.blur]]" />
+				<feComponentTransfer>
+						<feFuncA type="gamma" exponent="0.5" amplitude="[[params.email.logo.shadow.spread]]" />
+				</feComponentTransfer>
+
+				<feBlend in="SourceGraphic" mode="normal" />
+			</filter>
+		</defs>
+	</svg>
 </div>

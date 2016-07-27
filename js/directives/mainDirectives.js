@@ -63,4 +63,13 @@ angular.module('designtool')
       },
       templateUrl: 'views/template-select.html',
     };
-  });
+  })
+  .directive('ngStddeviation', function() {
+    return {
+      link: function(s, e, a) {
+        a.$observe('ngStddeviation', function(value) {
+          e.get(0).setAttribute("stdDeviation", value);
+        });
+      }
+    };
+});
