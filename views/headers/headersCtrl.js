@@ -15,34 +15,47 @@ angular.module('designtool')
   			});
 
         $scope.params = {
-          coupon: {
-            color1 : '',
-            color2 : ''
+          logo: {
+            shadow: {
+              offsetX: 0,
+              offsetY: 1,
+              blur: 1,
+              spread: 1,
+              color: "rgba(0,0,0,1)",
+              options: { floor: -10, ceil: 10, showSelectionBar: true, disabled: true }
+            }
+          },
+          address: {
+            shadow: {
+              offsetX: 0,
+              offsetY: 1,
+              blur: 1,
+              spread: 1,
+              color: "rgba(0,0,0,1)",
+              options: { floor: -10, ceil: 10, showSelectionBar: true, disabled: true }
+            }
+          },
+          gradient: {
+            color1 : '#fcfcfc',
+            color2 : '#dbdbdb'
           },
           email: {
-            logo: {
-              shadow: {
-                offsetX: 0,
-                offsetY: 1,
-                blur: 1,
-                spread: 1,
-                color: "rgba(0,0,0,1)",
-                options: { floor: -10, ceil: 10, showSelectionBar: true, disabled: true }
-              }
-            },
+            id: 'email',
             width: 600,
             height: 175
           }
         };
 
+        $scope.headerLogo = 'https://www.coursetrends.com/golf/designs/comal/images/design/logo.png';
+
         $scope.dropShadow = function() {
 
-            $scope.params.email.logo.shadow.options.disabled = ( $scope.params.email.logo.shadow.options.disabled ? false : true );
+            $scope.params.logo.shadow.options.disabled = ( $scope.params.logo.shadow.options.disabled ? false : true );
         };
 
-        // $scope.$watch('params.email.logo.shadow', function() {
+        // $scope.$watch('params.logo.shadow', function() {
         //
-        //   $scope.applyShadow($scope.params.email.logo.shadow);
+        //   $scope.applyShadow($scope.params.logo.shadow);
         // });
 
         $scope.applyShadow = function(shadow) {
@@ -51,21 +64,23 @@ angular.module('designtool')
             return;
           } else {
             return {
-              '-webkit-filter': 'url(#logo-filter)',
-              'filter': 'url(#logo-filter)'
+              '-webkit-filter': 'url("#logo-filter")',
+              'filter': 'url("#logo-filter")'
             };
           }
         };
 
         $scope.preview = function() {
             cropTool.results(crop).then(function(img) {
-              var deferred = $q.defer();
-              var logo = $('.header-logo img').attr('src');
-              $scope.params.email.logo.width = document.querySelector('.header-logo img').width;
-              $scope.params.email.logo.height = document.querySelector('.header-logo img').height;
 
-              plotLogo(logo, $scope.params.email);
-              plotAddress();
+              var deferred = $q.defer();
+
+              var logo = document.querySelector('.header-logo img').src;
+              $scope.params.logo.width = document.querySelector('.header-logo img').width;
+              $scope.params.logo.height = document.querySelector('.header-logo img').height;
+
+              plotLogo(logo, $scope.params.logo, $scope.params.email);
+              plotAddress(document.getElementById('email-address').innerText, $scope.params.email);
 
               deferred.resolve(plotBG(img, $scope.params.email));
 
@@ -145,14 +160,14 @@ angular.module('designtool')
           };
         }
 
-        function plotCanvas() {
+        function plotCanvas(container) {
           var logo = document.getElementById('logo-canvas');
           var address = document.getElementById('address-canvas');
           var bg = document.getElementById('bg-canvas');
           var canvas = document.getElementById('canvas');
 
-          canvas.width = 600;
-          canvas.height = 175;
+          canvas.width = container.width;
+          canvas.height = container.height;
           var context = canvas.getContext('2d');
 
           context.drawImage(bg, 0, 0);
@@ -178,26 +193,36 @@ angular.module('designtool')
           }
         }
 
-        function plotLogo(img, params) {
+        function plotLogo(img, logoData, containerData) {
+
           var canvas = document.getElementById("logo-canvas");
-          var position = getOffset($('#email-logo'));
+          var position = getOffset($('#'+containerData.id+'-logo'));
+
+          var svgImage = document.getElementById('svg-logo-image');
+
+          svgImage.setAttribute('xlink:href', img);
+          svgImage.setAttribute('width', logoData.width);
+          svgImage.setAttribute('height', logoData.height);
+
+          var svgData = new XMLSerializer().serializeToString(document.getElementById("svg-logo"));
+
+          // Alternate Method, (slower)
+          // var svgBlob = new Blob([svgData], {type: "image/svg+xml;charset=utf-8"});
+          // var newSrc = window.URL.createObjectURL(svgBlob);
+
+          var encodedData = window.btoa(svgData);
+          var newSrc = 'data:image/svg+xml;base64,'+encodedData;
 
           var logo_image = new Image();
 
-          logo_image.src = img;
+          logo_image.src = newSrc;
 
           logo_image.onload = function(){
-            canvas.width = params.width;
-            canvas.height = params.height;
+            canvas.width = containerData.width;
+            canvas.height = containerData.height;
             var context = canvas.getContext('2d');
 
-            context.shadowOffsetX = params.logo.shadow.offsetX;
-            context.shadowOffsetY = params.logo.shadow.offsetY;
-            context.shadowColor = params.logo.shadow.color;
-            context.shadowBlur = params.logo.shadow.blur*2; //Multiplied by 2 to get closest look to webkit shadow
-
-            // Draw image X times to increase density
-            context.drawImage(logo_image, position.posX, position.posY, params.logo.width, params.logo.height);
+            context.drawImage(logo_image, position.posX, position.posY);
           };
         }
 
@@ -212,12 +237,12 @@ angular.module('designtool')
 
         }
 
-        function plotAddress(addr) {
+        function plotAddress(text, container) {
           var canvas = document.getElementById("address-canvas");
-          var position = getOffset($('#email-address'));
+          var position = getOffset($('#'+container.id+'-address'));
 
-          canvas.width = 600;
-          canvas.height = 175;
+          canvas.width = container.width;
+          canvas.height = container.height;
           var context = canvas.getContext('2d');
 
           context.fillStyle = '#fff';
@@ -226,29 +251,53 @@ angular.module('designtool')
           context.shadowColor = '#000';
           context.shadowBlur = 2;
           context.font = 'bold 15px sans-serif';
-
           context.strokeStyle = '#000';
           context.lineWidth = 1;
 
-          context.strokeText("2714 Kelly Lane • Pflugerville, TX 78660 • 512-251-9000", position.posX+1, position.posY); // Offset X pos by 1
-          context.fillText("2714 Kelly Lane • Pflugerville, TX 78660 • 512-251-9000", position.posX, position.posY);
+          context.strokeText(text, position.posX+1, position.posY); // Offset X pos by 1
+          context.fillText(text, position.posX, position.posY);
 
         }
 
-        function plotBG(img, params) {
+        function plotBG(img, container) {
           var base_image = new Image();
           base_image.src = img;
 
           base_image.onload = function(){
             var canvas = document.getElementById("bg-canvas");
 
-            canvas.width = params.width;
-            canvas.height = params.height;
+            canvas.width = container.width;
+            canvas.height = container.height;
             var context = canvas.getContext('2d');
 
             // Draw image within
             context.drawImage(base_image, 0,0);
           };
         }
+
+        // function isBase64(str) {
+        //
+        //   str = str.replace(/^data:image\/.+;base64,/i, '');
+        //
+        //   try {
+        //       return btoa(atob(str)) == str;
+        //   } catch (err) {
+        //       return false;
+        //   }
+        // }
+        //
+        // function getBase64(url, callback) {
+        //   var xhr = new XMLHttpRequest();
+        //   xhr.responseType = 'blob';
+        //   xhr.onload = function() {
+        //     var reader = new FileReader();
+        //     reader.onloadend = function() {
+        //       callback(reader.result);
+        //     };
+        //     reader.readAsDataURL(xhr.response);
+        //   };
+        //   xhr.open('GET', url);
+        //   xhr.send();
+        // }
 
     }]);

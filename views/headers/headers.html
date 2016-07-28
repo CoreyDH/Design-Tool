@@ -16,15 +16,15 @@
 		</div>
 		<div class="col-md-4 text-center">
 			<h3><small>Gradient Colors</small></h3>
-			<div colorpicker="hex" colorpicker-size="150" colorpicker-with-input="true" ng-model="params.coupon.color1" class="palette-box" ng-style="{ background : params.coupon.color1 }"></div>
-			<div colorpicker="hex" colorpicker-size="150" colorpicker-with-input="true" ng-model="params.coupon.color2" class="palette-box" ng-style="{ background : params.coupon.color2 }"></div>
+			<div colorpicker="hex" colorpicker-size="150" colorpicker-with-input="true" ng-model="params.gradient.color1" class="palette-box" ng-style="{ background : params.gradient.color1 }"></div>
+			<div colorpicker="hex" colorpicker-size="150" colorpicker-with-input="true" ng-model="params.gradient.color2" class="palette-box" ng-style="{ background : params.gradient.color2 }"></div>
 		</div>
 	</div>
 
 	<!-- <div class="col-md-12">
 		<div class="coupon-bg cr-viewport">
 			<div class="logo" id="coupon-logo">
-				<img ng-src="[[headerLogo || 'https://www.coursetrends.com/golf/designs/comal/images/design/logo.png']]" ng-style="applyShadow(params.email.logo.shadow)" />
+				<img ng-src="[[headerLogo]]" ng-style="applyShadow(params.logo.shadow)" />
 			</div>
 		</div>
   </div> -->
@@ -32,7 +32,7 @@
 
   <div class="email-bg croppie-container col-md-12">
 		<div class="header-logo" id="email-logo">
-			<img ng-src="[[headerLogo || 'https://www.coursetrends.com/golf/designs/comal/images/design/logo.png']]" ng-style="applyShadow(params.email.logo.shadow)" />
+			<img ng-src="[[headerLogo]]" ng-style="applyShadow(params.logo.shadow)" />
 		</div>
 		<div class="header-address" id="email-address">
 			[[course.address1 ? (course.address1 +'•'+ course.address2 +'•'+ course.phone) : '2714 Kelly Lane • Pflugerville, TX 78660 • 512-251-9000']]
@@ -45,35 +45,35 @@
 
 	<div class="col-md-5">
 		<div class = "btn-group">
-		   <button type = "button" class = "btn btn-default" style="margin-right:0"  ng-click="dropShadow(); tstatus = tstatus == 'ON' ? 'OFF' : 'ON'">Toggle Logo Shadow: [[tstatus]]</button>
+		   <button type="button" class="btn btn-default" style="margin-right:0"  ng-click="dropShadow()">Toggle Logo Shadow</button>
 
-		   <button type = "button" class = "btn btn-default dropdown-toggle shadow-sliders-settings">
+		   <button type="button" class="btn btn-default dropdown-toggle shadow-sliders-settings">
 		      <span class="glyphicon glyphicon-cog"></span>
-		      <span class = "sr-only">Toggle Dropdown</span>
+		      <span class = "sr-only">Toggle Settings</span>
 		   </button>
 
 			 <div class="shadow-sliders dropdown-menu">
 	 			<table class="table">
 	 				<tr>
 	 					<td>Color</td>
-	 					<td><div><div colorpicker="rgba" colorpicker-size="150" ng-model="params.email.logo.shadow.color" class="palette-box pull-left" ng-style="{background : params.email.logo.shadow.color}"></div>
-	 					<input type="text" colorpicker="rgba" colorpicker-size="150" ng-model="params.email.logo.shadow.color" placeholder="RGBA"/></div></td>
+	 					<td><div><div colorpicker="rgba" colorpicker-size="150" ng-model="params.logo.shadow.color" class="palette-box pull-left" ng-style="{background : params.logo.shadow.color}"></div>
+	 					<input type="text" colorpicker="rgba" colorpicker-size="150" ng-model="params.logo.shadow.color" placeholder="RGBA"/></div></td>
 	 				</tr>
 	 				<tr>
 	 					<td>Offset X</td>
-	 					<td><rzslider rz-slider-model="params.email.logo.shadow.offsetX" rz-slider-options="params.email.logo.shadow.options"></rzslider></td>
+	 					<td><rzslider rz-slider-model="params.logo.shadow.offsetX" rz-slider-options="params.logo.shadow.options"></rzslider></td>
 	 				</tr>
 	 				<tr>
 	 					<td>Offset Y</td>
-	 					<td><rzslider rz-slider-model="params.email.logo.shadow.offsetY" rz-slider-options="params.email.logo.shadow.options"></rzslider></td>
+	 					<td><rzslider rz-slider-model="params.logo.shadow.offsetY" rz-slider-options="params.logo.shadow.options"></rzslider></td>
 	 				</tr>
 	 				<tr>
 	 					<td>Blur</td>
-	 					<td><rzslider rz-slider-model="params.email.logo.shadow.blur" rz-slider-options="{ floor: 0, ceil: 10, showSelectionBar: true, disabled: params.email.logo.shadow.options.disabled  }"></rzslider></td>
+	 					<td><rzslider rz-slider-model="params.logo.shadow.blur" rz-slider-options="{ floor: 0, ceil: 10, showSelectionBar: true, disabled: params.logo.shadow.options.disabled  }"></rzslider></td>
 	 				</tr>
 	 				<tr>
 	 					<td>Spread</td>
-	 					<td><rzslider rz-slider-model="params.email.logo.shadow.spread" rz-slider-options="{ floor: 0, ceil: 10, showSelectionBar: true, disabled: params.email.logo.shadow.options.disabled }"></rzslider></td>
+	 					<td><rzslider rz-slider-model="params.logo.shadow.spread" rz-slider-options="{ floor: 1, ceil: 10, showSelectionBar: true, disabled: params.logo.shadow.options.disabled }"></rzslider></td>
 	 				</tr>
 	 			</table>
 	 		</div>
@@ -89,15 +89,15 @@
 	</div>
 </div>
 <div class="col-md-12">
-	<svg>
+	<svg id="svg-logo">
 		<defs>
-			<filter id="logo-filter" x="0" y="0" width="200%" height="200%">
-				<feFlood result="flood" flood-color="[[params.email.logo.shadow.color]]" flood-opacity="1"></feFlood>
+			<filter id="logo-filter" x="0" y="0">
+				<feFlood result="flood" flood-color="[[params.logo.shadow.color]]" flood-opacity="1"></feFlood>
 				<feComposite in="flood" result="mask" in2="SourceGraphic" operator="in" />
-				<feOffset in="mask" result="offs" operator="offs"  dx="[[params.email.logo.shadow.offsetX]]" dy="[[params.email.logo.shadow.offsetY]]" />
-				<feGaussianBlur in="offs" result="blurred" ng-stddeviation="[[params.email.logo.shadow.blur]]" />
+				<feOffset in="mask" result="offset"  dx="[[params.logo.shadow.offsetX]]" dy="[[params.logo.shadow.offsetY]]" />
+				<feGaussianBlur in="offset" result="blurred" ng-stddeviation="[[params.logo.shadow.blur]]" />
 				<feComponentTransfer>
-						<feFuncA type="gamma" exponent="0.5" amplitude="[[params.email.logo.shadow.spread]]" in="blurred" result="blurred2" />
+						<feFuncA type="gamma" exponent="0.5" amplitude="[[params.logo.shadow.spread]]" in="blurred" result="blurred2" />
 				</feComponentTransfer>
 				<feMerge>
 		        <feMergeNode in="blurred2"></feMergeNode>
@@ -105,5 +105,6 @@
 		    </feMerge>
 			</filter>
 		</defs>
+		<image xlink:href="https://www.coursetrends.com/golf/designs/comal/images/design/logo.png" id="svg-logo-image" filter="url(#logo-filter)" x="0" y="0" />
 	</svg>
 </div>
