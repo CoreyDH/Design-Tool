@@ -31,10 +31,10 @@
 
 
   <div class="email-bg croppie-container col-md-12">
-		<div class="logo" id="email-logo">
+		<div class="header-logo" id="email-logo">
 			<img ng-src="[[headerLogo || 'https://www.coursetrends.com/golf/designs/comal/images/design/logo.png']]" ng-style="applyShadow(params.email.logo.shadow)" />
 		</div>
-		<div class="address" id="email-address">
+		<div class="header-address" id="email-address">
 			[[course.address1 ? (course.address1 +'•'+ course.address2 +'•'+ course.phone) : '2714 Kelly Lane • Pflugerville, TX 78660 • 512-251-9000']]
 		</div>
   </div>
@@ -92,14 +92,17 @@
 	<svg>
 		<defs>
 			<filter id="logo-filter" x="0" y="0" width="200%" height="200%">
-				<feOffset in="SourceAlpha" dx="[[params.email.logo.shadow.offsetX]]" dy="[[params.email.logo.shadow.offsetY]]" />
-
-				<feGaussianBlur ng-stddeviation="[[params.email.logo.shadow.blur]]" />
+				<feFlood result="flood" flood-color="[[params.email.logo.shadow.color]]" flood-opacity="1"></feFlood>
+				<feComposite in="flood" result="mask" in2="SourceGraphic" operator="in" />
+				<feOffset in="mask" result="offs" operator="offs"  dx="[[params.email.logo.shadow.offsetX]]" dy="[[params.email.logo.shadow.offsetY]]" />
+				<feGaussianBlur in="offs" result="blurred" ng-stddeviation="[[params.email.logo.shadow.blur]]" />
 				<feComponentTransfer>
-						<feFuncA type="gamma" exponent="0.5" amplitude="[[params.email.logo.shadow.spread]]" />
+						<feFuncA type="gamma" exponent="0.5" amplitude="[[params.email.logo.shadow.spread]]" in="blurred" result="blurred2" />
 				</feComponentTransfer>
-
-				<feBlend in="SourceGraphic" mode="normal" />
+				<feMerge>
+		        <feMergeNode in="blurred2"></feMergeNode>
+		        <feMergeNode in="SourceGraphic"></feMergeNode>
+		    </feMerge>
 			</filter>
 		</defs>
 	</svg>

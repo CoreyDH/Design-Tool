@@ -60,9 +60,9 @@ angular.module('designtool')
         $scope.preview = function() {
             cropTool.results(crop).then(function(img) {
               var deferred = $q.defer();
-              var logo = $('.logo img').attr('src');
-              $scope.params.email.logo.width = document.querySelector('.logo img').width;
-              $scope.params.email.logo.height = document.querySelector('.logo img').height;
+              var logo = $('.header-logo img').attr('src');
+              $scope.params.email.logo.width = document.querySelector('.header-logo img').width;
+              $scope.params.email.logo.height = document.querySelector('.header-logo img').height;
 
               plotLogo(logo, $scope.params.email);
               plotAddress();
@@ -83,7 +83,7 @@ angular.module('designtool')
 
         $('.uploads').delegate('.upload-logo', 'change', function() {
 
-          $('.logo').css({
+          $('.header-logo').css({
             'width' : '',
             'height' : ''
           });
@@ -93,10 +93,10 @@ angular.module('designtool')
               $scope.headerLogo = img;
             });
 
-            var dim = getCorrectDim($('.logo img'), $('.cr-viewport'));
+            var dim = getCorrectDim($('.header-logo img'), $('.cr-viewport'));
             // console.log(dim);
 
-            $('.logo').css({
+            $('.header-logo').css({
               'width' : dim.width,
               'height' : dim.height
             });
@@ -105,7 +105,7 @@ angular.module('designtool')
 
         });
 
-        $('.logo').draggable({
+        $('.header-logo').draggable({
           containment: ".cr-viewport",
           cursor: "move"
         }).resizable({

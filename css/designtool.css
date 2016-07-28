@@ -279,21 +279,21 @@ version:hover {
 /* -- */
 
 /* Headers */
-.logo {
+.header-logo {
   border:1px solid rgba(255,255,255,0);
   position:absolute;
   z-index: 9999;
 }
-.logo:hover {
+.header-logo:hover {
   border:1px solid rgba(255,255,255,0.5);
 }
-.logo img {
+.header-logo img {
   max-width:100%;
   max-height:100%;
   width: 100%;
   height: 100%;
 }
-.address {
+.header-address {
   color:#fff;
   font-weight:bold;
   font-size:15px;
@@ -310,16 +310,18 @@ version:hover {
   top:55px;
   left:500px;
 }
-.tests {
-  filter: url(#filtersLogo);
-}
 #email-address {
   top:170px;
   left:380px;
 }
+.shadow-sliders {
+  width: 315px;
+}
 .shadow-sliders td {
   vertical-align: middle;
 }
+
+
 
 /*  RZSlider */
 .rzslider .rz-pointer {
