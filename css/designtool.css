@@ -315,10 +315,10 @@ version:hover {
   left:380px;
 }
 .shadow-sliders {
-  width: 315px;
+  width: 360px;
 }
 .shadow-sliders td {
-  vertical-align: middle;
+  vertical-align: middle !important;
 }
 
 

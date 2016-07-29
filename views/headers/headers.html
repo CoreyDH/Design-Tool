@@ -32,10 +32,10 @@
 
   <div class="email-bg croppie-container col-md-12">
 		<div class="header-logo" id="email-logo">
-			<img ng-src="[[headerLogo]]" ng-style="applyShadow(params.logo.shadow)" />
+			<img ng-src="[[headerLogo]]" ng-style="shadowStyle.logo" />
 		</div>
 		<div class="header-address" id="email-address">
-			[[course.address1 ? (course.address1 +'•'+ course.address2 +'•'+ course.phone) : '2714 Kelly Lane • Pflugerville, TX 78660 • 512-251-9000']]
+			[[course.address1 ? (course.address1 +' • '+ course.address2 +' • '+ course.phone) : '2714 Kelly Lane • Pflugerville, TX 78660 • 512-251-9000']]
 		</div>
   </div>
 
@@ -45,11 +45,11 @@
 
 	<div class="col-md-5">
 		<div class = "btn-group">
-		   <button type="button" class="btn btn-default" style="margin-right:0"  ng-click="dropShadow()">Toggle Logo Shadow</button>
+		   <button type="button" class="btn btn-default" style="margin-right:0"  ng-click="toggleShadow('logo')">Toggle Logo Shadow</button>
 
 		   <button type="button" class="btn btn-default dropdown-toggle shadow-sliders-settings">
 		      <span class="glyphicon glyphicon-cog"></span>
-		      <span class = "sr-only">Toggle Settings</span>
+		      <span class="sr-only">Toggle Logo Settings</span>
 		   </button>
 
 			 <div class="shadow-sliders dropdown-menu">
@@ -80,6 +80,44 @@
 		</div>
 	</div>
 
+	<div class="col-md-5">
+		<div class = "btn-group">
+		   <button type="button" class="btn btn-default" style="margin-right:0"  ng-click="toggleShadow('address')">Toggle Address Shadow</button>
+
+		   <button type="button" class="btn btn-default dropdown-toggle shadow-sliders-settings">
+		      <span class="glyphicon glyphicon-cog"></span>
+		      <span class = "sr-only">Toggle Address Settings</span>
+		   </button>
+
+			 <div class="shadow-sliders dropdown-menu">
+	 			<table class="table">
+	 				<tr>
+	 					<td>Color</td>
+	 					<td><div><div colorpicker="hex" colorpicker-size="150" ng-model="params.address.color" class="palette-box pull-left" ng-style="{background : params.address.color}"></div>
+	 					<input type="text" colorpicker="hex" colorpicker-size="150" ng-model="params.address.color" placeholder="#HEX"/></div></td>
+	 				</tr>
+	 				<tr>
+	 					<td>Size</td>
+	 					<td><rzslider rz-slider-model="params.address.size" rz-slider-options="params.address.options"></rzslider></td>
+	 				</tr>
+					<tr>
+	 					<td>Shadow Color</td>
+	 					<td><div><div colorpicker="rgba" colorpicker-size="150" ng-model="params.address.shadow.color" class="palette-box pull-left" ng-style="{background : params.address.shadow.color}"></div>
+	 					<input type="text" colorpicker="rgba" colorpicker-size="150" ng-model="params.address.shadow.color" placeholder="RGBA"/></div></td>
+	 				</tr>
+	 				<tr>
+	 					<td>Shadow Blur</td>
+	 					<td><rzslider rz-slider-model="params.address.shadow.blur" rz-slider-options="params.address.shadow.options"></rzslider></td>
+	 				</tr>
+	 				<tr>
+	 					<td>Shadow Spread</td>
+	 					<td><rzslider rz-slider-model="params.address.shadow.spread" rz-slider-options="params.address.shadow.options"></rzslider></td>
+	 				</tr>
+	 			</table>
+	 		</div>
+		</div>
+	</div>
+
 	<br /><br />
 	<div class="canvases">
 		<canvas id="canvas"></canvas><br />
@@ -89,9 +127,9 @@
 	</div>
 </div>
 <div class="col-md-12">
-	<svg id="svg-logo">
+	<svg id="svg-logo" height="175" width="600">
 		<defs>
-			<filter id="logo-filter" x="0" y="0">
+			<filter id="logo-filter" x="-50%" y="-50%" width="200%" height="200%">
 				<feFlood result="flood" flood-color="[[params.logo.shadow.color]]" flood-opacity="1"></feFlood>
 				<feComposite in="flood" result="mask" in2="SourceGraphic" operator="in" />
 				<feOffset in="mask" result="offset"  dx="[[params.logo.shadow.offsetX]]" dy="[[params.logo.shadow.offsetY]]" />
@@ -105,6 +143,25 @@
 		    </feMerge>
 			</filter>
 		</defs>
-		<image xlink:href="https://www.coursetrends.com/golf/designs/comal/images/design/logo.png" id="svg-logo-image" filter="url(#logo-filter)" x="0" y="0" />
+		<image xlink:href="https://www.coursetrends.com/golf/designs/comal/images/design/logo.png" id="svg-logo-image" filter="url(#[[svg.logo.filter]])" x="0" y="0" />
+	</svg>
+
+	<svg id="svg-address" height="175" width="600">
+		<defs>
+			<filter id="address-filter" x="-50%" y="-50%" width="200%" height="200%">
+				<feFlood result="flood" flood-color="[[params.address.shadow.color]]" flood-opacity="1"></feFlood>
+				<feComposite in="flood" result="mask" in2="SourceGraphic" operator="in" />
+				<feOffset in="mask" result="offset"  dx="[[params.address.shadow.offsetX]]" dy="[[params.address.shadow.offsetY]]" />
+				<feGaussianBlur in="offset" result="blurred" ng-stddeviation="[[params.address.shadow.blur]]" />
+				<feComponentTransfer>
+						<feFuncA type="gamma" exponent="0.5" amplitude="[[params.address.shadow.spread]]" in="blurred" result="blurred2" />
+				</feComponentTransfer>
+				<feMerge>
+		        <feMergeNode in="blurred2"></feMergeNode>
+		        <feMergeNode in="SourceGraphic"></feMergeNode>
+		    </feMerge>
+			</filter>
+		</defs>
+		<text x="250" y="150" font-family="Verdana" font-size="[[params.address.size]]" ng-style="{color: 'blue'}">2714 Kelly Lane • Pflugerville, TX 78660 • 512-251-9000</text>
 	</svg>
 </div>
