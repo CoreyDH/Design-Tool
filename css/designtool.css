@@ -279,13 +279,16 @@ version:hover {
 /* -- */
 
 /* Headers */
+.headers .croppie-container {
+  position: relative;
+}
 .header-logo {
   border:1px solid rgba(255,255,255,0);
   position:absolute;
   z-index: 9999;
 }
 .header-logo:hover {
-  border:1px solid rgba(255,255,255,0.5);
+  border:1px solid rgba(255,200,200,0.5);
 }
 .header-logo img {
   max-width:100%;
@@ -295,10 +298,15 @@ version:hover {
 }
 .header-address {
   color:#fff;
+  border:1px solid rgba(255,255,255,0);
   font-weight:bold;
   font-size:15px;
+  line-height: 0;
   position:absolute;
   z-index:999;
+}
+.header-address:hover {
+  border:1px solid rgba(200,200,255,0.5);
 }
 .email-bg {
   position:relative;
@@ -307,12 +315,20 @@ version:hover {
   border: 2px solid #505050;
 }
 #email-logo {
-  top:55px;
-  left:500px;
+  top:60px;
+  left:460px;
 }
 #email-address {
-  top:170px;
-  left:380px;
+  top:195px;
+  left:325px;
+}
+#survey-logo {
+  top:50px;
+  left:460px;
+}
+#survey-address {
+  top:185px;
+  left:325px;
 }
 .shadow-sliders {
   width: 360px;
@@ -320,6 +336,12 @@ version:hover {
 .shadow-sliders td {
   vertical-align: middle !important;
 }
+/*.canvases canvas, .svgs {
+  display:none;
+}
+.canvases canvas:first-child {
+  display: block;
+}*/
 
 
 

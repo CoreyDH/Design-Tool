@@ -61,15 +61,16 @@ angular.module('designtool')
 	var setupTool = function(templateArr) {
 
 		var crop = [];
-		for(var i=0;i<templateArr.length;i++) {
+
+		for(var i=0; i < templateArr.length; i++) {
 			crop[i] = $('#'+templateArr[i].name).croppie({
 			viewport: {
 				width: templateArr[i].width,
 				height: templateArr[i].height
 			  },
 			boundary: {
-			  width: templateArr[i].width+70,
-			  height: templateArr[i].height+70
+			  width: templateArr[i].width+25,
+			  height: templateArr[i].height+25
 			}
 			});
 		}

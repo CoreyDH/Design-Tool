@@ -29,92 +29,97 @@
 		</div>
   </div> -->
 
-
-  <div class="email-bg croppie-container col-md-12">
-		<div class="header-logo" id="email-logo">
-			<img ng-src="[[headerLogo]]" ng-style="shadowStyle.logo" />
+<div class="col-md-12" ng-repeat="container in params.containers">
+	<center><h3>[[container.name]] <small>[[container.width]]x[[container.height]]</small></h3></center>
+	<div id="[[container.name]]" class="croppie-container">
+		<div class="header-logo" id="[[container.name]]-logo">
+			<img ng-src="[[params.logo.image]]" ng-style="shadowStyle.logo" />
 		</div>
-		<div class="header-address" id="email-address">
-			[[course.address1 ? (course.address1 +' • '+ course.address2 +' • '+ course.phone) : '2714 Kelly Lane • Pflugerville, TX 78660 • 512-251-9000']]
+		<div class="header-address" id="[[container.name]]-address">
+			<span style="color: [[params.address.color]]; font-size: [[params.address.size]]px; font-weight: [[params.address.weight]]" ng-style="shadowStyle.address;">[[params.address.text]]</span>
 		</div>
   </div>
+	<a class="btn btn-default pull-right img-result" ng-click="preview()"><span class="glyphicon glyphicon-eye-open"></span></a>
+</div>
 
 	<div class="controls">
-		<a class="btn btn-default pull-right img-result" ng-click="preview()"><span class="glyphicon glyphicon-eye-open"></span></a>
-	</div>
+		<div class="col-md-5">
+			<div class = "btn-group">
+			   <button type="button" class="btn btn-default" style="margin-right:0"  ng-click="toggleShadow('logo')">Toggle Logo Shadow</button>
 
-	<div class="col-md-5">
-		<div class = "btn-group">
-		   <button type="button" class="btn btn-default" style="margin-right:0"  ng-click="toggleShadow('logo')">Toggle Logo Shadow</button>
+			   <button type="button" class="btn btn-default dropdown-toggle shadow-sliders-settings">
+			      <span class="glyphicon glyphicon-cog"></span>
+			      <span class="sr-only">Toggle Logo Settings</span>
+			   </button>
 
-		   <button type="button" class="btn btn-default dropdown-toggle shadow-sliders-settings">
-		      <span class="glyphicon glyphicon-cog"></span>
-		      <span class="sr-only">Toggle Logo Settings</span>
-		   </button>
-
-			 <div class="shadow-sliders dropdown-menu">
-	 			<table class="table">
-	 				<tr>
-	 					<td>Color</td>
-	 					<td><div><div colorpicker="rgba" colorpicker-size="150" ng-model="params.logo.shadow.color" class="palette-box pull-left" ng-style="{background : params.logo.shadow.color}"></div>
-	 					<input type="text" colorpicker="rgba" colorpicker-size="150" ng-model="params.logo.shadow.color" placeholder="RGBA"/></div></td>
-	 				</tr>
-	 				<tr>
-	 					<td>Offset X</td>
-	 					<td><rzslider rz-slider-model="params.logo.shadow.offsetX" rz-slider-options="params.logo.shadow.options"></rzslider></td>
-	 				</tr>
-	 				<tr>
-	 					<td>Offset Y</td>
-	 					<td><rzslider rz-slider-model="params.logo.shadow.offsetY" rz-slider-options="params.logo.shadow.options"></rzslider></td>
-	 				</tr>
-	 				<tr>
-	 					<td>Blur</td>
-	 					<td><rzslider rz-slider-model="params.logo.shadow.blur" rz-slider-options="{ floor: 0, ceil: 10, showSelectionBar: true, disabled: params.logo.shadow.options.disabled  }"></rzslider></td>
-	 				</tr>
-	 				<tr>
-	 					<td>Spread</td>
-	 					<td><rzslider rz-slider-model="params.logo.shadow.spread" rz-slider-options="{ floor: 1, ceil: 10, showSelectionBar: true, disabled: params.logo.shadow.options.disabled }"></rzslider></td>
-	 				</tr>
-	 			</table>
-	 		</div>
+				 <div class="shadow-sliders dropdown-menu">
+		 			<table class="table">
+		 				<tr>
+		 					<td>Color</td>
+		 					<td><div><div colorpicker="rgba" colorpicker-size="150" ng-model="params.logo.shadow.color" class="palette-box pull-left" ng-style="{background : params.logo.shadow.color}"></div>
+		 					<input type="text" colorpicker="rgba" colorpicker-size="150" ng-model="params.logo.shadow.color" placeholder="RGBA"/></div></td>
+		 				</tr>
+		 				<tr>
+		 					<td>Offset X</td>
+		 					<td><rzslider rz-slider-model="params.logo.shadow.offsetX" rz-slider-options="params.logo.shadow.options"></rzslider></td>
+		 				</tr>
+		 				<tr>
+		 					<td>Offset Y</td>
+		 					<td><rzslider rz-slider-model="params.logo.shadow.offsetY" rz-slider-options="params.logo.shadow.options"></rzslider></td>
+		 				</tr>
+		 				<tr>
+		 					<td>Blur</td>
+		 					<td><rzslider rz-slider-model="params.logo.shadow.blur" rz-slider-options="{ floor: 0, ceil: 10, showSelectionBar: true, disabled: params.logo.shadow.options.disabled  }"></rzslider></td>
+		 				</tr>
+		 				<tr>
+		 					<td>Spread</td>
+		 					<td><rzslider rz-slider-model="params.logo.shadow.spread" rz-slider-options="{ floor: 1, ceil: 10, showSelectionBar: true, disabled: params.logo.shadow.options.disabled }"></rzslider></td>
+		 				</tr>
+		 			</table>
+		 		</div>
+			</div>
 		</div>
-	</div>
 
-	<div class="col-md-5">
-		<div class = "btn-group">
-		   <button type="button" class="btn btn-default" style="margin-right:0"  ng-click="toggleShadow('address')">Toggle Address Shadow</button>
+		<div class="col-md-5">
+			<div class = "btn-group">
+			   <button type="button" class="btn btn-default" style="margin-right:0"  ng-click="toggleShadow('address')">Toggle Address Shadow</button>
 
-		   <button type="button" class="btn btn-default dropdown-toggle shadow-sliders-settings">
-		      <span class="glyphicon glyphicon-cog"></span>
-		      <span class = "sr-only">Toggle Address Settings</span>
-		   </button>
+			   <button type="button" class="btn btn-default dropdown-toggle shadow-sliders-settings">
+			      <span class="glyphicon glyphicon-cog"></span>
+			      <span class = "sr-only">Toggle Address Settings</span>
+			   </button>
 
-			 <div class="shadow-sliders dropdown-menu">
-	 			<table class="table">
-	 				<tr>
-	 					<td>Color</td>
-	 					<td><div><div colorpicker="hex" colorpicker-size="150" ng-model="params.address.color" class="palette-box pull-left" ng-style="{background : params.address.color}"></div>
-	 					<input type="text" colorpicker="hex" colorpicker-size="150" ng-model="params.address.color" placeholder="#HEX"/></div></td>
-	 				</tr>
-	 				<tr>
-	 					<td>Size</td>
-	 					<td><rzslider rz-slider-model="params.address.size" rz-slider-options="params.address.options"></rzslider></td>
-	 				</tr>
-					<tr>
-	 					<td>Shadow Color</td>
-	 					<td><div><div colorpicker="rgba" colorpicker-size="150" ng-model="params.address.shadow.color" class="palette-box pull-left" ng-style="{background : params.address.shadow.color}"></div>
-	 					<input type="text" colorpicker="rgba" colorpicker-size="150" ng-model="params.address.shadow.color" placeholder="RGBA"/></div></td>
-	 				</tr>
-	 				<tr>
-	 					<td>Shadow Blur</td>
-	 					<td><rzslider rz-slider-model="params.address.shadow.blur" rz-slider-options="params.address.shadow.options"></rzslider></td>
-	 				</tr>
-	 				<tr>
-	 					<td>Shadow Spread</td>
-	 					<td><rzslider rz-slider-model="params.address.shadow.spread" rz-slider-options="params.address.shadow.options"></rzslider></td>
-	 				</tr>
-	 			</table>
-	 		</div>
+				 <div class="shadow-sliders dropdown-menu">
+		 			<table class="table">
+		 				<tr>
+		 					<td>Color</td>
+		 					<td><div><div colorpicker="hex" colorpicker-size="150" ng-model="params.address.color" class="palette-box pull-left" ng-style="{background : params.address.color}"></div>
+		 					<input type="text" colorpicker="hex" colorpicker-size="150" ng-model="params.address.color" placeholder="#HEX"/></div></td>
+		 				</tr>
+		 				<tr>
+		 					<td>Size</td>
+		 					<td><rzslider rz-slider-model="params.address.size" rz-slider-options="params.address.options"></rzslider></td>
+		 				</tr>
+						<tr>
+		 					<td>Weight</td>
+		 					<td><rzslider rz-slider-model="params.address.weight" rz-slider-options="{ floor: 400, ceil: 800, showSelectionBar: true, step: 100, disabled: params.address.options.disabled }"></rzslider></td>
+		 				</tr>
+						<tr>
+		 					<td>Shadow Color</td>
+		 					<td><div><div colorpicker="rgba" colorpicker-size="150" ng-model="params.address.shadow.color" class="palette-box pull-left" ng-style="{background : params.address.shadow.color}"></div>
+		 					<input type="text" colorpicker="rgba" colorpicker-size="150" ng-model="params.address.shadow.color" placeholder="RGBA"/></div></td>
+		 				</tr>
+		 				<tr>
+		 					<td>Shadow Blur</td>
+		 					<td><rzslider rz-slider-model="params.address.shadow.blur" rz-slider-options="params.address.shadow.options"></rzslider></td>
+		 				</tr>
+		 				<tr>
+		 					<td>Shadow Spread</td>
+		 					<td><rzslider rz-slider-model="params.address.shadow.spread" rz-slider-options="params.address.shadow.options"></rzslider></td>
+		 				</tr>
+		 			</table>
+		 		</div>
+			</div>
 		</div>
 	</div>
 
@@ -126,7 +131,7 @@
 		<canvas id="bg-canvas"></canvas>
 	</div>
 </div>
-<div class="col-md-12">
+<div class="svgs">
 	<svg id="svg-logo" height="175" width="600">
 		<defs>
 			<filter id="logo-filter" x="-50%" y="-50%" width="200%" height="200%">
@@ -143,7 +148,7 @@
 		    </feMerge>
 			</filter>
 		</defs>
-		<image xlink:href="https://www.coursetrends.com/golf/designs/comal/images/design/logo.png" id="svg-logo-image" filter="url(#[[svg.logo.filter]])" x="0" y="0" />
+		<image id="svg-logo-image" xlink:href="https://www.coursetrends.com/golf/designs/comal/images/design/logo.png" filter="url(#[[svg.logo.filter]])" x="0" y="0" />
 	</svg>
 
 	<svg id="svg-address" height="175" width="600">
@@ -162,6 +167,6 @@
 		    </feMerge>
 			</filter>
 		</defs>
-		<text x="250" y="150" font-family="Verdana" font-size="[[params.address.size]]" ng-style="{color: 'blue'}">2714 Kelly Lane • Pflugerville, TX 78660 • 512-251-9000</text>
+		<text id="svg-address-text" x="0" y="16" font-family="sans-serif" font-size="[[params.address.size]]" font-weight="[[params.address.weight]]" fill="[[params.address.color]]" filter="url(#[[svg.address.filter]])">2714 Kelly Lane • Pflugerville, TX 78660 • 512-251-9000</text>
 	</svg>
 </div>
