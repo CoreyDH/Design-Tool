@@ -5,23 +5,13 @@ angular.module('designtool')
       $scope.course = globals.get('info');
       var croppieObj;
 
-      // var crop = $('.email-bg').croppie({
-  		// 	viewport: {
-  		// 		width: 600,
-  		// 		height: 175
-  		// 	  },
-  		// 	boundary: {
-  		// 	  width: 600,
-  		// 	  height: 175
-  		// 	}
-			// });
-
       $scope.params = {
         logo: {
           name: 'logo',
           image: 'https://www.coursetrends.com/golf/designs/comal/images/design/logo.png',
           shadow: {
             name: 'logo-filter',
+            active: false,
             offsetX: 0,
             offsetY: 1,
             blur: 1,
@@ -39,6 +29,7 @@ angular.module('designtool')
           options: { floor: 10, ceil: 30, showSelectionBar: true },
           shadow: {
             name: 'address-filter',
+            active: true,
             offsetX: 0,
             offsetY: 0,
             blur: 1,
@@ -53,30 +44,45 @@ angular.module('designtool')
         },
         containers: [
           {
+            name: 'g18-coupon',
+            width: 136,
+            height: 145,
+            gradient: true,
+            type: 'coupon'
+          },
+          {
+            name: 'coupon',
+            width: 200,
+            height: 200,
+            gradient: true,
+            type: 'coupon'
+          },
+          {
             name: 'email',
             width: 600,
             height: 175
           },
-          // {
-          //   name: 'g18-header',
-          //   width: 785,
-          //   height: 115
-          // },
-          // {
-          //   name: 'ecom',
-          //   width: 785,
-          //   height: 160
-          // },
-          // {
-          //   name: 'survey',
-          //   width: 785,
-          //   height: 160
-          // }
+          {
+            name: 'g18-header',
+            width: 785,
+            height: 115
+          },
+          {
+            name: 'ecom',
+            width: 785,
+            height: 160
+          },
+          {
+            name: 'survey',
+            width: 785,
+            height: 160
+          }
         ]
       };
 
-      // $scope.params.address.text = course.address1 ? (course.address1 +' • '+ course.address2 +' • '+ course.phone) : $scope.params.address.text;
+      // $scope.params.address.text = $scope.course.address1 ? ($scope.course.address1 +' • '+ $scope.course.address2 +' • '+ $scope.course.phone) : $scope.params.address.text;
 
+      // Filter Toggle for SVG
       $scope.svg = {
         logo: {
           filter: ''
@@ -84,10 +90,6 @@ angular.module('designtool')
         address: {
           filter: ''
         }
-      };
-      $scope.shadowStyle = {
-        logo: '',
-        address: ''
       };
 
       $timeout(function(){
@@ -98,48 +100,63 @@ angular.module('designtool')
       $scope.toggleShadow = function(el) {
 
         $scope.params[el].shadow.options.disabled = ( $scope.params[el].shadow.options.disabled ? false : true );
+        $scope.params[el].shadow.active = ( $scope.params[el].shadow.active ? false : true );
 
         if($scope.params[el].shadow.options.disabled) {
 
-          $scope.shadowStyle[el] = '';
           $scope.svg[el].filter = '';
 
         } else {
 
           $scope.svg[el].filter = $scope.params[el].shadow.name;
-          $scope.shadowStyle[el] =  {
-            '-webkit-filter': 'url("#'+el+'-filter")',
-            'filter': 'url("#'+el+'-filter")'
-          };
 
         }
+      };
+
+      $scope.addressStyle = function() {
+
+        return {
+          'color' : $scope.params.address.color,
+          'font-size' : $scope.params.address.size+'px',
+          'font-weight' : $scope.params.address.weight
+        };
       };
 
       $scope.preview = function(el) {
 
         var index = this.$index;
-        var id = $scope.params.containers[index].name;
+        var container = $scope.params.containers[index];
 
         cropTool.results(croppieObj[index]).then(function(img) {
 
           var deferred = $q.defer();
 
           var logo = document.querySelector('.header-logo img').src;
-          $scope.params.logo.width = document.querySelector('#'+id+' > .header-logo img').width;
-          $scope.params.logo.height = document.querySelector('#'+id+' > .header-logo img').height;
-          $scope.params.address.width = document.querySelector('#'+id+' > .header-address').width;
-          $scope.params.address.height = document.querySelector('#'+id+' > .header-address').height;
+          $scope.params.logo.width = document.querySelector('#'+container.name+' > .header-logo img').width;
+          $scope.params.logo.height = document.querySelector('#'+container.name+' > .header-logo img').height;
+          plotImage($scope.params.logo, container, index, logo);
 
-          plotLogo(logo, $scope.params.logo, $scope.params.containers[index], index);
-          plotAddress($scope.params.address, $scope.params.containers[index], index);
+          if(container.type !== 'coupon') {
 
-          deferred.resolve(plotBG(img, $scope.params.containers[index]));
+            $scope.params.address.width = document.querySelector('#'+container.name+' > .header-address').width;
+            $scope.params.address.height = document.querySelector('#'+container.name+' > .header-address').height;
+            plotImage($scope.params.address, container, index);
+
+          }
+
+          if(container.gradient) {
+
+            img = $scope.params.gradient;
+            console.log(img);
+          }
+
+          deferred.resolve(plotBG(img, container));
 
           return deferred.promis;
 
       }).then(function(img) {
 
-          plotCanvas($scope.params.containers[index]);
+          plotCanvas(container);
       });
 
     };
@@ -147,7 +164,7 @@ angular.module('designtool')
     // jQuery
     function setupJquery() {
 
-      $('.uploads').delegate('.upload-bg', 'change', function() {
+      $('.uploads').delegate('#upload-bg', 'change', function() {
 
         for(var i=0; i < $scope.params.containers.length; i++) {
           cropTool.readFile(this, croppieObj[i]);
@@ -155,7 +172,7 @@ angular.module('designtool')
 
       });
 
-      $('.uploads').delegate('.upload-logo', 'change', function() {
+      $('.uploads').delegate('#upload-logo', 'change', function() {
 
         $('.header-logo').css({
           'width' : '',
@@ -240,23 +257,34 @@ angular.module('designtool')
       context.drawImage(logo, 0, 0);
     }
 
-    function plotLogo(img, logoData, containerData, index) {
+    function plotImage(element, container, index, img) {
 
-      var canvas = document.getElementById("logo-canvas");
-      var svg = document.getElementById("svg-logo");
-      var svgImage = document.getElementById('svg-logo-image');
+      var type = img ? 'logo' : 'address';
+      var canvas = document.getElementById(type+'-canvas');
+      var svg = document.getElementById('svg-'+type);
+      var svgElem = document.getElementById('svg-'+type+'-image');
+      var position = getOffset($('#'+container.name+'-'+type), $('#'+container.name));
 
-      var position = getOffset($('#'+containerData.name+'-logo'), $('#'+containerData.name));
 
-      svg.setAttribute('width', containerData.width);
-      svg.setAttribute('height', containerData.height);
-      svgImage.setAttribute('xlink:href', img);
-      svgImage.setAttribute('width', logoData.width);
-      svgImage.setAttribute('height', logoData.height);
-      svgImage.setAttribute('x', position.x);
-      svgImage.setAttribute('y', position.y);
+      svg.setAttribute('width', container.width);
+      svg.setAttribute('height', container.height);
 
-      var svgData = new XMLSerializer().serializeToString(document.getElementById("svg-logo"));
+      if(typeof img !== 'undefined') {
+
+        svgElem.setAttribute('x', position.x);
+        svgElem.setAttribute('y', position.y);
+        svgElem.setAttribute('width', element.width);
+        svgElem.setAttribute('height', element.height);
+        svgElem.setAttribute('xlink:href', img);
+
+      } else {
+
+        svgElem.setAttribute('x', position.x);
+        svgElem.setAttribute('y', position.y+(element.size/3)); // Adjust Y via 1/3 of font-size
+
+      }
+
+      var svgData = new XMLSerializer().serializeToString(svg);
 
       var encodedData = window.btoa(unescape(encodeURIComponent(svgData)));
       var newSrc = 'data:image/svg+xml;base64,'+encodedData;
@@ -265,70 +293,59 @@ angular.module('designtool')
       // var svgBlob = new Blob([svgData], {type: "image/svg+xml;charset=utf-8"});
       // var newSrc = window.URL.createObjectURL(svgBlob);
 
-      var logo_image = new Image();
-      logo_image.src = newSrc;
+      var image = new Image();
+      image.src = newSrc;
+      image.onload = drawCanvas(image, canvas, container);
 
-      logo_image.onload = function(){
-        canvas.width = containerData.width;
-        canvas.height = containerData.height;
-        var context = canvas.getContext('2d');
-
-        context.drawImage(logo_image, 0, 0);
-      };
-    }
-
-    function plotAddress(textData, containerData, index) {
-      var canvas = document.getElementById("address-canvas");
-      var svg = document.getElementById("svg-address");
-      var svgText = document.getElementById("svg-address-text");
-
-      var position = getOffset($('#'+containerData.name+'-address'), $('#'+containerData.name));
-      console.log(position);
-
-      svg.setAttribute('width', containerData.width);
-      svg.setAttribute('height', containerData.height);
-
-      svgText.setAttribute('x', position.x);
-      svgText.setAttribute('y', position.y+(textData.size/3)); // Adjust Y via 1/3 of font-size
-
-      var svgData = new XMLSerializer().serializeToString(svg);
-
-      var encodedData = window.btoa(unescape(encodeURIComponent(svgData)));
-      var newSrc = 'data:image/svg+xml;base64,'+encodedData;
-
-      var address_img = new Image();
-      address_img.src = newSrc;
-
-      address_img.onload = function(){
-        canvas.width = containerData.width;
-        canvas.height = containerData.height;
-        var context = canvas.getContext('2d');
-
-        context.drawImage(address_img, 0, 0);
-      };
     }
 
     function plotBG(img, container) {
-      var base_image = new Image();
-      base_image.src = img;
 
-      base_image.onload = function(){
-        var canvas = document.getElementById("bg-canvas");
+      var canvas = document.getElementById("bg-canvas");
 
-        canvas.width = container.width;
-        canvas.height = container.height;
-        var context = canvas.getContext('2d');
+      if(container.gradient) {
 
-        // Draw image within
-        context.drawImage(base_image, 0,0);
-      };
+        drawGradient(img, canvas, container);
+
+      } else {
+
+        var base_image = new Image();
+        base_image.src = img;
+        base_image.onload = drawCanvas(base_image, canvas, container);
+
+      }
+    }
+
+    function drawGradient(colors, canvas, container) {
+
+      canvas.width = container.width;
+      canvas.height = container.height;
+
+      var context = canvas.getContext('2d');
+      var gradient = context.createLinearGradient(0,0,0, container.height);
+
+      gradient.addColorStop(0, colors.color1);
+      gradient.addColorStop(1, colors.color2);
+
+      context.fillStyle = gradient;
+      context.fillRect(0,0, container.width, container.height);
+
+    }
+
+    function drawCanvas(img, canvas, container) {
+
+      canvas.width = container.width;
+      canvas.height = container.height;
+      var context = canvas.getContext('2d');
+
+      // Draw image within
+      context.drawImage(img, 0,0);
+
     }
 
     function getOffset($obj, $container) {
 
       $container = $container.find('.cr-viewport');
-
-      console.log($container);
 
       return {
         x : $obj.offset().left - $container.offset().left,
@@ -354,6 +371,31 @@ angular.module('designtool')
         return;
       }
     }
+
+    // function plotAddress(textData, containerData, index) {
+    //   var canvas = document.getElementById("address-canvas");
+    //   var svg = document.getElementById("svg-address");
+    //   var svgText = document.getElementById("svg-address-text");
+    //
+    //   var position = getOffset($('#'+containerData.name+'-address'), $('#'+containerData.name));
+    //   console.log(position);
+    //
+    //   svg.setAttribute('width', containerData.width);
+    //   svg.setAttribute('height', containerData.height);
+    //
+    //   svgText.setAttribute('x', position.x);
+    //   svgText.setAttribute('y', position.y+(textData.size/3)); // Adjust Y via 1/3 of font-size
+    //
+    //   var svgData = new XMLSerializer().serializeToString(svg);
+    //
+    //   var encodedData = window.btoa(unescape(encodeURIComponent(svgData)));
+    //   var newSrc = 'data:image/svg+xml;base64,'+encodedData;
+    //
+    //   var address_img = new Image();
+    //   address_img.src = newSrc;
+    //
+    //   address_img.onload = drawCanvas(address_img, canvas, containerData);
+    // }
 
     // function isBase64(str) {
     //

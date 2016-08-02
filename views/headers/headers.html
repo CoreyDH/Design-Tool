@@ -5,120 +5,125 @@
 </div>
 <div class="col-md-12 headers">
 
-	<div class="col-md-12 uploads">
-		<div class="col-md-4 text-center">
-			<h3><small>Upload Logo</small></h3>
-			<input class="btn btn-primary upload-logo" type="file" value="Upload" accept="image/*" />
-		</div>
-		<div class="col-md-4 text-center">
-			<h3><small>Upload Background</small></h3>
-			<input class="btn btn-primary upload-bg" type="file" value="Upload" accept="image/*" />
-		</div>
-		<div class="col-md-4 text-center">
-			<h3><small>Gradient Colors</small></h3>
-			<div colorpicker="hex" colorpicker-size="150" colorpicker-with-input="true" ng-model="params.gradient.color1" class="palette-box" ng-style="{ background : params.gradient.color1 }"></div>
-			<div colorpicker="hex" colorpicker-size="150" colorpicker-with-input="true" ng-model="params.gradient.color2" class="palette-box" ng-style="{ background : params.gradient.color2 }"></div>
+	<!-- Headers -->
+	<div class="col-md-12">
+		<div class="header-wrapper" ng-repeat="container in params.containers" ng-class="container.width+25 > 525  ? 'col-md-12' : 'col-md-6'">
+			<center><h3>[[container.name]] <small>[[container.width]]x[[container.height]]</small></h3></center>
+			<div id="[[container.name]]" class="croppie-container">
+				<div class="header-logo" id="[[container.name]]-logo">
+					<img ng-src="[[params.logo.image]]" ng-class="params.logo.shadow.active ? 'logo-filter' : ''" />
+				</div>
+				<div class="header-address" id="[[container.name]]-address" ng-if="container.type !== 'coupon'">
+					<span ng-style="addressStyle()" ng-class="params.address.shadow.active ? 'address-filter' : ''">[[params.address.text]]</span>
+				</div>
+		  </div>
+			<div class="col-md-12 text-center"><a class="btn btn-default img-result" ng-click="preview()"><span class="glyphicon glyphicon-eye-open"></span></a></div>
 		</div>
 	</div>
 
-	<!-- <div class="col-md-12">
-		<div class="coupon-bg cr-viewport">
-			<div class="logo" id="coupon-logo">
-				<img ng-src="[[headerLogo]]" ng-style="applyShadow(params.logo.shadow)" />
+	<!-- Controls -->
+	<div class="controls container">
+		<div class="row">
+			<div class="col-md-12 controls-top">
+				<div class="col-md-4">
+					<div class = "btn-group dropup">
+					   <button type="button" class="btn btn-default" style="margin-right:0"  ng-click="toggleShadow('logo')">Toggle Logo Shadow</button>
+
+					   <button type="button" class="btn btn-info dropdown-toggle shadow-sliders-settings">
+					      <span class="glyphicon glyphicon-cog"></span>
+					      <span class="sr-only">Toggle Logo Settings</span>
+					   </button>
+
+						 <div class="shadow-sliders dropdown-menu">
+				 			<table class="table">
+				 				<tr>
+				 					<td>Color</td>
+				 					<td><div><div colorpicker="rgba" colorpicker-size="150" ng-model="params.logo.shadow.color" class="palette-box pull-left" ng-style="{background : params.logo.shadow.color}"></div>
+				 					<input type="text" colorpicker="rgba" colorpicker-size="150" ng-model="params.logo.shadow.color" placeholder="RGBA"/></div></td>
+				 				</tr>
+				 				<tr>
+				 					<td>Offset X</td>
+				 					<td><rzslider rz-slider-model="params.logo.shadow.offsetX" rz-slider-options="params.logo.shadow.options"></rzslider></td>
+				 				</tr>
+				 				<tr>
+				 					<td>Offset Y</td>
+				 					<td><rzslider rz-slider-model="params.logo.shadow.offsetY" rz-slider-options="params.logo.shadow.options"></rzslider></td>
+				 				</tr>
+				 				<tr>
+				 					<td>Blur</td>
+				 					<td><rzslider rz-slider-model="params.logo.shadow.blur" rz-slider-options="{ floor: 0, ceil: 10, showSelectionBar: true, disabled: params.logo.shadow.options.disabled  }"></rzslider></td>
+				 				</tr>
+				 				<tr>
+				 					<td>Spread</td>
+				 					<td><rzslider rz-slider-model="params.logo.shadow.spread" rz-slider-options="{ floor: 1, ceil: 10, showSelectionBar: true, disabled: params.logo.shadow.options.disabled }"></rzslider></td>
+				 				</tr>
+				 			</table>
+				 		</div>
+					</div>
+				</div>
+
+				<div class="col-md-4">
+					<div class = "btn-group dropup">
+					   <button type="button" class="btn btn-default" style="margin-right:0"  ng-click="toggleShadow('address')">Toggle Address Shadow</button>
+
+					   <button type="button" class="btn btn-info dropdown-toggle shadow-sliders-settings">
+					      <span class="glyphicon glyphicon-cog"></span>
+					      <span class = "sr-only">Toggle Address Settings</span>
+					   </button>
+
+						 <div class="shadow-sliders dropdown-menu">
+				 			<table class="table">
+				 				<tr>
+				 					<td>Color</td>
+				 					<td><div><div colorpicker="hex" colorpicker-size="150" ng-model="params.address.color" class="palette-box pull-left" ng-style="{background : params.address.color}"></div>
+				 					<input type="text" colorpicker="hex" colorpicker-size="150" ng-model="params.address.color" placeholder="#HEX"/></div></td>
+				 				</tr>
+				 				<tr>
+				 					<td>Size</td>
+				 					<td><rzslider rz-slider-model="params.address.size" rz-slider-options="params.address.options"></rzslider></td>
+				 				</tr>
+								<tr>
+				 					<td>Weight</td>
+				 					<td><rzslider rz-slider-model="params.address.weight" rz-slider-options="{ floor: 400, ceil: 800, showSelectionBar: true, step: 100, disabled: params.address.options.disabled }"></rzslider></td>
+				 				</tr>
+								<tr>
+				 					<td>Shadow Color</td>
+				 					<td><div><div colorpicker="rgba" colorpicker-size="150" ng-model="params.address.shadow.color" class="palette-box pull-left" ng-style="{background : params.address.shadow.color}"></div>
+				 					<input type="text" colorpicker="rgba" colorpicker-size="150" ng-model="params.address.shadow.color" placeholder="RGBA"/></div></td>
+				 				</tr>
+				 				<tr>
+				 					<td>Shadow Blur</td>
+				 					<td><rzslider rz-slider-model="params.address.shadow.blur" rz-slider-options="params.address.shadow.options"></rzslider></td>
+				 				</tr>
+				 				<tr>
+				 					<td>Shadow Spread</td>
+				 					<td><rzslider rz-slider-model="params.address.shadow.spread" rz-slider-options="params.address.shadow.options"></rzslider></td>
+				 				</tr>
+				 			</table>
+				 		</div>
+					</div>
+				</div>
+
+				<div class="col-md-4">
+					<div colorpicker="hex" colorpicker-size="150" colorpicker-fixed-position="true" colorpicker-with-input="true" colorpicker-position="top" ng-model="params.gradient.color1" class="palette-box form-control" ng-style="{ background : params.gradient.color1 }"></div>
+					<div colorpicker="hex" colorpicker-size="150" colorpicker-fixed-position="true" colorpicker-with-input="true" colorpicker-position="top" ng-model="params.gradient.color2" class="palette-box form-control" ng-style="{ background : params.gradient.color2 }"></div>
+				</div>
 			</div>
-		</div>
-  </div> -->
+			<div class="col-md-12">
+				<div class="col-md-4 uploads">
+					<div class="row">
+						<label class="btn btn-warning" for="upload-logo">Upload Logo</label>
+						<input id="upload-logo" type="file" value="Upload" accept="image/*" />
 
-<div class="col-md-12" ng-repeat="container in params.containers">
-	<center><h3>[[container.name]] <small>[[container.width]]x[[container.height]]</small></h3></center>
-	<div id="[[container.name]]" class="croppie-container">
-		<div class="header-logo" id="[[container.name]]-logo">
-			<img ng-src="[[params.logo.image]]" ng-style="shadowStyle.logo" />
-		</div>
-		<div class="header-address" id="[[container.name]]-address">
-			<span style="color: [[params.address.color]]; font-size: [[params.address.size]]px; font-weight: [[params.address.weight]]" ng-style="shadowStyle.address;">[[params.address.text]]</span>
-		</div>
-  </div>
-	<a class="btn btn-default pull-right img-result" ng-click="preview()"><span class="glyphicon glyphicon-eye-open"></span></a>
-</div>
-
-	<div class="controls">
-		<div class="col-md-5">
-			<div class = "btn-group">
-			   <button type="button" class="btn btn-default" style="margin-right:0"  ng-click="toggleShadow('logo')">Toggle Logo Shadow</button>
-
-			   <button type="button" class="btn btn-default dropdown-toggle shadow-sliders-settings">
-			      <span class="glyphicon glyphicon-cog"></span>
-			      <span class="sr-only">Toggle Logo Settings</span>
-			   </button>
-
-				 <div class="shadow-sliders dropdown-menu">
-		 			<table class="table">
-		 				<tr>
-		 					<td>Color</td>
-		 					<td><div><div colorpicker="rgba" colorpicker-size="150" ng-model="params.logo.shadow.color" class="palette-box pull-left" ng-style="{background : params.logo.shadow.color}"></div>
-		 					<input type="text" colorpicker="rgba" colorpicker-size="150" ng-model="params.logo.shadow.color" placeholder="RGBA"/></div></td>
-		 				</tr>
-		 				<tr>
-		 					<td>Offset X</td>
-		 					<td><rzslider rz-slider-model="params.logo.shadow.offsetX" rz-slider-options="params.logo.shadow.options"></rzslider></td>
-		 				</tr>
-		 				<tr>
-		 					<td>Offset Y</td>
-		 					<td><rzslider rz-slider-model="params.logo.shadow.offsetY" rz-slider-options="params.logo.shadow.options"></rzslider></td>
-		 				</tr>
-		 				<tr>
-		 					<td>Blur</td>
-		 					<td><rzslider rz-slider-model="params.logo.shadow.blur" rz-slider-options="{ floor: 0, ceil: 10, showSelectionBar: true, disabled: params.logo.shadow.options.disabled  }"></rzslider></td>
-		 				</tr>
-		 				<tr>
-		 					<td>Spread</td>
-		 					<td><rzslider rz-slider-model="params.logo.shadow.spread" rz-slider-options="{ floor: 1, ceil: 10, showSelectionBar: true, disabled: params.logo.shadow.options.disabled }"></rzslider></td>
-		 				</tr>
-		 			</table>
-		 		</div>
-			</div>
-		</div>
-
-		<div class="col-md-5">
-			<div class = "btn-group">
-			   <button type="button" class="btn btn-default" style="margin-right:0"  ng-click="toggleShadow('address')">Toggle Address Shadow</button>
-
-			   <button type="button" class="btn btn-default dropdown-toggle shadow-sliders-settings">
-			      <span class="glyphicon glyphicon-cog"></span>
-			      <span class = "sr-only">Toggle Address Settings</span>
-			   </button>
-
-				 <div class="shadow-sliders dropdown-menu">
-		 			<table class="table">
-		 				<tr>
-		 					<td>Color</td>
-		 					<td><div><div colorpicker="hex" colorpicker-size="150" ng-model="params.address.color" class="palette-box pull-left" ng-style="{background : params.address.color}"></div>
-		 					<input type="text" colorpicker="hex" colorpicker-size="150" ng-model="params.address.color" placeholder="#HEX"/></div></td>
-		 				</tr>
-		 				<tr>
-		 					<td>Size</td>
-		 					<td><rzslider rz-slider-model="params.address.size" rz-slider-options="params.address.options"></rzslider></td>
-		 				</tr>
-						<tr>
-		 					<td>Weight</td>
-		 					<td><rzslider rz-slider-model="params.address.weight" rz-slider-options="{ floor: 400, ceil: 800, showSelectionBar: true, step: 100, disabled: params.address.options.disabled }"></rzslider></td>
-		 				</tr>
-						<tr>
-		 					<td>Shadow Color</td>
-		 					<td><div><div colorpicker="rgba" colorpicker-size="150" ng-model="params.address.shadow.color" class="palette-box pull-left" ng-style="{background : params.address.shadow.color}"></div>
-		 					<input type="text" colorpicker="rgba" colorpicker-size="150" ng-model="params.address.shadow.color" placeholder="RGBA"/></div></td>
-		 				</tr>
-		 				<tr>
-		 					<td>Shadow Blur</td>
-		 					<td><rzslider rz-slider-model="params.address.shadow.blur" rz-slider-options="params.address.shadow.options"></rzslider></td>
-		 				</tr>
-		 				<tr>
-		 					<td>Shadow Spread</td>
-		 					<td><rzslider rz-slider-model="params.address.shadow.spread" rz-slider-options="params.address.shadow.options"></rzslider></td>
-		 				</tr>
-		 			</table>
-		 		</div>
+						<label class="btn btn-primary" for="upload-bg">Upload Background</label>
+						<input id="upload-bg" type="file" value="Upload" accept="image/*" />
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div class="row">
+						<input id="address-input" class="form-control" type="text" ng-model="params.address.text" placeholder="Address Text" />
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -167,6 +172,6 @@
 		    </feMerge>
 			</filter>
 		</defs>
-		<text id="svg-address-text" x="0" y="16" font-family="sans-serif" font-size="[[params.address.size]]" font-weight="[[params.address.weight]]" fill="[[params.address.color]]" filter="url(#[[svg.address.filter]])">2714 Kelly Lane • Pflugerville, TX 78660 • 512-251-9000</text>
+		<text id="svg-address-image" x="0" y="16" font-family="sans-serif" font-size="[[params.address.size]]" font-weight="[[params.address.weight]]" fill="[[params.address.color]]" filter="url(#[[svg.address.filter]])">[[params.address.text]]</text>
 	</svg>
 </div>

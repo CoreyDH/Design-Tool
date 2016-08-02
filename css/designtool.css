@@ -279,13 +279,40 @@ version:hover {
 /* -- */
 
 /* Headers */
+.header-wrapper {
+  margin-bottom: 30px;
+}
 .headers .croppie-container {
   position: relative;
+  padding: 0;
+}
+.headers .cr-slider-wrap {
+  display:none;
+}
+.headers h3 {
+  margin-top: 0;
+}
+.headers input[type="file"] {
+  display: none;
+}
+.controls {
+  position: fixed;
+  bottom: 0;
+  z-index: 9999;
+  background-color: #333;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.controls-top {
+  padding: 10px 0px;
+}
+.headers .uploads {
+  margin-bottom: 10px;
 }
 .header-logo {
   border:1px solid rgba(255,255,255,0);
   position:absolute;
-  z-index: 9999;
+  z-index: 200;
 }
 .header-logo:hover {
   border:1px solid rgba(255,200,200,0.5);
@@ -297,16 +324,24 @@ version:hover {
   height: 100%;
 }
 .header-address {
-  color:#fff;
-  border:1px solid rgba(255,255,255,0);
-  font-weight:bold;
-  font-size:15px;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0);
+  font-weight: bold;
+  font-size: 15px;
   line-height: 0;
-  position:absolute;
-  z-index:999;
+  position: absolute;
+  z-index: 100;
 }
 .header-address:hover {
   border:1px solid rgba(200,200,255,0.5);
+}
+.logo-filter {
+  -webkit-filter: url(#logo-filter);
+  filter: url(#logo-filter);
+}
+.address-filter {
+  -webkit-filter: url(#address-filter);
+  filter: url(#address-filter);
 }
 .email-bg {
   position:relative;
@@ -314,21 +349,45 @@ version:hover {
 .email-bg .cr-viewport {
   border: 2px solid #505050;
 }
+#g18-coupon-logo {
+  top: 33px;
+  left: 192px;
+}
+#coupon-logo {
+  top: 60px;
+  left: 195px;
+}
 #email-logo {
-  top:60px;
-  left:460px;
+  top: 30px;
+  left: 460px;
 }
 #email-address {
-  top:195px;
-  left:325px;
+  top: 165px;
+  left: 342px;
+}
+#g18-header-logo {
+  top: 20px;
+  left: 163px;
+}
+#g18-header-address {
+  top: 100px;
+  left: 500px;
+}
+#ecom-logo {
+  top: 33px;
+  left: 196px;
+}
+#ecom-address {
+  top: 150px;
+  left: 337px;
 }
 #survey-logo {
-  top:50px;
-  left:460px;
+  top: 30px;
+  left: 460px;
 }
 #survey-address {
-  top:185px;
-  left:325px;
+  top: 152px;
+  left: 328px;
 }
 .shadow-sliders {
   width: 360px;
@@ -336,6 +395,7 @@ version:hover {
 .shadow-sliders td {
   vertical-align: middle !important;
 }
+
 /*.canvases canvas, .svgs {
   display:none;
 }

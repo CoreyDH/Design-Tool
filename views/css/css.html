@@ -19,7 +19,7 @@
 <div class="col-md-12 palette-thief-wrapper">
 	<img ng-src="[[myLogo]]" id="uploadLogo">
 	<ul class="palette-thief">
-		<li ng-repeat="t in thief">
+		<li ng-repeat="t in thief track by $index">
 			<div class="palette-thief-box" style="background-color: [[t]]">
 				[[t]]
 			</div>

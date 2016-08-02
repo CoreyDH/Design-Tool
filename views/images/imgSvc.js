@@ -43,7 +43,9 @@ angular.module('designtool')
    }
 
    $q.all(promises).then(function (img) {
+
     for(var j=0; j < img.length;j++) {
+      
         var newimg = img[j].split(',');
         var c = count[j];
         var zipper = zip.folder(template[c].folder);
@@ -53,6 +55,7 @@ angular.module('designtool')
     var content = zip.generate({type:"blob"});
     // see FileSaver.js
     saveAs(content, filename+'.zip');
+
    });
 
 
@@ -63,6 +66,7 @@ angular.module('designtool')
 		var crop = [];
 
 		for(var i=0; i < templateArr.length; i++) {
+
 			crop[i] = $('#'+templateArr[i].name).croppie({
 			viewport: {
 				width: templateArr[i].width,
@@ -72,8 +76,8 @@ angular.module('designtool')
 			  width: templateArr[i].width+25,
 			  height: templateArr[i].height+25
 			}
-			});
-		}
+    });
+	}
 
 		return crop;
 	};
