@@ -284,7 +284,7 @@ version:hover {
 }
 .headers .croppie-container {
   position: relative;
-  padding: 0;
+  padding: 15px 0;
 }
 .headers .cr-slider-wrap {
   display:none;
@@ -295,19 +295,32 @@ version:hover {
 .headers input[type="file"] {
   display: none;
 }
-.controls {
+.headers .controls {
   position: fixed;
   bottom: 0;
   z-index: 9999;
   background-color: #333;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
+  padding: 10px 10px 0 10px;
 }
-.controls-top {
-  padding: 10px 0px;
+.headers .palette-box {
+  height: 17px;
+}
+.headers .gradient-container {
+  margin: 0 5px;
 }
 .headers .uploads {
   margin-bottom: 10px;
+}
+.shadow-sliders {
+  width: 360px;
+}
+.shadow-sliders td {
+  vertical-align: middle !important;
+}
+.shadow-sliders .palette-box {
+  height: 26px;
 }
 .header-logo {
   border:1px solid rgba(255,255,255,0);
@@ -374,8 +387,8 @@ version:hover {
   left: 500px;
 }
 #ecom-logo {
-  top: 33px;
-  left: 196px;
+  top: 30px;
+  left: 476px;
 }
 #ecom-address {
   top: 150px;
@@ -388,12 +401,6 @@ version:hover {
 #survey-address {
   top: 152px;
   left: 328px;
-}
-.shadow-sliders {
-  width: 360px;
-}
-.shadow-sliders td {
-  vertical-align: middle !important;
 }
 
 /*.canvases canvas, .svgs {

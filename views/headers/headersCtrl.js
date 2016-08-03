@@ -11,7 +11,6 @@ angular.module('designtool')
           image: 'https://www.coursetrends.com/golf/designs/comal/images/design/logo.png',
           shadow: {
             name: 'logo-filter',
-            active: false,
             offsetX: 0,
             offsetY: 1,
             blur: 1,
@@ -29,13 +28,12 @@ angular.module('designtool')
           options: { floor: 10, ceil: 30, showSelectionBar: true },
           shadow: {
             name: 'address-filter',
-            active: true,
             offsetX: 0,
             offsetY: 0,
             blur: 1,
             spread: 2,
             color: "rgba(0,0,0,1)",
-            options: { floor: 0, ceil: 10, showSelectionBar: true, disabled: true }
+            options: { floor: 0, ceil: 10, showSelectionBar: true, disabled: false }
           }
         },
         gradient: {
@@ -80,15 +78,13 @@ angular.module('designtool')
         ]
       };
 
-      // $scope.params.address.text = $scope.course.address1 ? ($scope.course.address1 +' • '+ $scope.course.address2 +' • '+ $scope.course.phone) : $scope.params.address.text;
-
       // Filter Toggle for SVG
       $scope.svg = {
         logo: {
           filter: ''
         },
         address: {
-          filter: ''
+          filter: 'address-filter'
         }
       };
 
@@ -100,7 +96,6 @@ angular.module('designtool')
       $scope.toggleShadow = function(el) {
 
         $scope.params[el].shadow.options.disabled = ( $scope.params[el].shadow.options.disabled ? false : true );
-        $scope.params[el].shadow.active = ( $scope.params[el].shadow.active ? false : true );
 
         if($scope.params[el].shadow.options.disabled) {
 
@@ -122,6 +117,16 @@ angular.module('designtool')
         };
       };
 
+      $scope.$watch('gradient', function(ele) {
+        // $scope.gradient = function() {
+        //     return {
+        //       'background': '-webkit-linear-gradient(top,  #87e0fd 0%,#05abe0 100%)'
+        //   };
+        // };
+
+        console.log(ele);
+      });
+
       $scope.preview = function(el) {
 
         var index = this.$index;
@@ -129,9 +134,9 @@ angular.module('designtool')
 
         cropTool.results(croppieObj[index]).then(function(img) {
 
-          var deferred = $q.defer();
-
+          var bgImage = document.getElementsByClassName('cr-image')[index].src;
           var logo = document.querySelector('.header-logo img').src;
+
           $scope.params.logo.width = document.querySelector('#'+container.name+' > .header-logo img').width;
           $scope.params.logo.height = document.querySelector('#'+container.name+' > .header-logo img').height;
           plotImage($scope.params.logo, container, index, logo);
@@ -144,15 +149,17 @@ angular.module('designtool')
 
           }
 
-          if(container.gradient) {
+          if(container.gradient || !bgImage) {
 
-            img = $scope.params.gradient;
-            console.log(img);
+            drawGradient($scope.params.gradient, container);
+
+          } else {
+
+            var deferred = $q.defer();
+            deferred.resolve(plotBG(img, container));
+            return deferred.promise;
+
           }
-
-          deferred.resolve(plotBG(img, container));
-
-          return deferred.promis;
 
       }).then(function(img) {
 
@@ -167,6 +174,10 @@ angular.module('designtool')
       $('.uploads').delegate('#upload-bg', 'change', function() {
 
         for(var i=0; i < $scope.params.containers.length; i++) {
+
+          if($scope.params.containers[i].type === 'coupon')
+            continue;
+
           cropTool.readFile(this, croppieObj[i]);
         }
 
@@ -212,6 +223,8 @@ angular.module('designtool')
           $(this).parent().toggleClass('open');
       });
 
+      $('.cr-viewport').attr('ng-style', 'gradient()');
+
     }
 
     // Service
@@ -253,7 +266,9 @@ angular.module('designtool')
       var context = canvas.getContext('2d');
 
       context.drawImage(bg, 0, 0);
-      context.drawImage(address, 0, 0);
+      if(container.type !== 'coupon') {
+        context.drawImage(address, 0, 0);
+      }
       context.drawImage(logo, 0, 0);
     }
 
@@ -303,20 +318,14 @@ angular.module('designtool')
 
       var canvas = document.getElementById("bg-canvas");
 
-      if(container.gradient) {
-
-        drawGradient(img, canvas, container);
-
-      } else {
-
-        var base_image = new Image();
-        base_image.src = img;
-        base_image.onload = drawCanvas(base_image, canvas, container);
-
-      }
+      var base_image = new Image();
+      base_image.src = img;
+      base_image.onload = drawCanvas(base_image, canvas, container);
     }
 
-    function drawGradient(colors, canvas, container) {
+    function drawGradient(colors, container) {
+
+      var canvas = document.getElementById("bg-canvas");
 
       canvas.width = container.width;
       canvas.height = container.height;

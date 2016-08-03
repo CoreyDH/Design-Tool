@@ -272,7 +272,7 @@ angular.module('colorpicker.module', [])
               fixedPosition = angular.isDefined(attrs.colorpickerFixedPosition) ? attrs.colorpickerFixedPosition : false,
               target = angular.isDefined(attrs.colorpickerParent) ? elem.parent() : angular.element(document.body),
               withInput = angular.isDefined(attrs.colorpickerWithInput) ? attrs.colorpickerWithInput : false,
-              componentSize = angular.isDefined(attrs.colorpickerSize) ? attrs.colorpickerSize : 100,
+              componentSize = angular.isDefined(attrs.colorpickerSize) ? parseInt(attrs.colorpickerSize) : 100,
               componentSizePx = componentSize + 'px',
               inputTemplate = withInput ? '<input type="text" name="colorpicker-input" spellcheck="false">' : '',
               closeButton = !inline ? '<button type="button" class="close close-colorpicker">&times;</button>' : '',
@@ -289,7 +289,6 @@ angular.module('colorpicker.module', [])
                       '</div>',
               colorpickerTemplate = angular.element(template),
               pickerColor = Color,
-              componentSizePx,
               sliderAlpha,
               sliderHue = colorpickerTemplate.find('colorpicker-hue'),
               sliderSaturation = colorpickerTemplate.find('colorpicker-saturation'),
@@ -413,7 +412,7 @@ angular.module('colorpicker.module', [])
           }
 
           function mousemove(event) {
-            var 
+            var
                 left = Slider.getLeftPosition(event),
                 top = Slider.getTopPosition(event),
                 slider = Slider.getSlider();
@@ -460,7 +459,7 @@ angular.module('colorpicker.module', [])
 
           function getColorpickerTemplatePosition() {
             var
-                positionValue,
+                positionValue = {},
                 positionOffset = Helper.getOffset(elem[0]);
 
             if(angular.isDefined(attrs.colorpickerParent)) {
@@ -468,27 +467,32 @@ angular.module('colorpicker.module', [])
               positionOffset.top = 0;
             }
 
-            if (position === 'top') {
-              positionValue =  {
-                'top': positionOffset.top - 147,
-                'left': positionOffset.left
-              };
-            } else if (position === 'right') {
-              positionValue = {
-                'top': positionOffset.top,
-                'left': positionOffset.left + 126
-              };
-            } else if (position === 'bottom') {
-              positionValue = {
-                'top': positionOffset.top + elem[0].offsetHeight + 2,
-                'left': positionOffset.left
-              };
-            } else if (position === 'left') {
-              positionValue = {
-                'top': positionOffset.top,
-                'left': positionOffset.left - 150
-              };
+            console.log(elem[0].offsetTop, positionOffset.top);
+
+            switch(position) {
+
+              case 'top' :
+                positionValue.top = positionOffset.top - (componentSize + 50);
+                positionValue.left = positionOffset.left;
+                break;
+
+              case 'right' :
+                positionValue.top = positionOffset.top - 2;
+                positionValue.left = positionOffset.left + elem[0].offsetWidth + 2;
+                break;
+
+              case 'bottom' :
+                positionValue.top = positionOffset.top + elem[0].offsetHeight + 2;
+                positionValue.left = positionOffset.left;
+                break;
+
+              case 'left' :
+                positionValue.top = positionOffset.top;
+                positionValue.left = positionOffset.left - componentSize - elem[0].offsetWidth/2 - 5;
+                break;
+
             }
+
             return {
               'top': positionValue.top + 'px',
               'left': positionValue.left + 'px'

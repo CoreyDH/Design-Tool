@@ -45,7 +45,7 @@ angular.module('designtool')
    $q.all(promises).then(function (img) {
 
     for(var j=0; j < img.length;j++) {
-      
+
         var newimg = img[j].split(',');
         var c = count[j];
         var zipper = zip.folder(template[c].folder);
