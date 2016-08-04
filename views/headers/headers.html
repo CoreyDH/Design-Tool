@@ -13,6 +13,9 @@
 				<div class="header-logo" id="[[container.name]]-logo">
 					<img ng-src="[[params.logo.image]]" ng-class="params.logo.shadow.options.disabled ? '' : 'logo-filter'" />
 				</div>
+				<div class="header-store" id="[[container.name]]-store" ng-if="container.store">
+					Online Store
+				</div>
 				<div class="header-address" id="[[container.name]]-address" ng-if="container.type !== 'coupon'">
 					<span ng-style="addressStyle()" ng-class="params.address.shadow.options.disabled ? '' : 'address-filter'">[[params.address.text]]</span>
 				</div>
@@ -105,12 +108,13 @@
 
 				<!-- Gradient Color Picker -->
 				<div class="gradient-container pull-left">
-					<div colorpicker="hex" colorpicker-size="150" colorpicker-fixed-position="true" colorpicker-with-input="true" colorpicker-position="top" ng-model="params.gradient.color1" class="palette-box form-control" ng-style="{ background : params.gradient.color1 }"></div>
-					<div colorpicker="hex" colorpicker-size="150" colorpicker-fixed-position="true" colorpicker-with-input="true" colorpicker-position="top" ng-model="params.gradient.color2" class="palette-box form-control" ng-style="{ background : params.gradient.color2 }"></div>
+					<div colorpicker="hex" colorpicker-size="150" colorpicker-fixed-position="true" colorpicker-with-input="true" colorpicker-position="top" ng-model="params.gradient.color1" class="palette-box form-control pull-left" ng-style="{ background : params.gradient.color1 }"></div>
+					<div colorpicker="hex" colorpicker-size="150" colorpicker-fixed-position="true" colorpicker-with-input="true" colorpicker-position="top" ng-model="params.gradient.color2" class="palette-box form-control pull-left" ng-style="{ background : params.gradient.color2 }"></div>
 				</div>
 
 			</div>
 		</div>
+
 		<!-- Uploads -->
 		<div class="col-md-2 uploads">
 			<div class="row">
@@ -138,6 +142,7 @@
 		<canvas id="logo-canvas"></canvas><br />
 		<canvas id="address-canvas"></canvas><br />
 		<canvas id="bg-canvas"></canvas>
+		<canvas id="store-canvas"></canvas>
 	</div>
 </div>
 <div class="svgs">
