@@ -20,7 +20,11 @@
 					<span ng-style="addressStyle()" ng-class="params.address.shadow.options.disabled ? '' : 'address-filter'">[[params.address.text]]</span>
 				</div>
 		  </div>
-			<div class="col-md-12 text-center"><a class="btn btn-default img-result" data-toggle="modal" data-target="#imagePreview" ng-click="preview()"><span class="glyphicon glyphicon-eye-open"></span></a></div>
+			<div class="col-md-12 text-center">
+				<a class="btn btn-success img-download" ng-click="download()"><span class="glyphicon glyphicon-download-alt"></span></a>
+				<a class="btn btn-default img-result" data-toggle="modal" data-target="#imagePreview" ng-click="preview()"><span class="glyphicon glyphicon-eye-open"></span></a>
+				<a class="btn btn-danger img-clear" ng-click="clearImg()"><span class="glyphicon glyphicon-trash"></span></a>
+			</div>
 		</div>
 	</div>
 

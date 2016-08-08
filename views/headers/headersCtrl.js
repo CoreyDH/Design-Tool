@@ -42,7 +42,7 @@ angular.module('designtool')
         },
         containers: [
           {
-            name: 'g18-coupon',
+            name: 'golf18',
             width: 136,
             height: 145,
             gradient: true,
@@ -56,23 +56,23 @@ angular.module('designtool')
             type: 'coupon'
           },
           {
-            name: 'email',
+            name: 'email_header',
             width: 600,
             height: 175
           },
           {
-            name: 'g18-header',
+            name: 'booking_header',
             width: 785,
             height: 115
           },
           {
-            name: 'ecom',
+            name: 'ecom_header',
             width: 785,
             height: 160,
             store: true
           },
           {
-            name: 'survey',
+            name: 'survey_header',
             width: 785,
             height: 160
           }
@@ -95,6 +95,16 @@ angular.module('designtool')
         initJQuery();
 
       }, 1);
+
+      $scope.$watchGroup(['params.gradient.color1', 'params.gradient.color2'], function() {
+
+        console.log('gradient');
+        $('.cr-boundary').css({
+          'background' : 'linear-gradient(to bottom,  '+$scope.params.gradient.color1+' 0%,'+$scope.params.gradient.color2+' 100%)'
+        });
+
+      });
+
 
       $scope.toggleShadow = function(el) {
 
@@ -120,26 +130,33 @@ angular.module('designtool')
         };
       };
 
-      $scope.$watch('gradient', function(ele) {
-        // $scope.gradient = function() {
-        //     return {
-        //       'background': '-webkit-linear-gradient(top,  #87e0fd 0%,#05abe0 100%)'
-        //   };
-        // };
-      });
+      $scope.preview = function() {
+        plot(this.$index, $scope.params.containers[this.$index], $scope.params);
+      };
 
-      $scope.preview = function(el) {
+      $scope.download = function() {
 
         var index = this.$index;
-        var container = $scope.params.containers[index];
+        var container = $scope.params.containers[this.$index];
 
-        cropTool.results(croppieObj[index])
-          .then(function(img) {
+        plot(index, container, $scope.params).then(function(canvas) {
 
-            createImage(img, index, container, $scope.params);
-            plotCanvas(container);
+          canvas.toBlob(function(blob) {
+              saveAs(blob, container.name+'.jpg');
+            }, "image/jpeg");
 
         });
+      };
+
+      $scope.clearImg = function() {
+
+          var image = $('.cr-boundary img')[this.$index];
+          image.src = '';
+
+          croppieObj[this.$index].bind({
+              url: ''
+          });
+
       };
 
       // jQuery
@@ -203,7 +220,6 @@ angular.module('designtool')
         $('.shadow-sliders-settings').on('click', function (event) {
             $(this).parent().toggleClass('open');
         });
-
       }
 
       // Service
@@ -228,7 +244,8 @@ angular.module('designtool')
           plotStore(container);
         }
 
-        if(container.gradient || !bgImage) {
+        // Check if image exists
+        if(container.gradient || !bgImage || bgImage === location.origin+location.pathname) {
 
           drawGradient(params.gradient, container);
 
@@ -238,6 +255,14 @@ angular.module('designtool')
           deferred.resolve(plotBG(img, container));
 
         }
+      }
+
+      function plot(index, container, params) {
+        return cropTool.results(croppieObj[index])
+          .then(function(img) {
+            createImage(img, index, container, params);
+            return plotCanvas(container);
+        });
       }
 
       function plotCanvas(container) {
@@ -263,6 +288,8 @@ angular.module('designtool')
         }
 
         context.drawImage(logo, 0, 0);
+
+        return canvas;
 
       }
 
@@ -439,31 +466,6 @@ angular.module('designtool')
           return;
         }
       }
-
-      // function plotAddress(textData, containerData, index) {
-      //   var canvas = document.getElementById("address-canvas");
-      //   var svg = document.getElementById("svg-address");
-      //   var svgText = document.getElementById("svg-address-text");
-      //
-      //   var position = getOffset($('#'+containerData.name+'-address'), $('#'+containerData.name));
-      //   console.log(position);
-      //
-      //   svg.setAttribute('width', containerData.width);
-      //   svg.setAttribute('height', containerData.height);
-      //
-      //   svgText.setAttribute('x', position.x);
-      //   svgText.setAttribute('y', position.y+(textData.size/3)); // Adjust Y via 1/3 of font-size
-      //
-      //   var svgData = new XMLSerializer().serializeToString(svg);
-      //
-      //   var encodedData = window.btoa(unescape(encodeURIComponent(svgData)));
-      //   var newSrc = 'data:image/svg+xml;base64,'+encodedData;
-      //
-      //   var address_img = new Image();
-      //   address_img.src = newSrc;
-      //
-      //   address_img.onload = drawCanvas(address_img, canvas, containerData);
-      // }
 
       // function isBase64(str) {
       //

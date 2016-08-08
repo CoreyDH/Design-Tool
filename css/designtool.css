@@ -279,9 +279,6 @@ version:hover {
 /* -- */
 
 /* Headers */
-.header-wrapper {
-  margin-bottom: 30px;
-}
 .headers .croppie-container {
   position: relative;
   margin: auto;
@@ -289,9 +286,6 @@ version:hover {
 }
 .headers .cr-slider-wrap {
   display:none;
-}
-.headers h3 {
-  margin-top: 0;
 }
 .headers input[type="file"] {
   display: none;
@@ -363,12 +357,7 @@ version:hover {
   z-index: 999;
 }
 .headers .cr-boundary {
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#87e0fd+0,05abe0+100 */
-  background: #87e0fd; /* Old browsers */
-  background: -moz-linear-gradient(top,  #87e0fd 0%, #05abe0 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top,  #87e0fd 0%,#05abe0 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom,  #87e0fd 0%,#05abe0 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#87e0fd', endColorstr='#05abe0',GradientType=0 ); /* IE6-9 */
+  background: linear-gradient(to bottom,  #fcfcfc 0%,#dbdbdb 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 .logo-filter {
   -webkit-filter: url(#logo-filter);
@@ -384,7 +373,7 @@ version:hover {
 .email-bg .cr-viewport {
   border: 2px solid #505050;
 }
-#g18-coupon-logo {
+#golf18-logo {
   top: 49px;
   left: 192px;
 }
@@ -392,39 +381,39 @@ version:hover {
   top: 76px;
   left: 192px;
 }
-#email-logo {
+#email_header-logo {
   top: 44px;
   left: 461px;
 }
-#email-address {
+#email_header-address {
   top: 175px;
   left: 225px;
   width: 600px;
 }
-#g18-header-logo {
+#booking_header-logo {
   top: 34px;
   left: 170px;
 }
-#g18-header-address {
+#booking_header-address {
   top: 116px;
   left: 116px;
   width: 785px;
   text-align: right;
 }
-#ecom-logo {
+#ecom_header-logo {
   top: 53px;
   left: 180px;
 }
-#ecom-address {
+#ecom_header-address {
   top: 167px;
   left: 130px;
   width: 785px;
 }
-#survey-logo {
+#survey_header-logo {
   top: 38px;
   left: 452px;
 }
-#survey-address {
+#survey_header-address {
   top: 167px;
   left: 130px;
   width: 785px;
