@@ -29,6 +29,10 @@ angular.module('designtool')
             return $http.get('json/filters.json');
         };
 
+        var getHeadersTemplate = function() {
+            return $http.get('json/headers.json');
+        };
+
         var getImageTemplate = function() {
             return $http.get('json/images.json');
         };
@@ -47,6 +51,7 @@ angular.module('designtool')
             getImageTemplate: getImageTemplate,
             getPagesTemplate: getPagesTemplate,
             getColorTemplate: getColorTemplate,
+            getHeadersTemplate: getHeadersTemplate,
         };
     }])
     .factory('errorCheck', function() {

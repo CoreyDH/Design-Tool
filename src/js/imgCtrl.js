@@ -59,10 +59,9 @@ angular.module('designtool')
             });
         };
 
-        $scope.clearimg = function() {
-            var image = $('.cr-boundary img')[this.$index];
-            console.log(this.$index);
+        $scope.clearImg = function() {
 
+            var image = $('.cr-boundary img')[this.$index];
             image.src = '';
 
             croppieObj[this.$index].bind({

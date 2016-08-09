@@ -66,10 +66,10 @@ angular.module('designtool')
   })
   .directive('ngStddeviation', function() {
     return {
-      link: function(s, e, a) {
+      link: function(s,e,a) {
         a.$observe('ngStddeviation', function(value) {
           e.get(0).setAttribute("stdDeviation", value);
         });
       }
     };
-});
+  });
