@@ -4,7 +4,7 @@
 	<div class="col-md-4 text-center"><a class="btn btn-danger col-md-12" ng-click="exportAll()">Export All Headers</a></div>
 </div>
 <div class="col-md-12 headers">
-
+<h3 class="text-center" style="color:red;">Currently only usable from Chrome</h3>
 	<!-- Header Images -->
 	<div class="col-md-12">
 		<div class="header-wrapper" ng-repeat="container in params.containers" ng-class="container.width+25 > 525  ? 'col-md-12' : 'col-md-6'">
@@ -136,19 +136,10 @@
 				<input id="address-input" class="form-control" type="text" ng-model="params.address.text" placeholder="Address Text" />
 			</div>
 		</div>
-
-	</div>
-
-	<br /><br />
-
-
-	<div class="canvases hidden">
-		<canvas id="logo-canvas"></canvas><br />
-		<canvas id="address-canvas"></canvas><br />
-		<canvas id="bg-canvas"></canvas>
-		<canvas id="store-canvas"></canvas>
 	</div>
 </div>
+
+<!-- SVG -->
 <div class="svgs">
 	<svg id="svg-logo" height="175" width="600">
 		<defs>
@@ -205,4 +196,19 @@
       </div>
     </div>
   </div>
+</div>
+
+<!-- Canvases -->
+<div class="canvases hidden">
+	<canvas id="logo-canvas"></canvas>
+	<canvas id="address-canvas"></canvas>
+	<canvas id="bg-canvas"></canvas>
+	<canvas id="store-canvas"></canvas>
+
+	<canvas id="golf18-canvas"></canvas>
+	<canvas id="coupon-canvas"></canvas>
+	<canvas id="email_header-canvas"></canvas>
+	<canvas id="booking_header-canvas"></canvas>
+	<canvas id="ecom_header-canvas"></canvas>
+	<canvas id="survey_header-canvas"></canvas>
 </div>
