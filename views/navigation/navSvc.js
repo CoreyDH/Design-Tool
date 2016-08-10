@@ -36,6 +36,8 @@ angular.module('designtool')
             ]
           }
           */
+
+
           if (anav[i].substr(0, 1) != '-') {
 
               if (pageIsSubPage(anav[i+1])) {
@@ -59,7 +61,6 @@ angular.module('designtool')
                       } else {
                         sub.push(nl);
                       }
-
 
                       k++;
                   }
@@ -97,8 +98,9 @@ angular.module('designtool')
 
       return fnav;
   };
+
   function pageIsSubPage(page){
-          return typeof page !== 'undefined' && page.substr(0,1) === '-';
+    return typeof page !== 'undefined' && page.substr(0,1) === '-';
 	}
 
   function notADefaultPage(page,ftype) {
@@ -106,32 +108,32 @@ angular.module('designtool')
 	}
 
   function pushNonDefaultPages(pageObj, pages, ftype){
-	 
-	pageObj.forEach(function(pageOfpageObj, index){
-		
-		if(pageOfpageObj.subtitle.length > 0)	 {
-			pushNonDefaultPages(pageOfpageObj.subtitle, pages, ftype);
-		}
-		
-		//console.log(pageOfpageObj.page);
-		pageOfpageObj.link = converter.createLink(pageOfpageObj.page);
 
-		if (notADefaultPage(pageOfpageObj.page, ftype)) {
-			
-		  pages.push({
-			  title: pageOfpageObj.title,
-			  page: pageOfpageObj.page
-		  });
-		}
-		});
+  	pageObj.forEach(function(pageOfpageObj, index){
+
+  		if(pageOfpageObj.subtitle.length > 0)	 {
+  			pushNonDefaultPages(pageOfpageObj.subtitle, pages, ftype);
+  		}
+
+  		//console.log(pageOfpageObj.page);
+  		pageOfpageObj.link = converter.createLink(pageOfpageObj.page);
+
+  		if (notADefaultPage(pageOfpageObj.page, ftype)) {
+
+  		  pages.push({
+  			  title: pageOfpageObj.title,
+  			  page: pageOfpageObj.page
+  		  });
+  		}
+  	});
 	}
-	
+
   var finalNav = function(parr, ftype) {
 
       if (typeof parr === "object") {
           var pages = [];
           pushNonDefaultPages(parr.navigation, pages, ftype);
-		  
+
 		  //console.log('navigation', parr.navigation);
 		  //console.log('pages', pages);
 
@@ -160,7 +162,7 @@ angular.module('designtool')
 	/* jQuery zClip*/
 
 	// Path to flash file
-	var zpath ='bower_components/jquery-zclip/ZeroClipboard.swf';
+	var zpath ='dist/ZeroClipboard.swf';
 
 	$('#copy-navigation').zclip({
 	  path: zpath,
@@ -171,7 +173,7 @@ angular.module('designtool')
 	 });
 
 	 $('#copy-pages').zclip({
-	  path: 'bower_components/jquery-zclip/ZeroClipboard.swf',
+	  path: 'dist/ZeroClipboard.swf',
 	  copy: $('#page-output').val(),
 	  afterCopy:function(){
 
@@ -190,6 +192,6 @@ return {
     navigation: navigation,
     finalNav: finalNav,
     joinPages: joinPages,
-	zClip: zClip,
+    zClip: zClip,
 };
 }]);
