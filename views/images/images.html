@@ -13,9 +13,9 @@
 		<h3>[[img.name]] <small>[[img.width]]x[[img.height]]</small></h3>
 		<div ng-style="setZoom([[img.width]])" id="[[img.name]]"></div>
 		<input class="btn btn-primary pull-left upload" id="[[$index]]" type="file" value="Upload" accept="image/*" ng-model="upload">
-		<a class="btn btn-success pull-right img-download" ng-click="download()"><span class="glyphicon glyphicon-download-alt"></span></a>
-		<a class="btn btn-default pull-right img-result" data-toggle="modal" data-target="#imagePreview" ng-click="preview()"><span class="glyphicon glyphicon-eye-open"></span></a>
-		<a class="btn btn-danger pull-right img-clear" ng-click="clearImg()"><span class="glyphicon glyphicon-trash"></span></a>
+		<a class="btn btn-success img-download" ng-click="download()"><span class="glyphicon glyphicon-download-alt"></span></a>
+		<a class="btn btn-default img-result" data-toggle="modal" data-target="#imagePreview" ng-click="preview()"><span class="glyphicon glyphicon-eye-open"></span></a>
+		<a class="btn btn-danger img-clear" ng-click="clearImg()"><span class="glyphicon glyphicon-trash"></span></a>
 	</div>
  </div>
  <div id="img-result"></div>

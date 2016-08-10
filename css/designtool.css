@@ -360,12 +360,12 @@ version:hover {
   background: linear-gradient(to bottom,  #fcfcfc 0%,#dbdbdb 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 .logo-filter {
-  -webkit-filter: url(#logo-filter);
   filter: url(#logo-filter);
+  -webkit-filter: url(#logo-filter);
 }
 .address-filter {
-  -webkit-filter: url(#address-filter);
   filter: url(#address-filter);
+  -webkit-filter: url(#address-filter);
 }
 .email-bg {
   position:relative;

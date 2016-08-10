@@ -226,28 +226,22 @@ angular.module('designtool')
 
    var getCorrectDim = function($img, $container) {
 
-     var
-       newHeight = [],
-       newWidth = [];
+     var newHeight, newWidth;
 
-     for(var i=0; i < $img.length; i++) {
+     if($img.height() > $container.height()) {
 
-       if($img.eq(i).height() > $container.eq(i).height()) {
+       newHeight = $container.height();
+       newWidth = $img.width() * newHeight / $img.height();
 
-         newHeight.push($container.eq(i).height());
-         newWidth.push($img.eq(i).width() * newHeight[i] / $img.eq(i).height());
+     } else if($img.width() > $container.width()) {
 
-       } else if($img.width() > $container.width()) {
+       newWidth = $container.width();
+       newHeight = $img.height() * newWidth / $img.width();
 
-         newWidth.push($container.eq(i).width());
-         newHeight.push($img.eq(i).height() * newWidth[i] / $img.eq(i).width());
+     } else {
 
-       } else {
-
-         newWidth.push($img.width());
-         newHeight.push($img.height());
-
-       }
+       newWidth = $img.width();
+       newHeight = $img.height();
 
      }
 
