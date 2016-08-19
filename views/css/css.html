@@ -1,6 +1,9 @@
 <info course="course" class="col-md-12"></info>
 <div class="col-md-12 sub-menu">
-	<div class="col-md-4"><a href="#/images" class="btn btn-info"><< Back to Images</a></div>
+	<div class="col-md-4">
+		<a href="#/images" class="btn btn-info">
+			<< Back to Images</a>
+	</div>
 	<div class="col-md-4 text-center"><a class="btn btn-danger col-md-12" ng-show="course.template" ng-click="exportCSS()">Export CSS</a></div>
 	<div class="col-md-4 text-right"><a href="#/headers" class="btn btn-default">Create Headers >></a></div>
 </div>
@@ -30,13 +33,13 @@
 <!-- Output -->
 <div class="col-md-12">
 	<div class="col-md-4 pull-left">
-	<div>
-		<div ng-repeat="color in colors[course.template]">
-			<h4><small>[[color.name]]</small></h4>
-			<div colorpicker="[[color.type]]" colorpicker-size="150" ng-model="color[color.type]" class="palette-box pull-left" ng-style="{background : color[color.type]}"></div>
-			<input type="text" colorpicker="[[color.type]]" colorpicker-size="150" ng-model="color[color.type]" placeholder="#HEXCODE/RGB"/>
+		<div>
+			<div ng-repeat="color in colors[course.template]">
+				<h4><small>[[color.name]]</small></h4>
+				<div colorpicker="[[color.type]]" colorpicker-size="150" ng-model="color[color.type]" class="palette-box pull-left" ng-style="{background : color[color.type]}"></div>
+				<input type="text" colorpicker="[[color.type]]" colorpicker-size="150" ng-model="color[color.type]" placeholder="#HEXCODE/RGB" />
+			</div>
 		</div>
-	</div>
 
 	</div>
 	<div class="col-md-8 pull-right">
