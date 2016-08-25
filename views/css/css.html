@@ -36,8 +36,8 @@
 		<div>
 			<div ng-repeat="color in colors[course.template]">
 				<h4><small>[[color.name]]</small></h4>
-				<div colorpicker="[[color.type]]" colorpicker-size="150" ng-model="color[color.type]" class="palette-box pull-left" ng-style="{background : color[color.type]}"></div>
-				<input type="text" colorpicker="[[color.type]]" colorpicker-size="150" ng-model="color[color.type]" placeholder="#HEXCODE/RGB" />
+				<div colorpicker="[[color.type]]" colorpicker-size="150" colorpicker-position="left" ng-model="color[color.type]" class="palette-box pull-left" ng-style="{background : color[color.type]}"></div>
+				<input type="text" colorpicker="[[color.type]]" colorpicker-size="150" colorpicker-position="left" ng-model="color[color.type]" placeholder="#HEXCODE/RGB" />
 			</div>
 		</div>
 
