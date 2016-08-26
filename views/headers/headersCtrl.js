@@ -2,7 +2,7 @@ angular.module('designtool')
 	.controller('headersCtrl', ['$scope', '$timeout', 'globals', 'ajaxRequest', 'cropTool', 'headersCalc', function($scope, $timeout, globals, ajaxRequest, cropTool, headersCalc) {
 		'use strict';
 
-		$scope.course = globals.get('info');
+		$scope.course = globals.get('info') || {};
 		$scope.params = globals.get('headerTemplate');
 		var croppieObj;
 
@@ -11,13 +11,24 @@ angular.module('designtool')
 			ajaxRequest.getHeadersTemplate().then(function(response) {
 
 				$scope.params = response.data;
+
+				checkAddress();
 				globals.set('headerTemplate', $scope.params);
 				setupPage();
 
 			});
 		} else {
 
+			checkAddress();
 			setupPage();
+
+		}
+
+		function checkAddress() {
+
+			if(typeof $scope.course.address1 != 'undefined') {
+				$scope.params.address.text = $scope.course.address1 + ' • ' + $scope.course.address2 + ' • ' + $scope.course.phone;
+			}
 
 		}
 
